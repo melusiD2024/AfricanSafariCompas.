@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#173e2d" />
+  <meta name="theme-color" content="#292621" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Safari Compass" />
-  <meta name="description" content="Plan a personalised African safari and connect with verified local operators across the continent." />
-  <title>African Safari Compass</title>
+  <meta name="apple-mobile-web-app-title" content="Safari Pocketbook" />
+  <meta name="description" content="A practical African safari pocketbook for places, wildlife, maps, safety and journey planning." />
+  <title>African Safari Pocketbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
@@ -26,17 +26,19 @@
   <link rel="stylesheet" href="map-fixes.css?v=9" />
   <link rel="stylesheet" href="route-actions.css?v=10" />
   <link rel="stylesheet" href="app-upgrades.css?v=15" />
+  <link rel="stylesheet" href="pocketbook.css?v=19" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="Safari Compass home">
+    <a class="brand" href="#" aria-label="African Safari Pocketbook home" data-go="pocketbook">
       <span class="brand-mark"><img src="assets/app-logo.png" alt="" /></span>
-      <span class="brand-wordmark"><strong>African Safari</strong><em>COMPASS</em></span>
+      <span class="brand-wordmark"><strong>African Safari</strong><em>POCKETBOOK</em></span>
     </a>
     <nav aria-label="Primary navigation">
-      <button class="nav-link active" data-view="planner">Plan a safari</button>
+      <button class="nav-link active" data-view="pocketbook">Pocketbook</button>
+      <button class="nav-link" data-view="planner">Plan a safari</button>
       <button class="nav-link" data-view="trip">My trip</button>
       <button class="nav-link" data-view="explore">Explore</button>
       <button class="nav-link" data-view="map">Map</button>
@@ -46,7 +48,25 @@
   </header>
 
   <main>
-    <section class="planner-view view active" id="planner">
+    <section class="view pocketbook-view active" id="pocketbook">
+      <div class="pocketbook-hero">
+        <div class="pocketbook-hero-copy"><p class="eyebrow">AFRICAN SAFARI POCKETBOOK</p><h1>Africa, in your pocket.</h1><p>Places, wildlife, practical guidance and safety information for the journey—before you leave and while you are in the field.</p></div>
+        <div class="pocketbook-seal"><img src="assets/app-logo.png" alt=""><span>FIELD<br>EDITION</span></div>
+      </div>
+      <div class="pocketbook-inner">
+        <form class="pocket-search" id="pocketSearchForm"><label for="pocketSearch">What do you want to find?</label><div><span>⌕</span><input id="pocketSearch" placeholder="Country, park, lodge or animal" autocomplete="off"><button type="submit">Search places</button></div><button class="search-wildlife" id="pocketWildlifeSearch" type="button">Search wildlife instead</button></form>
+        <section class="pocket-actions" aria-label="Pocketbook sections">
+          <button data-go="explore"><span>01</span><strong>Places</strong><small>54 countries, destinations and Botswana lodge catalogue</small><i>→</i></button>
+          <button data-go="field"><span>02</span><strong>Wildlife</strong><small>Species photographs, scientific names and real calls</small><i>→</i></button>
+          <button data-go="map"><span>03</span><strong>Offline maps</strong><small>Explore destinations and save regional guide packs</small><i>→</i></button>
+          <button data-go="trip"><span>04</span><strong>My journey</strong><small>Itinerary, documents, lodges and preparation checklist</small><i>→</i></button>
+        </section>
+        <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="map"><b>NAVIGATE</b><strong>Find your bearings</strong><small>Real geographic map and saved guides</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
+        <button class="plan-entry" data-go="planner"><span><small>TRIP PLANNER</small><strong>Build a safari route</strong></span><i>→</i></button>
+      </div>
+    </section>
+
+    <section class="planner-view view" id="planner">
       <div class="hero">
         <img src="assets/safari-dawn.png" alt="Elephants crossing a Southern African floodplain at sunrise" />
         <div class="hero-shade"></div>
@@ -192,7 +212,7 @@
   <button class="sos-fab" id="sosButton" aria-label="Open emergency assistance"><span>SOS</span><small>Emergency</small></button>
 
   <nav class="bottom-nav" aria-label="App navigation">
-    <button class="active" data-view="planner"><span>⌂</span>Plan</button><button data-view="trip"><span>▤</span>Trip</button><button data-view="explore"><span>◇</span>Explore</button><button data-view="map"><span>⌖</span>Map</button><button data-view="field"><span>◎</span>Guide</button>
+    <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button data-view="map"><span>⌖</span>Map</button><button data-view="planner"><span>＋</span>Plan</button>
   </nav>
 
   <dialog id="operatorDialog">
@@ -222,6 +242,6 @@
   </dialog>
 
   <div class="toast" id="toast">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=18"></script><script src="catalog.js?v=18"></script><script src="country-intelligence.js?v=18"></script><script src="app.js?v=18"></script><script src="real-map.js?v=18"></script><script src="botswana.js?v=18"></script><script src="wildlife.js?v=18"></script><script src="mobile.js?v=18"></script><script src="safety.js?v=18"></script><script src="map-fixes.js?v=18"></script><script src="route-actions.js?v=18"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=19"></script><script src="catalog.js?v=19"></script><script src="country-intelligence.js?v=19"></script><script src="app.js?v=19"></script><script src="real-map.js?v=19"></script><script src="botswana.js?v=19"></script><script src="wildlife.js?v=19"></script><script src="mobile.js?v=19"></script><script src="safety.js?v=19"></script><script src="map-fixes.js?v=19"></script><script src="route-actions.js?v=19"></script><script src="pocketbook.js?v=19"></script>
 </body>
 </html>

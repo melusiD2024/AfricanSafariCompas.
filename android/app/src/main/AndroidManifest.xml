@@ -10,7 +10,7 @@
         android:usesCleartextTraffic="false"
         android:icon="@drawable/app_logo"
         android:roundIcon="@drawable/app_logo"
-        android:label="African Safari Compass"
+        android:label="Safari Pocketbook"
         android:supportsRtl="true"
         android:theme="@style/Theme.SafariCompass">
         <activity

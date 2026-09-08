@@ -10,5 +10,7 @@
 .animal-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:13px}
 .animal-sound{border:0;border-radius:999px;background:var(--forest);color:white;padding:8px 11px;font:700 12px var(--sans);cursor:pointer}
 .animal-sound:disabled{background:#dfe4df;color:#78827b}.photo-credit{font-size:10px;color:#778179}
+.fauna-mode{display:flex;gap:7px;margin:-16px 0 14px}.fauna-mode button{border:1px solid var(--line);border-radius:999px;background:white;padding:9px 12px;font:700 12px var(--sans);color:var(--muted)}.fauna-mode button.selected{background:var(--forest);color:white;border-color:var(--forest)}
+.biodiversity-controls{display:grid;grid-template-columns:1fr auto;gap:8px;margin:0 0 12px}.biodiversity-controls select,.biodiversity-controls button{border:1px solid var(--line);border-radius:10px;padding:12px;font:700 13px var(--sans)}.biodiversity-controls button{background:var(--forest);color:white}.database-note{color:var(--muted);font-size:13px;line-height:1.45;margin:0 0 18px}.gbif-card .animal-photo{background:#dfe6df}.database-status{grid-column:1/-1;padding:28px;text-align:center;background:white;border-radius:12px;color:var(--muted)}
 @media(max-width:850px){.animal-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.animal-body{padding:13px}.animal-grid h2{font-size:21px}.animal-meta span{font-size:9px!important}}
-@media(max-width:480px){.animal-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.animal-grid{grid-template-columns:1fr}.biodiversity-controls{grid-template-columns:1fr}}

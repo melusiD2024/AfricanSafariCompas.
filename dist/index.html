@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="botswana.css" />
   <link rel="stylesheet" href="map-fixes.css?v=9" />
   <link rel="stylesheet" href="route-actions.css?v=10" />
-  <link rel="stylesheet" href="app-upgrades.css?v=12" />
+  <link rel="stylesheet" href="app-upgrades.css?v=15" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml" />
 </head>
@@ -152,7 +152,10 @@
 
     <section class="view content-view" id="field">
       <p class="eyebrow dark">Pocket field guide</p><h1>Know what you’re looking at.</h1>
-      <div class="searchbox"><span>⌕</span><input id="animalSearch" placeholder="Search animals, birds or reptiles" /></div>
+      <div class="searchbox"><span>⌕</span><input id="animalSearch" placeholder="Search common or scientific name" /></div>
+      <div class="fauna-mode" id="faunaMode"><button class="selected" data-mode="guide">Offline safari guide</button><button data-mode="database">Full biodiversity search</button></div>
+      <div class="biodiversity-controls" id="biodiversityControls" hidden><select id="faunaCountry" aria-label="Select African country"><option value="">Choose a country</option></select><button id="searchBiodiversity">Search national records</button></div>
+      <p class="database-note" id="databaseNote" hidden>Search verified occurrence records from the Global Biodiversity Information Facility. Results can include mammals, birds, reptiles, amphibians, fish and invertebrates.</p>
       <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button><button data-kind="Marine">Marine</button></div>
       <div class="animal-grid" id="animalGrid"></div>
       <p class="offline-note">Designed for offline use in the field. Detailed species content will be verified before commercial launch.</p>

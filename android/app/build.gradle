@@ -3,6 +3,7 @@ plugins { id 'com.android.application' }
 android {
     namespace 'africa.safaricompass.app'
     compileSdk 35
+    buildFeatures { buildConfig true }
 
     defaultConfig {
         applicationId 'africa.safaricompass.app'

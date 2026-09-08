@@ -32,3 +32,20 @@
 1. Wildlife profiles with resilient photographs, field marks, range and conservation sourcing.
 2. Meaningful offline data packaging rather than downloaded-state labels alone.
 3. Personal sightings, saved places and field notes.
+
+## Cycle 3 — Sourced wildlife field entries
+
+- Added full, tappable wildlife profiles to every curated species card.
+- Added live GBIF Checklist Bank taxonomy matching and scientific classification.
+- Added GBIF occurrence-country evidence with record counts and a warning that occurrence records are not complete range maps.
+- Added resilient descriptive-reference and photograph retrieval with an honest offline fallback.
+- Added direct GBIF taxon and IUCN Red List searches without inventing or caching conservation categories.
+- Added identification cautions, source registers and retrieval timestamps.
+- Retained real animal calls and the country-filtered full biodiversity search.
+- Bumped Android to 1.11.0 and offline cache to v21.
+
+## Next priorities after cycle 3
+
+1. Meaningful offline data packaging and transparent storage state.
+2. Personal sightings, saved places and field notes.
+3. Map search and destination-detail depth.

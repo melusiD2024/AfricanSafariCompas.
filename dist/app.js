@@ -20,6 +20,7 @@ const routeIdeas={
  'Madagascar':{name:'Island of endemics',stops:['Andasibe, Madagascar','Avenue of the Baobabs, Madagascar','Isalo, Madagascar'],copy:['Rainforest and lemurs.','Iconic trees and western landscapes.','Canyons and dry-country trails.']}
 };
 function showToast(){$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2200)}
+function getRouteIdea(country){if(routeIdeas[country])return routeIdeas[country];const row=(window.africanAtlas||[]).find(x=>x[0]===country),sites=row?row[2].split(' · ').slice(0,3):[`${country} highlights`];return{name:`Discover ${country}`,stops:sites.map(s=>`${s}, ${country}`),copy:sites.map(()=>`A locally guided mix of nature, heritage and culture.`)}}
 function build(){
  const selected=$$('#countries .selected').map(x=>x.dataset.value);
  if(!selected.length){$('#toast').textContent='Choose at least one country.';showToast();return}
@@ -27,15 +28,15 @@ function build(){
  const suggestedStops=total<=3?1:total<=5?2:total<=8?3:total<=11?4:5;
  let stops=[];
  if(selected.length===1){
-  const country=selected[0],limit=country==='Botswana'?5:3,count=Math.min(total,limit,suggestedStops);
-  stops=routeIdeas[country].stops.slice(0,count).map((s,i)=>({s,c:routeIdeas[country].copy[i]}));
+  const country=selected[0],idea=getRouteIdea(country),limit=country==='Botswana'?5:3,count=Math.min(total,limit,suggestedStops);
+  stops=idea.stops.slice(0,count).map((s,i)=>({s,c:idea.copy[i]}));
  }else{
-  selected.slice(0,Math.min(total,3,suggestedStops)).forEach(country=>stops.push({s:routeIdeas[country].stops[0],c:routeIdeas[country].copy[0]}));
+  selected.slice(0,Math.min(total,3,suggestedStops)).forEach(country=>{const idea=getRouteIdea(country);stops.push({s:idea.stops[0],c:idea.copy[0]})});
  }
  const count=stops.length,base=Math.floor(total/count),rem=total%count;let day=1;
  $('#timeline').innerHTML=stops.map((item,i)=>{const stay=base+(i<rem?1:0),start=day,end=day+stay-1;day=end+1;const days=start===end?`Day ${start}`:`Days ${start}–${end}`;return `<article><div class="day">${days}</div><div class="dot"></div><div><h3>${item.s}</h3><p>${item.c}</p><span>${stay} ${stay===1?'day':'days'} · ${i?'Road or air transfer':'Arrival'}</span></div></article>`}).join('');
  const style=$('#budget .selected').dataset.value;
- $('#routeTitle').textContent=selected.length===1?routeIdeas[selected[0]].name:`${selected[0]}, ${selected[1]}${selected[2]?` & ${selected[2]}`:''}`;
+ $('#routeTitle').textContent=selected.length===1?getRouteIdea(selected[0]).name:`${selected[0]}, ${selected[1]}${selected[2]?` & ${selected[2]}`:''}`;
  $('#routeNights').textContent=`${total} ${total===1?'day':'days'}`;$('#routeCountries').textContent=`${selected.length} ${selected.length===1?'country':'countries'}`;$('#routeStyle').textContent=style;
  $('#toast').textContent='Your African route has been rebuilt.';showToast();$('.route-panel').scrollIntoView({behavior:'smooth',block:'start'})
 }

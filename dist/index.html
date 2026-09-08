@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173e2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Safari Compass" />
+  <meta name="description" content="Plan a personalised African safari and connect with verified local operators across the continent." />
+  <title>African Safari Compass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="map.css" />
+  <link rel="stylesheet" href="africa.css" />
+  <link rel="stylesheet" href="mobile-app.css" />
+  <link rel="stylesheet" href="catalog.css" />
+  <link rel="stylesheet" href="wildlife.css" />
+  <link rel="stylesheet" href="safety.css" />
+  <link rel="stylesheet" href="real-map.css" />
+  <link rel="stylesheet" href="trip.css" />
+  <link rel="stylesheet" href="botswana.css" />
+  <link rel="stylesheet" href="map-fixes.css?v=9" />
+  <link rel="stylesheet" href="route-actions.css?v=10" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Safari Compass home">
+      <span class="brand-mark">ASC</span>
+      <span>African Safari Compass</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <button class="nav-link active" data-view="planner">Plan a safari</button>
+      <button class="nav-link" data-view="trip">My trip</button>
+      <button class="nav-link" data-view="explore">Explore</button>
+      <button class="nav-link" data-view="map">Map</button>
+      <button class="nav-link" data-view="field">Field guide</button>
+    </nav>
+    <button class="saved-button" id="installApp">Install app <span>↓</span></button>
+  </header>
+
+  <main>
+    <section class="planner-view view active" id="planner">
+      <div class="hero">
+        <img src="assets/safari-dawn.png" alt="Elephants crossing a Southern African floodplain at sunrise" />
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">One continent. A thousand journeys.</p>
+          <h1>Find your way into Africa.</h1>
+          <p>Build a safari across regions, landscapes and cultures, then connect with verified African operators.</p>
+        </div>
+        <div class="trust-row">
+          <span>● Five African regions</span><span>● Verified local operators</span><span>● Offline destination maps</span>
+        </div>
+      </div>
+
+      <div class="workspace">
+        <aside class="planner-panel">
+          <div class="panel-heading">
+            <span class="step">01</span>
+            <div><h2>Shape your journey</h2><p>Change anything. Your route updates when you build it.</p></div>
+          </div>
+
+          <fieldset>
+            <legend>Where would you like to go?</legend>
+            <div class="chip-grid" id="countries">
+              <button class="chip selected" data-value="Botswana">Botswana</button><button class="chip" data-value="Namibia">Namibia</button><button class="chip" data-value="South Africa">South Africa</button><button class="chip" data-value="Zimbabwe">Zimbabwe</button><button class="chip" data-value="Zambia">Zambia</button><button class="chip selected" data-value="Kenya">Kenya</button><button class="chip selected" data-value="Tanzania">Tanzania</button><button class="chip" data-value="Uganda">Uganda</button><button class="chip" data-value="Rwanda">Rwanda</button><button class="chip" data-value="Ethiopia">Ethiopia</button><button class="chip" data-value="Morocco">Morocco</button><button class="chip" data-value="Egypt">Egypt</button><button class="chip" data-value="Ghana">Ghana</button><button class="chip" data-value="Senegal">Senegal</button><button class="chip" data-value="Madagascar">Madagascar</button>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>How long do you have?</legend>
+            <div class="range-row"><input id="nights" type="range" min="1" max="30" value="12" aria-label="Trip length in days" /><output id="nightOutput">12 days</output></div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Comfort and budget</legend>
+            <div class="segmented" id="budget">
+              <button data-value="Essential">Essential</button>
+              <button class="selected" data-value="Comfort">Comfort</button>
+              <button data-value="Signature">Signature</button>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>What draws you there?</legend>
+            <div class="interest-grid" id="interests">
+              <button class="interest selected" data-value="Wildlife"><span>◉</span>Wildlife</button>
+              <button class="interest selected" data-value="Photography"><span>⌁</span>Photography</button>
+              <button class="interest" data-value="Culture"><span>◇</span>Culture</button>
+              <button class="interest" data-value="Self-drive"><span>↗</span>Self-drive</button>
+            </div>
+          </fieldset>
+
+          <button class="primary" id="buildRoute">Build my safari <span>→</span></button>
+        </aside>
+
+        <section class="route-panel" aria-live="polite">
+          <div class="route-header">
+            <div><p class="eyebrow dark">Botswana route · expanded</p><h2 id="routeTitle">Botswana beyond the headlines</h2></div>
+            <button class="icon-button" id="saveRoute" aria-label="Save route">♡</button>
+          </div>
+          <div class="route-meta"><span id="routeNights">12 days</span><span id="routeCountries">1 country</span><span id="routeStyle">Comfort</span></div>
+
+          <div class="timeline" id="timeline">
+            <article><div class="day">Days 1–3</div><div class="dot"></div><div><h3>Northern Tuli, Botswana</h3><p>Riverlands, photographic hides, cycling, walking and horseback safaris.</p><span>3 days · Arrival</span></div></article>
+            <article><div class="day">Days 4–6</div><div class="dot"></div><div><h3>Moremi &amp; Khwai, Botswana</h3><p>Community concessions, floodplains, mokoro channels and predator country.</p><span>3 days · Road or air transfer</span></div></article>
+            <article><div class="day">Days 7–8</div><div class="dot"></div><div><h3>Okavango Panhandle, Botswana</h3><p>Boating, birding, tiger fishing and access to Tsodilo Hills.</p><span>2 days · Road or air transfer</span></div></article>
+            <article><div class="day">Days 9–10</div><div class="dot"></div><div><h3>Savuti &amp; Linyanti, Botswana</h3><p>Elephant corridors, private concessions and exceptional predator viewing.</p><span>2 days · Road or air transfer</span></div></article>
+            <article><div class="day">Days 11–12</div><div class="dot"></div><div><h3>Central Kalahari, Botswana</h3><p>Desert wildlife, San culture and immense night skies.</p><span>2 days · Road or air transfer</span></div></article>
+          </div>
+
+          <div class="route-note"><span>i</span><p><strong>This is a planning route, not a fixed package.</strong> A local specialist can refine seasons, transfers and availability before you commit.</p></div>
+          <div class="route-actions"><button id="tryAnotherRoute"><span>↻</span>Try another route</button><button id="editSearch"><span>✎</span>Edit search</button></div>
+          <button class="secondary" id="operatorButton">Request matched operators <span>→</span></button>
+        </section>
+      </div>
+    </section>
+
+    <section class="view trip-view" id="trip"><div class="trip-cover"><p class="eyebrow">Your next journey</p><h1>Botswana, Kenya &amp; Tanzania</h1><div><span>12 nights</span><span>3 countries</span><span>Starts 18 June</span></div></div><div class="trip-status"><div><small>Next</small><strong>Flight to Maun</strong><span>Tomorrow · 09:40</span></div><button>View details</button></div><div class="trip-layout"><section><div class="section-row"><h2>Day-by-day</h2><button>Full itinerary</button></div><div class="day-cards"><article><span>Day 1</span><div><strong>Arrive in Maun</strong><small>Airport pickup · Delta transfer</small></div><i>›</i></article><article><span>Day 2</span><div><strong>Okavango waterways</strong><small>Mokoro excursion · 06:30</small></div><i>›</i></article><article><span>Day 3</span><div><strong>Moremi game drive</strong><small>Full day · Packed lunch</small></div><i>›</i></article></div></section><aside><h2>Travel wallet</h2><div class="wallet-grid"><button><span>▤</span><strong>Itinerary</strong><small>Available offline</small></button><button><span>✈</span><strong>Flights</strong><small>3 documents</small></button><button><span>⌂</span><strong>Lodges</strong><small>4 vouchers</small></button><button><span>☂</span><strong>Insurance</strong><small>Add document</small></button></div><h2 class="check-title">Before you go</h2><label class="check"><input type="checkbox" checked> Passport validity checked</label><label class="check"><input type="checkbox" checked> Regional pack downloaded</label><label class="check"><input type="checkbox"> Emergency contacts added</label></aside></div></section>
+
+    <section class="view content-view" id="explore">
+      <p class="eyebrow dark">Africa, region by region</p>
+      <h1>One continent. Many ways to experience it.</h1>
+      <section class="country-deep-dive">
+        <div class="deep-dive-head"><div><span class="country-badge">BW</span><p class="eyebrow dark">First complete country model</p><h2>Botswana, beyond the headlines.</h2><p>Explore safari regions, protected areas, private concessions, camps, lodges and specialist experiences—from the Limpopo in Tuli to the Okavango Panhandle and the Kalahari.</p></div><div class="bw-stat"><strong id="bwPropertyCount">60+</strong><span>properties and sites indexed</span></div></div>
+        <div class="bw-search"><span>⌕</span><input id="botswanaSearch" placeholder="Search Tuli, Khwai, a lodge, reserve or activity" /></div>
+        <div class="bw-region-tabs" id="botswanaTabs"></div><div class="bw-results" id="botswanaResults"></div>
+        <p class="catalogue-warning">Catalogue entries are discovery records, not an operating-status guarantee. Licensing, availability, access and current trading status must be verified before booking.</p>
+      </section>
+      <div class="destination-grid">
+        <article><span>EA</span><h2>East Africa</h2><p>Migration country, mountain forests, Indian Ocean shores and classic open savanna.</p><small>Kenya · Tanzania · Uganda · Rwanda · Ethiopia</small></article>
+        <article><span>SA</span><h2>Southern Africa</h2><p>Delta waterways, great rivers, desert roads and some of the continent’s most varied safari styles.</p><small>Botswana · Namibia · South Africa · Zambia · Zimbabwe</small></article>
+        <article><span>NA</span><h2>North Africa</h2><p>Atlas routes, Saharan landscapes, ancient cities and Red Sea journeys.</p><small>Morocco · Egypt · Tunisia</small></article>
+        <article><span>WA</span><h2>West Africa</h2><p>Living heritage, Atlantic coastlines, forests, music and community-led journeys.</p><small>Ghana · Senegal · The Gambia · Côte d’Ivoire</small></article>
+        <article><span>CA</span><h2>Central Africa</h2><p>Rainforest expeditions, rare primates and remote conservation landscapes.</p><small>Rwanda · Cameroon · Gabon · Republic of the Congo</small></article>
+        <article><span>IO</span><h2>Indian Ocean Africa</h2><p>Endemic wildlife, tropical forests, reefs and island cultures unlike anywhere else.</p><small>Madagascar · Mauritius · Seychelles</small></article>
+      </div>
+      <section class="atlas-section">
+        <div class="atlas-title"><div><p class="eyebrow dark">Continental destination atlas</p><h2>Every African country, in one guide.</h2></div><span class="atlas-count">54 countries</span></div>
+        <div class="atlas-controls"><div class="searchbox"><span>⌕</span><input id="atlasSearch" placeholder="Search a country or destination" /></div><select id="atlasRegion" aria-label="Filter by African region"><option value="all">All regions</option><option value="North">North Africa</option><option value="West">West Africa</option><option value="Central">Central Africa</option><option value="East">East Africa</option><option value="Southern">Southern Africa</option><option value="Islands">African islands</option></select></div>
+        <div class="atlas-grid" id="atlasGrid"></div>
+        <p class="atlas-note">The atlas is designed for continuing verification and expansion. Local access rules, operating seasons and safety conditions must be confirmed before travel.</p>
+      </section>
+    </section>
+
+    <section class="view content-view" id="field">
+      <p class="eyebrow dark">Pocket field guide</p><h1>Know what you’re looking at.</h1>
+      <div class="searchbox"><span>⌕</span><input id="animalSearch" placeholder="Search animals, birds or reptiles" /></div>
+      <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button></div>
+      <div class="animal-grid" id="animalGrid"></div>
+      <p class="offline-note">Designed for offline use in the field. Detailed species content will be verified before commercial launch.</p>
+    </section>
+
+    <section class="view map-view" id="map">
+      <div class="map-heading">
+        <div><p class="eyebrow dark">Africa in your pocket</p><h1>Explore Africa on a real geographic map.</h1><p>The live map needs a connection. Destination guides and map areas you have already viewed remain available when cached on your device.</p></div>
+        <div class="offline-status" id="mapConnection"><span class="status-dot"></span><div><strong id="offlineStatus">Checking map connection</strong><small id="offlineDetail">Previously viewed areas may work offline</small></div></div>
+      </div>
+      <div class="map-workspace">
+        <aside class="map-sidebar">
+          <div class="map-search"><span>⌕</span><input id="mapSearch" placeholder="Find a destination" /></div>
+          <div class="map-filters" id="mapFilters"><button class="selected" data-region="all">All Africa</button><button data-region="east">East</button><button data-region="south">Southern</button><button data-region="north">North</button><button data-region="west">West</button><button data-region="central">Central</button><button data-region="islands">Islands</button></div>
+          <div class="place-list" id="placeList"></div>
+        </aside>
+        <div class="map-canvas" aria-label="Interactive geographic map of African destinations">
+          <div class="map-key"><span><i class="key-dot"></i> Destination</span><span><i class="key-ring"></i> Selected</span></div>
+          <div id="realMap" class="real-map"></div><div class="map-fallback" id="mapFallback" hidden><strong>Map unavailable</strong><p>Reconnect to load the geographic map. Your destination list and saved guide packs are still available.</p></div><svg class="region-map legacy-map" viewBox="0 0 740 620" role="img" aria-labelledby="mapTitle mapDesc">
+            <title id="mapTitle">African destination map</title><desc id="mapDesc">A simplified map of Africa with selectable destinations across six travel regions.</desc>
+            <path class="africa-shape" d="M222 62 L337 39 463 62 575 123 590 187 542 225 523 305 477 365 448 458 384 552 334 505 301 420 251 354 217 271 154 223 128 158 165 91Z" />
+            <path class="island-shape" d="M565 390 L588 416 580 480 554 520 542 466Z" /><text x="318" y="285">AFRICA</text><g id="mapPins"></g>
+          </svg>
+          <div class="selected-place" id="selectedPlace"><p class="eyebrow dark">Selected destination</p><h2>Marrakech &amp; Atlas</h2><p>Morocco · Culture &amp; mountains</p><div><span>Culture</span><span>Mountains</span><span>Desert</span></div></div>
+          <p class="map-disclaimer">Planning map only. Do not use it for turn-by-turn navigation, emergency routing or park-boundary decisions.</p>
+        </div>
+      </div>
+      <div class="download-section"><div><p class="eyebrow dark">Offline guide packs</p><h2>Save destination information.</h2></div><div class="pack-grid" id="packGrid">
+        <article data-pack="East Africa"><div><span>EA</span><div><strong>East Africa</strong><small>42 destination guides</small></div></div><button>Save guide</button></article><article data-pack="Southern Africa"><div><span>SA</span><div><strong>Southern Africa</strong><small>58 destination guides</small></div></div><button>Save guide</button></article><article data-pack="North Africa"><div><span>NA</span><div><strong>North Africa</strong><small>31 destination guides</small></div></div><button>Save guide</button></article><article data-pack="West Africa"><div><span>WA</span><div><strong>West Africa</strong><small>36 destination guides</small></div></div><button>Save guide</button></article><article data-pack="Central Africa"><div><span>CA</span><div><strong>Central Africa</strong><small>24 destination guides</small></div></div><button>Save guide</button></article><article data-pack="African Islands"><div><span>IO</span><div><strong>African Islands</strong><small>27 destination guides</small></div></div><button>Save guide</button></article>
+      </div></div>
+    </section>
+  </main>
+
+  <button class="sos-fab" id="sosButton" aria-label="Open emergency assistance"><span>SOS</span><small>Emergency</small></button>
+
+  <nav class="bottom-nav" aria-label="App navigation">
+    <button class="active" data-view="planner"><span>⌂</span>Plan</button><button data-view="trip"><span>▤</span>Trip</button><button data-view="explore"><span>◇</span>Explore</button><button data-view="map"><span>⌖</span>Map</button><button data-view="field"><span>◎</span>Guide</button>
+  </nav>
+
+  <dialog id="operatorDialog">
+    <button class="dialog-close" aria-label="Close">×</button>
+    <p class="eyebrow dark">No obligation</p><h2>Meet the right local operators.</h2>
+    <p>Tell us where to send your route. We’ll match you with up to three verified specialists who work in these destinations.</p>
+    <form id="operatorForm">
+      <label>Full name<input required placeholder="Your name" /></label>
+      <label>Email address<input required type="email" placeholder="you@example.com" /></label>
+      <label>Anything we should know?<textarea placeholder="Travelling with children, mobility needs, preferred dates…"></textarea></label>
+      <button class="primary" type="submit">Send my request <span>→</span></button>
+    </form>
+  </dialog>
+
+  <dialog id="sosDialog" class="sos-dialog">
+    <button class="dialog-close sos-close" aria-label="Close">×</button><div class="sos-heading"><span>SOS</span><div><p class="eyebrow">Safety centre</p><h2>Do you need help?</h2></div></div>
+    <p class="sos-warning">This prototype does not dispatch emergency services. In the live app, alerts will only show as sent after a responder confirms receipt.</p>
+    <div class="location-card"><span>⌖</span><div><strong id="locationLabel">Location not yet obtained</strong><small id="locationDetail">Use your phone’s location to prepare an accurate alert.</small></div></div>
+    <button class="primary sos-location" id="getLocation">Get my current location <span>→</span></button>
+    <div class="sos-actions"><button id="shareSos"><span>↗</span><strong>Share SOS &amp; location</strong><small>Send through your phone</small></button><button id="contactGuide"><span>☏</span><strong>Contact guide or lodge</strong><small>Not configured</small></button><button id="localHelp"><span>✚</span><strong>Local emergency service</strong><small>Set for each country</small></button></div>
+    <p class="sos-footnote">Always confirm local emergency numbers before entering a remote area. Satellite communication may be required beyond cellular coverage.</p>
+  </dialog>
+
+  <div class="toast" id="toast">Route saved to your trips.</div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=11"></script><script src="app.js?v=11"></script><script src="real-map.js?v=11"></script><script src="botswana.js?v=11"></script><script src="catalog.js?v=11"></script><script src="wildlife.js?v=11"></script><script src="mobile.js?v=11"></script><script src="safety.js?v=11"></script><script src="map-fixes.js?v=11"></script><script src="route-actions.js?v=11"></script>
+</body>
+</html>

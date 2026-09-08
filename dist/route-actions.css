@@ -1,0 +1,5 @@
+.route-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 12px}
+.route-actions button{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid #b9c4ba;border-radius:11px;background:white;color:var(--forest);font:700 14px var(--sans);cursor:pointer}
+.route-actions button:active{transform:translateY(1px)}
+.route-actions span{font-size:18px}
+@media(max-width:410px){.route-actions{grid-template-columns:1fr}}

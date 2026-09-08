@@ -1,0 +1,8 @@
+.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.map-fallback{position:absolute;inset:0;z-index:2;display:grid;place-content:center;text-align:center;padding:32px;background:#e5ebe6;color:#173e2d}
+.map-fallback[hidden]{display:none}
+.map-fallback strong{font:600 30px var(--serif)}
+.map-fallback p{max-width:390px;line-height:1.5;color:#5d6962}
+.offline-status.offline{background:#f5ead9;border-color:#dfc8a6}
+.offline-status.offline .status-dot{background:#b66a20;box-shadow:0 0 0 5px rgba(182,106,32,.12)}
+@media(max-width:520px){.bottom-nav{padding-left:2px;padding-right:2px}.bottom-nav button{font-size:10px;min-width:0}.map-heading h1{font-size:36px}.map-canvas{min-height:540px}}

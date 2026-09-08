@@ -17,3 +17,18 @@
 .country-card{cursor:pointer;text-align:left;width:100%;font-family:var(--sans)}.country-card:focus-visible{outline:3px solid var(--lime);outline-offset:2px}.country-dialog{width:min(720px,calc(100vw - 22px));max-height:88vh;padding:0;overflow:auto}.country-hero{padding:27px;background:var(--forest);color:white}.country-hero h2{font:600 38px/1 var(--serif);margin:5px 0}.country-hero p{margin:8px 0 0;color:#dce7df}.country-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:18px}.country-facts div{background:#f1f4ef;border-radius:10px;padding:12px}.country-facts small{display:block;color:var(--muted);font-size:11px}.country-facts strong{display:block;margin-top:4px;font-size:14px}.brief-section{padding:0 20px 19px}.brief-section h3{font:600 24px var(--serif);margin:7px 0}.brief-section p{color:#566159;line-height:1.55;margin:0}.advisory-links{display:grid;grid-template-columns:1fr 1fr;gap:8px}.advisory-links a{background:var(--forest);color:white;text-decoration:none;border-radius:10px;padding:12px;font-weight:700;font-size:13px}.brief-updated{padding:15px 20px;background:#f4f1e9;color:var(--muted);font-size:11px}.country-close{z-index:2;background:white}@media(max-width:560px){.country-facts{grid-template-columns:repeat(2,1fr)}.advisory-links{grid-template-columns:1fr}.country-hero h2{font-size:32px}}
 
 .brand-mark{overflow:hidden;padding:0;background:#24231f}.brand-mark img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* African Safari Compass identity system */
+:root{--ink:#24211d;--forest:#292621;--forest-2:#181613;--lime:#bd693d;--sand:#eadbc5;--paper:#f8f3ea;--muted:#6f675e;--line:#d9cbbb}
+body{background:var(--paper)}
+.topbar{background:rgba(248,243,234,.97);border-bottom-color:#d9cbbb}
+.brand{gap:10px}.brand-mark{width:44px;height:44px;border-radius:12px;box-shadow:0 3px 12px rgba(36,33,29,.18)}
+.brand-wordmark{display:flex;flex-direction:column;gap:1px;line-height:1}.brand-wordmark strong{font:700 16px/1 var(--serif);letter-spacing:.01em}.brand-wordmark em{font:800 10px/1 var(--sans);font-style:normal;letter-spacing:.24em;color:#9b5333;margin-top:4px}
+.nav-link.active{color:#9b5333;border-color:#bd693d}.saved-button,.primary{background:#292621}.saved-button span,.eyebrow{color:#e39a6d}.secondary{background:#bd693d;color:white}
+.hero{background:#292621;box-shadow:0 16px 45px rgba(38,31,25,.2)}.hero-shade{background:linear-gradient(90deg,rgba(24,20,17,.93) 0%,rgba(24,20,17,.62) 48%,rgba(24,20,17,.12) 78%)}
+.eyebrow{letter-spacing:.21em}.eyebrow.dark{color:#9b5333}
+.planner-panel,.route-panel,.destination-grid article,.animal-grid article{border-color:#decfbe}.route-panel{background:#efe2d0}.step,.animal-symbol{background:#292621;color:#e39a6d}
+.animal-grid article{overflow:hidden;padding:0;display:block;box-shadow:0 8px 24px rgba(44,36,28,.08)}.animal-grid .animal-body{padding:18px 20px 20px}.animal-grid h2{font-size:25px}.animal-grid .animal-meta span{background:#f1e6d7;color:#62584d;font-size:11px}.animal-photo{background:#e5d6c4}
+.wildlife-filters button.selected,.fauna-mode button.selected{background:#292621;border-color:#292621}.animal-sound{border-color:#bd693d;color:#914c2e}
+@media(min-width:851px){body:before{display:none!important}}
+@media(max-width:850px){.brand-mark{width:40px!important;height:40px!important}.brand-wordmark strong{font-size:14px}.brand-wordmark em{font-size:9px}.topbar{background:rgba(248,243,234,.97)!important}.bottom-nav{background:rgba(248,243,234,.98);border-color:#d9cbbb}.bottom-nav button.active{color:#9b5333}.animal-grid article{padding:0!important}}

@@ -1,4 +1,4 @@
-const CACHE='african-safari-compass-v17';
+const CACHE='african-safari-compass-v18';
 const ASSETS=['./','./index.html','./styles.css','./map.css','./africa.css','./mobile-app.css','./catalog.css','./wildlife.css','./trip.css','./botswana.css','./safety.css','./real-map.css','./map-fixes.css','./route-actions.css','./app-upgrades.css','./native-bridge.js','./app.js','./real-map.js','./botswana.js','./catalog.js','./country-intelligence.js','./wildlife.js','./mobile.js','./safety.js','./map-fixes.js','./route-actions.js','./manifest.webmanifest','./assets/app-logo.png','./assets/safari-dawn.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

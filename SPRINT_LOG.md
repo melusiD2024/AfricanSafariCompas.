@@ -49,3 +49,20 @@
 1. Meaningful offline data packaging and transparent storage state.
 2. Personal sightings, saved places and field notes.
 3. Map search and destination-detail depth.
+
+## Cycle 4 — Real offline regional packs
+
+- Replaced cosmetic local-storage flags with versioned regional datasets stored in IndexedDB.
+- Each pack now contains its actual country reference rows, mapped destination index and complete curated wildlife index.
+- Added truthful per-pack country, mapped-place, species and stored-size reporting.
+- Added total pack and device-storage reporting, pack removal and remove-all controls.
+- Migrated previously selected regions into real stored packs.
+- Clearly distinguished stored editorial reference from live advisories, health notices, biodiversity results, photographs and map tiles.
+- Added all pack code to the service-worker shell cache so pack management itself works offline.
+- Bumped Android to 1.12.0 and offline cache to v22.
+
+## Next priorities after cycle 4
+
+1. Personal sightings, saved places and field notes.
+2. Map search and destination-detail depth.
+3. Safety-centre configuration and emergency readiness checks.

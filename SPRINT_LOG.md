@@ -209,3 +209,12 @@
 
 - Preserved the Android testing keystore between automated builds so releases after 1.23.0 can upgrade in place instead of receiving unrelated test signatures.
 - Published 1.23.0 as the new stable installation baseline; older test builds may require one final uninstall before installation.
+
+## Cycle 15 — Places hierarchy repair
+
+- Rebuilt Places around the 54-country atlas as the immediate primary surface.
+- Added visible region filters directly above country results and retained country/destination search.
+- Removed the six broad promotional region cards that interrupted the path to individual countries.
+- Moved Botswana’s detailed region, lodge, camp and access-point catalogue inside the Botswana country profile.
+- Added a clear progression from Africa to region, country and detailed field tools.
+- Bumped Android to 1.24.0 and offline cache to v33.

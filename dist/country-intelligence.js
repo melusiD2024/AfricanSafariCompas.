@@ -26,3 +26,4 @@ async function openCountryBrief(country){
   countryBrief.querySelector('.retry-brief')?.addEventListener('click',event=>{event.preventDefault();openCountryBrief(country)});
  }
 }
+window.openCountryBrief=openCountryBrief;

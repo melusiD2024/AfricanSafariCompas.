@@ -1,27 +1,20 @@
-if(window.L){
-const geo={
-  'Marrakech & Atlas':[31.63,-7.99],'Luxor & the Nile':[25.69,32.64],Dakar:[14.72,-17.47],
-  'Kakum & Cape Coast':[5.35,-1.38],'Maasai Mara':[-1.49,35.14],Serengeti:[-2.33,34.83],
-  Bwindi:[-1.05,29.72],Volcanoes:[-1.46,29.49],Loango:[-2.22,9.59],
-  'Okavango Delta':[-19.28,22.9],Chobe:[-18.67,24.5],'Northern Tuli':[-22.22,29.12],
-  'Moremi & Khwai':[-19.18,23.75],'Okavango Panhandle':[-18.42,21.85],
-  'Savuti & Linyanti':[-18.45,23.75],'Makgadikgadi & Nxai Pan':[-20.15,24.75],
-  'Central Kalahari':[-21.58,23.35],'Kgalagadi & Mabuasehube':[-24.8,22.2],
-  'Khama Rhino Sanctuary':[-22.46,26.72],Mokolodi:[-24.75,25.8],Etosha:[-18.86,16.33],
-  Kruger:[-23.99,31.55],'Victoria Falls':[-17.92,25.86],Andasibe:[-18.93,48.42],Seychelles:[-4.62,55.45]
-};
-const map=L.map('realMap',{zoomControl:true,minZoom:3,maxZoom:13}).setView([1.8,20.5],3);window.safariMap=map;
-const tileLayer=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);
-tileLayer.on('tileerror',()=>{window.safariMapFailed=true;window.dispatchEvent(new Event('safari-map-error'))});
-const geoMarkers=new Map();
-places.forEach(place=>{
-  const point=geo[place.name];if(!point)return;
-  const icon=L.divIcon({className:'',html:'<div class="safari-marker"></div>',iconSize:[22,22],iconAnchor:[11,11]});
-  const marker=L.marker(point,{icon}).addTo(map).bindPopup(`<strong>${place.name}</strong><span>${place.countryName} · ${place.type}</span>`);
-  marker.on('click',()=>{selectPlace(place.name);markActive(place.name)});geoMarkers.set(place.name,marker)
-});
-function markActive(name){geoMarkers.forEach((marker,key)=>marker.setIcon(L.divIcon({className:'',html:`<div class="safari-marker ${key===name?'active':''}"></div>`,iconSize:[24,24],iconAnchor:[12,12]})))}
-document.getElementById('placeList').addEventListener('click',event=>{const button=event.target.closest('[data-place]');if(!button)return;const marker=geoMarkers.get(button.dataset.place);if(marker){map.flyTo(marker.getLatLng(),6);marker.openPopup();markActive(button.dataset.place)}});
-document.getElementById('mapFilters').addEventListener('click',()=>setTimeout(()=>{const visible=places.filter(p=>activeRegion==='all'||p.region===activeRegion).map(p=>geoMarkers.get(p.name)).filter(Boolean);geoMarkers.forEach(marker=>visible.includes(marker)?marker.addTo(map):marker.remove());if(visible.length)map.fitBounds(L.featureGroup(visible).getBounds().pad(.35))},0));
+(function(){
+'use strict';
+const status=document.getElementById('mapSearchStatus'),results=document.getElementById('livePlaceList'),input=document.getElementById('mapSearch'),searchButton=document.getElementById('searchAllAfrica');
+const africanCodes=new Set('dz ao bj bw bf bi cv cm cf td km cd cg ci dj eg gq er sz et ga gm gh gn gw ke ls lr ly mg mw ml mr mu ma mz na ne ng rw st sn sc sl so za ss sd tz tg tn ug zm zw eh'.split(' '));
+const esc=value=>String(value||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+if(!window.L){window.safariMapFailed=true;document.getElementById('realMap').hidden=true;document.getElementById('mapFallback').hidden=false;window.dispatchEvent(new Event('safari-map-error'));return}
+const geo={'Marrakech & Atlas':[31.63,-7.99],'Luxor & the Nile':[25.69,32.64],Dakar:[14.72,-17.47],'Kakum & Cape Coast':[5.35,-1.38],'Maasai Mara':[-1.49,35.14],Serengeti:[-2.33,34.83],Bwindi:[-1.05,29.72],Volcanoes:[-1.46,29.49],Loango:[-2.22,9.59],'Okavango Delta':[-19.28,22.9],Chobe:[-18.67,24.5],'Northern Tuli':[-22.22,29.12],'Moremi & Khwai':[-19.18,23.75],'Okavango Panhandle':[-18.42,21.85],'Savuti & Linyanti':[-18.45,23.75],'Makgadikgadi & Nxai Pan':[-20.15,24.75],'Central Kalahari':[-21.58,23.35],'Kgalagadi & Mabuasehube':[-24.8,22.2],'Khama Rhino Sanctuary':[-22.46,26.72],Mokolodi:[-24.75,25.8],Etosha:[-18.86,16.33],Kruger:[-23.99,31.55],'Victoria Falls':[-17.92,25.86],Andasibe:[-18.93,48.42],Seychelles:[-4.62,55.45]};
+const map=L.map('realMap',{zoomControl:true,minZoom:3,maxZoom:18}).setView([1.8,20.5],3);window.safariMap=map;
+const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap contributors'}).addTo(map);tiles.on('tileerror',()=>{window.safariMapFailed=true;window.dispatchEvent(new Event('safari-map-error'))});
+const markers=new Map(),icon=active=>L.divIcon({className:'',html:`<div class="safari-marker ${active?'active':''}"></div>`,iconSize:[24,24],iconAnchor:[12,12]});
+(window.safariPlaces||[]).forEach(place=>{const point=geo[place.name];if(!point)return;const marker=L.marker(point,{icon:icon(false)}).addTo(map).bindPopup(`<strong>${esc(place.name)}</strong><span>${esc(place.countryName)} · ${esc(place.type)}</span>`);marker.on('click',()=>{selectPlace(place.name);markActive(place.name)});markers.set(place.name,marker)});
+function markActive(name){markers.forEach((marker,key)=>marker.setIcon(icon(key===name)))}
+document.getElementById('placeList').addEventListener('click',event=>{const button=event.target.closest('[data-place]');if(!button)return;const marker=markers.get(button.dataset.place);if(marker){map.flyTo(marker.getLatLng(),6);marker.openPopup();markActive(button.dataset.place)}});
+document.getElementById('mapFilters').addEventListener('click',()=>setTimeout(()=>{const visible=(window.safariPlaces||[]).filter(place=>activeRegion==='all'||place.region===activeRegion).map(place=>markers.get(place.name)).filter(Boolean);markers.forEach(marker=>visible.includes(marker)?marker.addTo(map):marker.remove());if(visible.length)map.fitBounds(L.featureGroup(visible).getBounds().pad(.35))},0));
+document.addEventListener('click',event=>{const brief=event.target.closest('[data-country-brief]');if(brief)window.openCountryBrief?.(brief.dataset.countryBrief)});
+let liveMarker;
+async function searchAfrica(){const query=input.value.trim();if(query.length<2){status.textContent='Enter at least two characters: a park, lodge, town or country.';return}if(!navigator.onLine){status.textContent='Live geographic search needs a connection. Curated destinations remain available below.';results.innerHTML='';return}searchButton.disabled=true;status.textContent='Searching OpenStreetMap across Africa…';results.innerHTML='';try{const response=await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=10&viewbox=-26,38,64,-36&q=${encodeURIComponent(query)}`,{headers:{Accept:'application/json'}});if(!response.ok)throw new Error(response.status);const data=(await response.json()).filter(item=>africanCodes.has(String(item.address?.country_code||'').toLowerCase())).slice(0,8);window.liveMapPlaces=data.map((item,index)=>({id:`osm-${item.osm_type}-${item.osm_id}-${index}`,name:item.name||item.display_name.split(',')[0],countryName:item.address?.country||'Africa',type:item.type||item.category||'Mapped place',lat:Number(item.lat),lng:Number(item.lon),osmType:item.osm_type,osmId:item.osm_id}));status.textContent=data.length?`${data.length} live geographic result${data.length===1?'':'s'} · OpenStreetMap data`:'No African map result found. Try a nearby town, reserve or alternative spelling.';results.innerHTML=window.liveMapPlaces.map(place=>`<button data-live-place="${place.id}"><strong>${esc(place.name)}</strong><small>${esc(place.countryName)} · ${esc(place.type)}</small></button>`).join('')}catch(error){status.textContent='Live geographic search is unavailable. Your curated destination list and offline packs still work.'}finally{searchButton.disabled=false}}
+searchButton.addEventListener('click',searchAfrica);input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();searchAfrica()}});results.addEventListener('click',event=>{const button=event.target.closest('[data-live-place]');if(!button)return;const place=(window.liveMapPlaces||[]).find(item=>item.id===button.dataset.livePlace);if(!place)return;if(liveMarker)liveMarker.remove();liveMarker=L.marker([place.lat,place.lng],{icon:icon(true)}).addTo(map).bindPopup(`<strong>${esc(place.name)}</strong><span>Live OpenStreetMap result</span>`).openPopup();map.flyTo([place.lat,place.lng],Math.max(map.getZoom(),8));document.getElementById('selectedPlace').innerHTML=`<p class="eyebrow dark">Live map result</p><h2>${esc(place.name)}</h2><p>${esc(place.countryName)} · ${esc(place.type)}</p><div><span>${place.lat.toFixed(4)}, ${place.lng.toFixed(4)}</span><span>OpenStreetMap</span></div><div class="place-actions"><button class="save-map-place" data-save-live-place="${place.id}">♡ Save place</button><a class="osm-detail" href="https://www.openstreetmap.org/${esc(place.osmType)}/${place.osmId}" target="_blank" rel="noopener">View source ↗</a></div><small class="live-result-note">Live geographic data, not a curated Pocketbook recommendation. Verify access, boundaries and conditions locally.</small>`});
 markActive('Marrakech & Atlas');setTimeout(()=>map.invalidateSize(),200);
-}else{window.safariMapFailed=true;document.getElementById('realMap').hidden=true;document.getElementById('mapFallback').hidden=false;window.dispatchEvent(new Event('safari-map-error'))}
+})();

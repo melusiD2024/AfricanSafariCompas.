@@ -83,3 +83,20 @@
 1. Map search and destination-detail depth.
 2. Safety-centre configuration and emergency readiness checks.
 3. Accessibility and complete mobile regression testing.
+
+## Cycle 6 — Continent-wide geographic search
+
+- Added explicit live “Search all Africa” map search for parks, lodges, towns and countries through OpenStreetMap Nominatim.
+- Restricted live results to African country codes and added clear loading, offline, no-result and failure states.
+- Added selectable live results, geographic markers, coordinates, feature type and direct OpenStreetMap source links.
+- Distinguished live geographic results from curated Pocketbook recommendations and warned users to verify access and boundaries.
+- Added direct country-brief access to curated destination details.
+- Added the ability to save live map results into the private Field Journal.
+- Retained curated map filtering and offline destination lists when live search is unavailable.
+- Bumped Android to 1.14.0 and offline cache to v24.
+
+## Next priorities after cycle 6
+
+1. Safety-centre configuration and emergency readiness checks.
+2. Accessibility and complete mobile regression testing.
+3. Final content, installation and release-path review.

@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="offline-packs.css" />
   <link rel="stylesheet" href="journal.css" />
   <link rel="stylesheet" href="map-search.css" />
+  <link rel="stylesheet" href="safety-center.css" />
   <link rel="stylesheet" href="africa.css" />
   <link rel="stylesheet" href="mobile-app.css" />
   <link rel="stylesheet" href="catalog.css" />
@@ -239,10 +240,12 @@
 
   <dialog id="sosDialog" class="sos-dialog">
     <button class="dialog-close sos-close" aria-label="Close">×</button><div class="sos-heading"><span>SOS</span><div><p class="eyebrow">Safety centre</p><h2>Do you need help?</h2></div></div>
-    <p class="sos-warning">This prototype does not dispatch emergency services. In the live app, alerts will only show as sent after a responder confirms receipt.</p>
+    <p class="sos-warning"><strong>This app does not dispatch emergency services.</strong> Sharing opens your phone’s share sheet; you must confirm that a trusted person actually receives the message.</p>
+    <div class="safety-readiness"><div><strong id="readinessScore">0 of 4 ready</strong><small id="readinessDetail">Complete your field safety setup before travelling.</small></div><button id="toggleSafetySetup" type="button">Safety setup</button></div>
+    <form class="safety-setup" id="safetySetup" hidden><label>Country<select id="safetyCountry" required><option value="">Choose destination country</option></select></label><div class="safety-pair"><label>Trusted contact name<input id="trustedName" placeholder="Person who knows your plans"></label><label>Trusted contact phone<input id="trustedPhone" type="tel" placeholder="Include country code"></label></div><div class="safety-pair"><label>Guide or lodge name<input id="guideName" placeholder="Operator or accommodation"></label><label>Guide or lodge phone<input id="guidePhone" type="tel" placeholder="Include country code"></label></div><div class="safety-pair"><label>Local emergency service number<input id="emergencyPhone" type="tel" placeholder="Verify locally before saving"></label><label>Date numbers were verified<input id="safetyVerified" type="date"></label></div><label class="safety-confirm"><input id="safetyConfirmed" type="checkbox"> I confirmed these numbers with an official source, local operator or accommodation provider.</label><button class="primary" type="submit">Save safety setup <span>✓</span></button><p>Numbers are user-supplied and stored only on this device. The Pocketbook does not certify them.</p></form>
     <div class="location-card"><span>⌖</span><div><strong id="locationLabel">Location not yet obtained</strong><small id="locationDetail">Use your phone’s location to prepare an accurate alert.</small></div></div>
     <button class="primary sos-location" id="getLocation">Get my current location <span>→</span></button>
-    <div class="sos-actions"><button id="shareSos"><span>↗</span><strong>Share SOS &amp; location</strong><small>Send through your phone</small></button><button id="contactGuide"><span>☏</span><strong>Contact guide or lodge</strong><small>Not configured</small></button><button id="localHelp"><span>✚</span><strong>Local emergency service</strong><small>Set for each country</small></button></div>
+    <div class="sos-actions"><button id="shareSos"><span>↗</span><strong>Share SOS &amp; location</strong><small id="shareSosStatus">Add a trusted contact first</small></button><button id="contactGuide"><span>☏</span><strong>Call guide or lodge</strong><small id="guideStatus">Not configured</small></button><button id="localHelp"><span>✚</span><strong>Call saved emergency service</strong><small id="localHelpStatus">Not configured</small></button></div>
     <p class="sos-footnote">Always confirm local emergency numbers before entering a remote area. Satellite communication may be required beyond cellular coverage.</p>
   </dialog>
 
@@ -257,6 +260,6 @@
   </dialog>
 
   <div class="toast" id="toast">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=24"></script><script src="catalog.js?v=24"></script><script src="country-intelligence.js?v=24"></script><script src="app.js?v=24"></script><script src="real-map.js?v=24"></script><script src="botswana.js?v=24"></script><script src="wildlife.js?v=24"></script><script src="wildlife-profile.js?v=24"></script><script src="mobile.js?v=24"></script><script src="safety.js?v=24"></script><script src="map-fixes.js?v=24"></script><script src="route-actions.js?v=24"></script><script src="pocketbook.js?v=24"></script><script src="offline-packs.js?v=24"></script><script src="journal.js?v=24"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=25"></script><script src="catalog.js?v=25"></script><script src="country-intelligence.js?v=25"></script><script src="app.js?v=25"></script><script src="real-map.js?v=25"></script><script src="botswana.js?v=25"></script><script src="wildlife.js?v=25"></script><script src="wildlife-profile.js?v=25"></script><script src="mobile.js?v=25"></script><script src="safety.js?v=25"></script><script src="map-fixes.js?v=25"></script><script src="route-actions.js?v=25"></script><script src="pocketbook.js?v=25"></script><script src="offline-packs.js?v=25"></script><script src="journal.js?v=25"></script>
 </body>
 </html>

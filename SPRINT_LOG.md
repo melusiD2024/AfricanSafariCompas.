@@ -100,3 +100,21 @@
 1. Safety-centre configuration and emergency readiness checks.
 2. Accessibility and complete mobile regression testing.
 3. Final content, installation and release-path review.
+
+## Cycle 7 — Configurable field safety centre
+
+- Rebuilt the SOS dialog around an honest four-part readiness check: destination, trusted contact, guide/lodge contact and locally verified emergency number.
+- Added per-country safety profiles stored only on the device.
+- Added explicit verification confirmation and verification date for user-entered emergency numbers.
+- Warned when an emergency number was last checked more than 90 days ago.
+- Added direct calling for configured guide/lodge and emergency numbers through the Android dialler.
+- Improved SOS sharing with destination, coordinates, accuracy and an explicit receipt-confirmation request.
+- Retained a clear statement that the app does not dispatch or certify emergency services.
+- Added complete unconfigured, permission-denied, stale-number and sharing-failure states.
+- Bumped Android to 1.15.0 and offline cache to v25.
+
+## Final-run priorities
+
+1. End-to-end navigation, mobile safe-area and accessibility regression.
+2. Repair defects without removing breadth.
+3. Build and publish the final stable APK with documented limitations.

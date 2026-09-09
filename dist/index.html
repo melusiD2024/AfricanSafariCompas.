@@ -11,7 +11,7 @@
   <title>African Safari Pocketbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="vendor/leaflet.css?v=41" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="map.css" />
@@ -36,11 +36,12 @@
   <link rel="stylesheet" href="safari-atmosphere.css?v=27" />
   <link rel="stylesheet" href="country-language.css?v=29" />
   <link rel="stylesheet" href="country-depth.css?v=31" />
-  <link rel="stylesheet" href="places-hierarchy.css?v=40" />
-  <link rel="stylesheet" href="sos-access.css?v=40" />
-  <link rel="stylesheet" href="sticky-controls.css?v=40" />
-  <link rel="stylesheet" href="destination-directory.css?v=40" />
-  <link rel="stylesheet" href="mobile-stability.css?v=40" />
+  <link rel="stylesheet" href="places-hierarchy.css?v=41" />
+  <link rel="stylesheet" href="sos-access.css?v=41" />
+  <link rel="stylesheet" href="sticky-controls.css?v=41" />
+  <link rel="stylesheet" href="destination-directory.css?v=41" />
+  <link rel="stylesheet" href="offline-map.css?v=41" />
+  <link rel="stylesheet" href="mobile-stability.css?v=41" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
@@ -196,7 +197,7 @@
 
     <section class="view map-view" id="map">
       <div class="map-heading">
-        <div><p class="eyebrow dark">Africa in your pocket</p><h1>Explore Africa on a real geographic map.</h1><p>The live map needs a connection. Destination guides and map areas you have already viewed remain available when cached on your device.</p></div>
+        <div><p class="eyebrow dark">Africa in your pocket</p><h1>Explore Africa on a real geographic map.</h1><p>Country outlines and curated destination coordinates work offline. Connect for detailed OpenStreetMap tiles and live place search.</p></div>
         <div class="offline-status" id="mapConnection"><span class="status-dot"></span><div><strong id="offlineStatus">Checking map connection</strong><small id="offlineDetail">Previously viewed areas may work offline</small></div></div>
       </div>
       <div class="map-workspace">
@@ -213,10 +214,10 @@
             <path class="island-shape" d="M565 390 L588 416 580 480 554 520 542 466Z" /><text x="318" y="285">AFRICA</text><g id="mapPins"></g>
           </svg>
           <div class="selected-place" id="selectedPlace"><p class="eyebrow dark">Selected destination</p><h2>Marrakech &amp; Atlas</h2><p>Morocco · Culture &amp; mountains</p><div><span>Culture</span><span>Mountains</span><span>Desert</span></div></div>
-          <p class="map-disclaimer">Planning map only. Do not use it for turn-by-turn navigation, emergency routing or park-boundary decisions.</p>
+          <p class="map-disclaimer">Orientation map only. Boundaries do not imply legal status. Do not use it for navigation, emergency routing or park-boundary decisions.</p>
         </div>
       </div>
-      <div class="download-section"><div><p class="eyebrow dark">Offline guide packs</p><h2>Carry the reference guide.</h2><p class="pack-explainer">Packs store country, destination and wildlife reference data on this device. Live advisories, live biodiversity results, photographs and map tiles still need a connection unless previously cached.</p><div class="pack-summary" id="offlinePackSummary" aria-live="polite">Checking device storage…</div><button class="clear-packs" id="clearOfflinePacks" hidden>Remove all packs</button></div><div class="pack-grid" id="packGrid">
+      <div class="download-section"><div><p class="eyebrow dark">Offline guide packs</p><h2>Carry the reference guide.</h2><p class="pack-explainer">The app includes an offline geographic outline map. Regional packs store searchable country, destination-coordinate and wildlife indexes. Detailed roads, trails, boundaries and live searches still need connectivity.</p><div class="pack-summary" id="offlinePackSummary" aria-live="polite">Checking device storage…</div><button class="clear-packs" id="clearOfflinePacks" hidden>Remove all packs</button></div><div class="pack-grid" id="packGrid">
         <article data-pack="East Africa"><div><span>EA</span><div><strong>East Africa</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article><article data-pack="Southern Africa"><div><span>SA</span><div><strong>Southern Africa</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article><article data-pack="North Africa"><div><span>NA</span><div><strong>North Africa</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article><article data-pack="West Africa"><div><span>WA</span><div><strong>West Africa</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article><article data-pack="Central Africa"><div><span>CA</span><div><strong>Central Africa</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article><article data-pack="African Islands"><div><span>IO</span><div><strong>African Islands</strong><small>Preparing pack details…</small></div></div><button>Save guide</button></article>
       </div></div>
     </section>
@@ -250,6 +251,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=40"></script><script src="catalog.js?v=40"></script><script src="country-depth.js?v=40"></script><script src="destination-directory.js?v=40"></script><script src="language-guide.js?v=40"></script><script src="country-intelligence.js?v=40"></script><script src="app.js?v=40"></script><script src="real-map.js?v=40"></script><script src="botswana.js?v=40"></script><script src="wildlife.js?v=40"></script><script src="wildlife-profile.js?v=40"></script><script src="mobile.js?v=40"></script><script src="safety.js?v=40"></script><script src="map-fixes.js?v=40"></script><script src="route-actions.js?v=40"></script><script src="pocketbook.js?v=40"></script><script src="offline-packs.js?v=40"></script><script src="journal.js?v=40"></script><script src="safari-atmosphere.js?v=40"></script><script src="app-stability.js?v=40"></script>
+  <script src="vendor/leaflet.js?v=41"></script><script src="native-bridge.js?v=41"></script><script src="catalog.js?v=41"></script><script src="country-depth.js?v=41"></script><script src="destination-directory.js?v=41"></script><script src="language-guide.js?v=41"></script><script src="country-intelligence.js?v=41"></script><script src="app.js?v=41"></script><script src="real-map.js?v=41"></script><script src="botswana.js?v=41"></script><script src="wildlife.js?v=41"></script><script src="wildlife-profile.js?v=41"></script><script src="mobile.js?v=41"></script><script src="safety.js?v=41"></script><script src="map-fixes.js?v=41"></script><script src="route-actions.js?v=41"></script><script src="pocketbook.js?v=41"></script><script src="offline-packs.js?v=41"></script><script src="journal.js?v=41"></script><script src="safari-atmosphere.js?v=41"></script><script src="app-stability.js?v=41"></script>
 </body>
 </html>

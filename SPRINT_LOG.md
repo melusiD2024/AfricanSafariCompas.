@@ -279,3 +279,14 @@
 - Kept taxonomy, occurrence evidence and current conservation searches clearly separated, with no invented conservation status.
 - Preserved the floating red SOS, compact sticky searches, real map, country profiles, languages, offline packs and private journal.
 - Bumped Android to 1.31.0 and offline cache to v40.
+
+## Cycle 23 — Genuine offline geographic map
+
+- Bundled Leaflet inside the Android package so the interactive map engine no longer depends on a CDN at startup.
+- Added a compact Natural Earth geographic country-outline dataset to the APK as an offline base map, with visible source attribution.
+- Kept curated destination markers positioned by real latitude and longitude while offline.
+- Limited OpenStreetMap tile requests to connected sessions; detailed map tiles and live place search remain clearly identified as online features.
+- Rewrote offline-map and regional-pack messaging to state exactly what is available without connectivity.
+- Added regression checks for the local map engine, geographic dataset, offline layer and conditional tile loading.
+- Preserved the floating red SOS, compact sticky searches, map reveal behaviour, country profiles, languages, wildlife and journal.
+- Bumped Android to 1.32.0 and offline cache to v41.

@@ -1,0 +1,4 @@
+.real-map{background:#cfd8d0}
+.leaflet-offlineBase-pane path{vector-effect:non-scaling-stroke}
+.leaflet-tooltip{font:600 11px var(--sans)}
+.leaflet-container:not(.leaflet-touch){background:linear-gradient(145deg,#c7d8da,#d9e1dc)}

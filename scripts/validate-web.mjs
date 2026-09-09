@@ -8,6 +8,7 @@ for(const required of ['pocketbook','explore','field','map','journal','sosDialog
 if(!html.includes('viewport-fit=cover'))errors.push('Safe-area viewport support missing');
 for(const required of ['mobile-stability.css','app-stability.js'])if(!html.includes(required))errors.push(`Mobile stability asset not loaded: ${required}`);
 for(const required of ['destination-directory.css','destination-directory.js'])if(!html.includes(required))errors.push(`Destination directory asset not loaded: ${required}`);
+for(const required of ['vendor/leaflet.css','vendor/leaflet.js','assets/africa-countries-110m.geojson','offline-map.css'])if(!html.includes(required)&&!worker.includes(`'./${required}'`))errors.push(`Offline map asset not integrated: ${required}`);
 if(html.indexOf('mobile-stability.css')<html.lastIndexOf('<link rel="stylesheet"'))errors.push('Mobile stability stylesheet must be the final stylesheet');
 if(!worker.includes("'./mobile-stability.css'")||!worker.includes("'./app-stability.js'"))errors.push('Mobile stability assets missing from offline cache');
 const mobileCss=fs.readFileSync(path.join(dist,'mobile-stability.css'),'utf8'),stickyCss=fs.readFileSync(path.join(dist,'sticky-controls.css'),'utf8'),realMap=fs.readFileSync(path.join(dist,'real-map.js'),'utf8');
@@ -15,6 +16,7 @@ if(!stickyCss.includes('.sticky-controls{position:sticky')||!stickyCss.includes(
 if(!mobileCss.includes('overflow-x:clip'))errors.push('Viewport overflow must not create a sticky-breaking scroll container');
 if(!mobileCss.includes('[hidden]{display:none!important}'))errors.push('Native hidden states must override component display rules');
 if((realMap.match(/revealMap\(\)/g)||[]).length<3||!realMap.includes("scrollIntoView({behavior:'smooth',block:'start'})"))errors.push('Map result selection must reveal the geographic map');
+if(!realMap.includes("fetch('./assets/africa-countries-110m.geojson')")||!realMap.includes("createPane('offlineBase')")||!realMap.includes('if(tiles||!navigator.onLine)return')||!realMap.includes("addEventListener('online',ensureDetailedTiles)"))errors.push('Bundled offline vector map with conditional detailed tiles missing');
 const countryIntelligence=fs.readFileSync(path.join(dist,'country-intelligence.js'),'utf8');if((countryIntelligence.match(/countryDestinationHtml/g)||[]).length<2||(countryIntelligence.match(/mountCountryDestinations/g)||[]).length<2)errors.push('Country destination directory must work in live and offline profiles');
 const wildlifeSource=fs.readFileSync(path.join(dist,'wildlife.js'),'utf8'),wildlifeProfile=fs.readFileSync(path.join(dist,'wildlife-profile.js'),'utf8');
 for(const species of ["['Serval','Leptailurus serval'","['Nile lechwe','Kobus megaceros'","['Bateleur','Terathopius ecaudatus'","['West Indian Ocean coelacanth','Latimeria chalumnae'"])if(!wildlifeSource.includes(species))errors.push(`Expanded wildlife entry missing: ${species}`);

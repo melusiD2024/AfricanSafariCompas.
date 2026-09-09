@@ -36,9 +36,10 @@
   <link rel="stylesheet" href="safari-atmosphere.css?v=27" />
   <link rel="stylesheet" href="country-language.css?v=29" />
   <link rel="stylesheet" href="country-depth.css?v=31" />
-  <link rel="stylesheet" href="places-hierarchy.css?v=34" />
-  <link rel="stylesheet" href="sos-access.css?v=34" />
-  <link rel="stylesheet" href="mobile-stability.css?v=34" />
+  <link rel="stylesheet" href="places-hierarchy.css?v=35" />
+  <link rel="stylesheet" href="sos-access.css?v=35" />
+  <link rel="stylesheet" href="sticky-controls.css?v=35" />
+  <link rel="stylesheet" href="mobile-stability.css?v=35" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
@@ -169,8 +170,8 @@
       <h1>Where in Africa will you explore?</h1>
       <section class="atlas-section atlas-first">
         <div class="atlas-title"><div><h2>Choose a country.</h2><p>Open its destinations, wildlife, languages, map and safety information.</p></div><span class="atlas-count">54 countries</span></div>
-        <div class="atlas-controls"><div class="searchbox"><span>⌕</span><input id="atlasSearch" aria-label="Search countries and destinations" placeholder="Search a country, park or destination" /></div></div>
-        <div class="atlas-regions" id="atlasRegionButtons" aria-label="Filter countries by African region"><button class="selected" data-atlas-region="all">All Africa</button><button data-atlas-region="Southern">Southern</button><button data-atlas-region="East">East</button><button data-atlas-region="Central">Central</button><button data-atlas-region="West">West</button><button data-atlas-region="North">North</button><button data-atlas-region="Islands">Islands</button></div>
+        <div class="sticky-controls atlas-sticky"><div class="atlas-controls"><div class="searchbox"><span>⌕</span><input id="atlasSearch" aria-label="Search countries and destinations" placeholder="Search a country, park or destination" /><button class="search-clear" id="clearAtlasSearch" type="button" aria-label="Clear country search" hidden>×</button></div><small class="search-result-count" id="atlasResultCount" aria-live="polite">54 countries shown</small></div>
+        <div class="atlas-regions" id="atlasRegionButtons" aria-label="Filter countries by African region"><button class="selected" data-atlas-region="all">All Africa</button><button data-atlas-region="Southern">Southern</button><button data-atlas-region="East">East</button><button data-atlas-region="Central">Central</button><button data-atlas-region="West">West</button><button data-atlas-region="North">North</button><button data-atlas-region="Islands">Islands</button></div></div>
         <div class="atlas-grid" id="atlasGrid"></div>
         <p class="atlas-note">Select a country to continue from national overview to regions and detailed field tools. Local access, seasons and safety conditions must still be confirmed before travel.</p>
       </section>
@@ -179,11 +180,11 @@
     <section class="view content-view" id="field">
       <p class="eyebrow dark">Pocket field guide</p><h1>Know what you’re looking at.</h1>
       <p class="guide-scope"><strong>71 curated African field entries.</strong> This is one continent-wide starter guide—not 71 species per country and not a complete biodiversity inventory.</p>
-      <div class="searchbox"><span>⌕</span><input id="animalSearch" aria-label="Search wildlife by common or scientific name" placeholder="Search common or scientific name" /></div>
+      <div class="sticky-controls wildlife-sticky"><div class="searchbox"><span>⌕</span><input id="animalSearch" aria-label="Search wildlife by common or scientific name" placeholder="Search common or scientific name" /><button class="search-clear" id="clearAnimalSearch" type="button" aria-label="Clear wildlife search" hidden>×</button></div>
       <div class="fauna-mode" id="faunaMode"><button class="selected" data-mode="guide">African starter guide</button><button data-mode="database">Browse country records</button></div>
       <div class="biodiversity-controls" id="biodiversityControls" hidden><select id="faunaCountry" aria-label="Select African country"><option value="">Choose a country</option></select><button id="searchBiodiversity">Browse recorded wildlife</button></div>
       <p class="database-note" id="databaseNote" hidden>Browse animal species represented in GBIF occurrence records for the selected country. Results reflect published records and reporting effort—not a complete current national inventory or range assessment.</p>
-      <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button><button data-kind="Marine">Marine</button></div>
+      <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button><button data-kind="Marine">Marine</button></div><small class="search-result-count" id="animalResultCount" aria-live="polite">71 field entries shown</small></div>
       <div class="animal-grid" id="animalGrid"></div>
       <p class="offline-note">The curated field guide works offline. Live taxonomy, occurrence records, photographs and recordings require connectivity unless previously cached.</p>
     </section>
@@ -200,8 +201,8 @@
       </div>
       <div class="map-workspace">
         <aside class="map-sidebar">
-          <div class="map-search"><span>⌕</span><input id="mapSearch" aria-label="Search the Africa map" placeholder="Park, lodge, town or country" /><button id="searchAllAfrica" type="button">Search all Africa</button></div><div class="map-search-status" id="mapSearchStatus" aria-live="polite">Curated places appear below. Use “Search all Africa” for live OpenStreetMap results.</div><div class="live-place-list" id="livePlaceList"></div>
-          <div class="map-filters" id="mapFilters"><button class="selected" data-region="all">All Africa</button><button data-region="east">East</button><button data-region="south">Southern</button><button data-region="north">North</button><button data-region="west">West</button><button data-region="central">Central</button><button data-region="islands">Islands</button></div>
+          <div class="map-sticky-controls"><div class="map-search"><span>⌕</span><input id="mapSearch" aria-label="Search the Africa map" placeholder="Park, lodge, town or country" /><button id="searchAllAfrica" type="button">Search all Africa</button></div>
+          <div class="map-filters" id="mapFilters"><button class="selected" data-region="all">All Africa</button><button data-region="east">East</button><button data-region="south">Southern</button><button data-region="north">North</button><button data-region="west">West</button><button data-region="central">Central</button><button data-region="islands">Islands</button></div></div><div class="map-search-status" id="mapSearchStatus" aria-live="polite">Curated places appear below. Use “Search all Africa” for live OpenStreetMap results.</div><div class="live-place-list" id="livePlaceList"></div>
           <div class="place-list" id="placeList"></div>
         </aside>
         <div class="map-canvas" aria-label="Interactive geographic map of African destinations">
@@ -221,10 +222,8 @@
     </section>
   </main>
 
-  <button class="sos-fab" id="sosButton" aria-label="Open emergency assistance"><span>SOS</span><small>Emergency</small></button>
-
   <nav class="bottom-nav" aria-label="App navigation">
-    <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button data-view="map"><span>⌖</span>Map</button><button data-view="journal"><span>✎</span>Journal</button>
+    <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button class="sos-fab" id="sosButton" aria-label="Open emergency assistance"><span>SOS</span><small>Emergency</small></button><button data-view="map"><span>⌖</span>Map</button><button data-view="journal"><span>✎</span>Journal</button>
   </nav>
 
   <dialog id="sosDialog" class="sos-dialog">
@@ -249,6 +248,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=34"></script><script src="catalog.js?v=34"></script><script src="country-depth.js?v=34"></script><script src="language-guide.js?v=34"></script><script src="country-intelligence.js?v=34"></script><script src="app.js?v=34"></script><script src="real-map.js?v=34"></script><script src="botswana.js?v=34"></script><script src="wildlife.js?v=34"></script><script src="wildlife-profile.js?v=34"></script><script src="mobile.js?v=34"></script><script src="safety.js?v=34"></script><script src="map-fixes.js?v=34"></script><script src="route-actions.js?v=34"></script><script src="pocketbook.js?v=34"></script><script src="offline-packs.js?v=34"></script><script src="journal.js?v=34"></script><script src="safari-atmosphere.js?v=34"></script><script src="app-stability.js?v=34"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=35"></script><script src="catalog.js?v=35"></script><script src="country-depth.js?v=35"></script><script src="language-guide.js?v=35"></script><script src="country-intelligence.js?v=35"></script><script src="app.js?v=35"></script><script src="real-map.js?v=35"></script><script src="botswana.js?v=35"></script><script src="wildlife.js?v=35"></script><script src="wildlife-profile.js?v=35"></script><script src="mobile.js?v=35"></script><script src="safety.js?v=35"></script><script src="map-fixes.js?v=35"></script><script src="route-actions.js?v=35"></script><script src="pocketbook.js?v=35"></script><script src="offline-packs.js?v=35"></script><script src="journal.js?v=35"></script><script src="safari-atmosphere.js?v=35"></script><script src="app-stability.js?v=35"></script>
 </body>
 </html>

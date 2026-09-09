@@ -225,3 +225,12 @@
 - Added a persistent SOS shortcut inside full-screen country and wildlife sheets, where Android’s top-layer dialog would otherwise cover the global button.
 - Made the shortcut close the current information sheet before opening the Safety Centre, avoiding stacked inaccessible dialogs.
 - Bumped Android to 1.25.0 and offline cache to v34.
+
+## Cycle 17 — Pinned discovery controls and collision-free SOS
+
+- Kept the country and wildlife search/filter controls visible while long result sets scroll beneath them.
+- Added live result counts and one-tap clear actions to both country and wildlife discovery.
+- Kept the map search and regional filters anchored above its result lists.
+- Moved SOS into its own reserved mobile-navigation cell, eliminating its ability to cover Map, Journal or page actions.
+- Preserved a floating desktop SOS control and the existing emergency shortcut inside full-screen information sheets.
+- Bumped Android to 1.26.0 and offline cache to v35.

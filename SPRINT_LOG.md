@@ -250,3 +250,12 @@
 - Increased the mobile map to a useful viewport-relative height and constrained its information card so the geography remains visible.
 - Reduced nonessential Map-page introduction content on phones so map tools are reached sooner.
 - Bumped Android to 1.28.0 and offline cache to v37.
+
+## Cycle 20 — Compact persistent search and SOS clearance
+
+- Removed the internal wildlife-scope disclaimer from the consumer interface.
+- Reduced persistent controls to the search row and result count only; modes, country selectors and category filters now scroll normally.
+- Applied the same compact search-only behaviour to Places and Map.
+- Raised the floating SOS button fully above the navigation bar so Journal remains visible and tappable.
+- Enforced the native hidden state so country-record controls no longer appear while the starter guide is selected.
+- Bumped Android to 1.29.0 and offline cache to v38.

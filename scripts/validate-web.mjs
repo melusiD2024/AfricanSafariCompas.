@@ -12,5 +12,6 @@ if(!worker.includes("'./mobile-stability.css'")||!worker.includes("'./app-stabil
 const mobileCss=fs.readFileSync(path.join(dist,'mobile-stability.css'),'utf8'),stickyCss=fs.readFileSync(path.join(dist,'sticky-controls.css'),'utf8'),realMap=fs.readFileSync(path.join(dist,'real-map.js'),'utf8');
 if(!stickyCss.includes('.sticky-controls{position:sticky')||!stickyCss.includes('env(safe-area-inset-top'))errors.push('Pinned mobile discovery controls missing');
 if(!mobileCss.includes('overflow-x:clip'))errors.push('Viewport overflow must not create a sticky-breaking scroll container');
+if(!mobileCss.includes('[hidden]{display:none!important}'))errors.push('Native hidden states must override component display rules');
 if((realMap.match(/revealMap\(\)/g)||[]).length<3||!realMap.includes("scrollIntoView({behavior:'smooth',block:'start'})"))errors.push('Map result selection must reveal the geographic map');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Validated ${ids.length} IDs, ${refs.length} local references and ${scripts.length} scripts.`);

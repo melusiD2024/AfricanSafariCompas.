@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths: ['android/**', 'dist/**', 'scripts/**', '.github/workflows/android-apk.yml']
 
+permissions:
+  contents: write
+
 jobs:
   build-debug-apk:
     runs-on: ubuntu-latest
@@ -25,8 +28,27 @@ jobs:
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build installable debug APK
         run: gradle -p android assembleDebug
+      - name: Verify APK before publication
+        run: |
+          test -s android/app/build/outputs/apk/debug/app-debug.apk
+          unzip -t android/app/build/outputs/apk/debug/app-debug.apk
+          sha256sum android/app/build/outputs/apk/debug/app-debug.apk
       - uses: actions/upload-artifact@v4
         with:
-          name: african-safari-compass-debug-apk
+          name: african-safari-pocketbook-debug-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+      - name: Publish complete APK without binary transport
+        run: |
+          mkdir -p releases
+          cp android/app/build/outputs/apk/debug/app-debug.apk releases/AfricanSafariPocketbook-v17.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk releases/AfricanSafariPocketbook-latest.apk
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add releases/AfricanSafariPocketbook-v17.apk releases/AfricanSafariPocketbook-latest.apk
+          if git diff --cached --quiet; then
+            echo "Published APK already matches this build."
+          else
+            git commit -m "Publish verified African Safari Pocketbook v1.17.0 APK"
+            git push
+          fi

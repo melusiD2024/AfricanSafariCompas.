@@ -1,5 +1,6 @@
 (()=>{
  const dialogs=[...document.querySelectorAll('dialog')];let lastTrigger=null;
+ dialogs.filter(dialog=>dialog.id!=='sosDialog').forEach(dialog=>{if(dialog.querySelector('.dialog-sos-shortcut'))return;const button=document.createElement('button');button.type='button';button.className='dialog-sos-shortcut';button.setAttribute('aria-label','Close this window and open emergency assistance');button.innerHTML='<strong>SOS</strong><span>Emergency</span>';button.addEventListener('click',()=>{dialog.close();requestAnimationFrame(()=>document.getElementById('sosButton')?.click())});dialog.insertBefore(button,dialog.children[1]||null)});
  const syncViewport=()=>document.documentElement.style.setProperty('--app-height',`${window.visualViewport?.height||window.innerHeight}px`);
  syncViewport();window.addEventListener('resize',syncViewport,{passive:true});window.visualViewport?.addEventListener('resize',syncViewport,{passive:true});
  document.addEventListener('click',event=>{const trigger=event.target.closest('button,a');if(trigger&&!trigger.closest('dialog'))lastTrigger=trigger;requestAnimationFrame(()=>{const open=dialogs.find(dialog=>dialog.open);document.body.classList.toggle('dialog-open',Boolean(open));if(open)open.setAttribute('aria-modal','true')})},{capture:true});

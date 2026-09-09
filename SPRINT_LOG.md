@@ -218,3 +218,10 @@
 - Moved Botswana’s detailed region, lodge, camp and access-point catalogue inside the Botswana country profile.
 - Added a clear progression from Africa to region, country and detailed field tools.
 - Bumped Android to 1.24.0 and offline cache to v33.
+
+## Cycle 16 — Persistent SOS access
+
+- Restored the floating SOS control above the bottom navigation on every primary screen.
+- Added a persistent SOS shortcut inside full-screen country and wildlife sheets, where Android’s top-layer dialog would otherwise cover the global button.
+- Made the shortcut close the current information sheet before opening the Safety Centre, avoiding stacked inaccessible dialogs.
+- Bumped Android to 1.25.0 and offline cache to v34.

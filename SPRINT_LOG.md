@@ -139,3 +139,13 @@
 - Safety contacts and emergency numbers are user-entered and must be independently verified; the app does not dispatch assistance.
 - Journal and safety data are device-local and have no encrypted account sync.
 - The published APK is debug-signed for direct testing rather than Play Store production signing.
+
+## Cycle 9 — Immersive Field Edition identity
+
+- Removed the numeric 01–04 labels from every Pocketbook home action.
+- Rebuilt the opening experience around original photographic safari artwork, field-guide typography, canvas and leather tones, grass texture, and restrained motion.
+- Added a live Field Pulse with local time, natural-light period and honest connectivity status.
+- Added a device-local Field Kit summary for offline regions, sightings and saved places.
+- Refined action language around the safari journey: discover, identify, navigate and remember.
+- Kept motion optional through the device reduced-motion preference and preserved mobile safe areas.
+- Bumped Android to 1.17.0 and offline cache to v27.

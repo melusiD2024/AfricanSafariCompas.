@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="app-upgrades.css?v=20" />
   <link rel="stylesheet" href="pocketbook.css?v=19" />
   <link rel="stylesheet" href="wildlife-profile.css?v=21" />
+  <link rel="stylesheet" href="safari-atmosphere.css?v=27" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
@@ -57,17 +58,23 @@
   <main>
     <section class="view pocketbook-view active" id="pocketbook">
       <div class="pocketbook-hero">
-        <div class="pocketbook-hero-copy"><p class="eyebrow">AFRICAN SAFARI POCKETBOOK</p><h1>Africa, in your pocket.</h1><p>Places, wildlife, practical guidance and safety information for the journey—before you leave and while you are in the field.</p></div>
+        <div class="pocketbook-hero-copy"><p class="eyebrow">AFRICAN SAFARI POCKETBOOK</p><h1>The wild,<br>carried with you.</h1><p>Your field companion for Africa’s places, wildlife and journeys—from first light to the last track home.</p></div>
         <div class="pocketbook-seal"><img src="assets/app-logo.png" alt=""><span>FIELD<br>EDITION</span></div>
+        <div class="field-pulse" aria-label="Your live field pulse">
+          <div><small>FIELD LIGHT</small><strong id="fieldLight">First light</strong></div>
+          <div><small>LOCAL TIME</small><strong id="fieldTime">—</strong></div>
+          <div><small>CONNECTION</small><strong id="fieldConnection">Checking…</strong></div>
+        </div>
       </div>
       <div class="pocketbook-inner">
         <form class="pocket-search" id="pocketSearchForm"><label for="pocketSearch">What do you want to find?</label><div><span>⌕</span><input id="pocketSearch" placeholder="Country, park, lodge or animal" autocomplete="off"><button type="submit">Search places</button></div><button class="search-wildlife" id="pocketWildlifeSearch" type="button">Search wildlife instead</button></form>
         <section class="pocket-actions" aria-label="Pocketbook sections">
-          <button data-go="explore"><span>01</span><strong>Places</strong><small>54 countries, destinations and Botswana lodge catalogue</small><i>→</i></button>
-          <button data-go="field"><span>02</span><strong>Wildlife</strong><small>Species photographs, scientific names and real calls</small><i>→</i></button>
-          <button data-go="map"><span>03</span><strong>Offline maps</strong><small>Explore destinations and save regional guide packs</small><i>→</i></button>
-          <button data-go="journal"><span>04</span><strong>Field journal</strong><small>Record sightings, save places and keep private notes</small><i>→</i></button>
+          <button class="action-places" data-go="explore"><em>DISCOVER</em><strong>Places</strong><small>54 countries, destinations and Botswana lodge catalogue</small><i>→</i></button>
+          <button class="action-wildlife" data-go="field"><em>IDENTIFY</em><strong>Wildlife</strong><small>Species photographs, scientific names and real calls</small><i>→</i></button>
+          <button class="action-map" data-go="map"><em>NAVIGATE</em><strong>Maps &amp; packs</strong><small>Explore real destinations and carry regional guide packs</small><i>→</i></button>
+          <button class="action-journal" data-go="journal"><em>REMEMBER</em><strong>Field journal</strong><small>Record sightings, save places and keep private notes</small><i>→</i></button>
         </section>
+        <section class="trail-status" aria-label="Your pocketbook today"><div><p class="eyebrow dark">YOUR FIELD KIT</p><h2>Ready when the road turns wild.</h2></div><div class="trail-metrics"><button data-go="map"><strong id="fieldPackCount">0</strong><small>offline regions</small></button><button data-go="journal"><strong id="fieldSightingCount">0</strong><small>sightings recorded</small></button><button data-go="journal"><strong id="fieldSavedCount">0</strong><small>places saved</small></button></div></section>
         <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="journal"><b>RECORD</b><strong>Keep a field journal</strong><small>Sightings, places and private notes</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
         <button class="plan-entry" data-go="planner"><span><small>TRIP PLANNER</small><strong>Build a safari route</strong></span><i>→</i></button>
       </div>
@@ -261,6 +268,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=26"></script><script src="catalog.js?v=26"></script><script src="country-intelligence.js?v=26"></script><script src="app.js?v=26"></script><script src="real-map.js?v=26"></script><script src="botswana.js?v=26"></script><script src="wildlife.js?v=26"></script><script src="wildlife-profile.js?v=26"></script><script src="mobile.js?v=26"></script><script src="safety.js?v=26"></script><script src="map-fixes.js?v=26"></script><script src="route-actions.js?v=26"></script><script src="pocketbook.js?v=26"></script><script src="offline-packs.js?v=26"></script><script src="journal.js?v=26"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=27"></script><script src="catalog.js?v=27"></script><script src="country-intelligence.js?v=27"></script><script src="app.js?v=27"></script><script src="real-map.js?v=27"></script><script src="botswana.js?v=27"></script><script src="wildlife.js?v=27"></script><script src="wildlife-profile.js?v=27"></script><script src="mobile.js?v=27"></script><script src="safety.js?v=27"></script><script src="map-fixes.js?v=27"></script><script src="route-actions.js?v=27"></script><script src="pocketbook.js?v=27"></script><script src="offline-packs.js?v=27"></script><script src="journal.js?v=27"></script><script src="safari-atmosphere.js?v=27"></script>
 </body>
 </html>

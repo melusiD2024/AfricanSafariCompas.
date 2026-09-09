@@ -118,3 +118,24 @@
 1. End-to-end navigation, mobile safe-area and accessibility regression.
 2. Repair defects without removing breadth.
 3. Build and publish the final stable APK with documented limitations.
+
+## Cycle 8 — Final regression and release
+
+- Added a repeatable build-gating validator for duplicate IDs, missing local references, JavaScript syntax, service-worker assets, required screens and safe-area support.
+- Added the validator to GitHub Actions before every Android build.
+- Enabled full edge-to-edge safe-area viewport handling and moved the bottom navigation and SOS control clear of Android system controls.
+- Added visible keyboard focus, larger mobile tap targets and reduced-motion support.
+- Corrected the Android status bar to the Pocketbook brown-black brand palette.
+- Replaced stale prototype and pre-launch wording with accurate availability statements.
+- Fixed journal backup on Android by routing it through the native share/save sheet instead of an unsupported WebView blob download.
+- Bumped Android to 1.16.0 and offline cache to v26.
+
+## Known release limitations
+
+- Live country intelligence, biodiversity results, photographs, recordings, OpenStreetMap search and uncached map tiles require connectivity and their upstream services may be unavailable.
+- Regional packs store reference indexes, not complete offline raster/vector maps.
+- Lodge coverage outside the expanded Botswana catalogue remains editorially incomplete.
+- Only three curated animal-call recordings are presently licensed and connected; other profiles say recording unavailable.
+- Safety contacts and emergency numbers are user-entered and must be independently verified; the app does not dispatch assistance.
+- Journal and safety data are device-local and have no encrypted account sync.
+- The published APK is debug-signed for direct testing rather than Play Store production signing.

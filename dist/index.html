@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="theme-color" content="#292621" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="journal.css" />
   <link rel="stylesheet" href="map-search.css" />
   <link rel="stylesheet" href="safety-center.css" />
+  <link rel="stylesheet" href="final-polish.css" />
   <link rel="stylesheet" href="africa.css" />
   <link rel="stylesheet" href="mobile-app.css" />
   <link rel="stylesheet" href="catalog.css" />
@@ -170,7 +171,7 @@
       </div>
       <section class="atlas-section">
         <div class="atlas-title"><div><p class="eyebrow dark">Continental destination atlas</p><h2>Every African country, in one guide.</h2></div><span class="atlas-count">54 countries</span></div>
-        <div class="atlas-controls"><div class="searchbox"><span>⌕</span><input id="atlasSearch" placeholder="Search a country or destination" /></div><select id="atlasRegion" aria-label="Filter by African region"><option value="all">All regions</option><option value="North">North Africa</option><option value="West">West Africa</option><option value="Central">Central Africa</option><option value="East">East Africa</option><option value="Southern">Southern Africa</option><option value="Islands">African islands</option></select></div>
+        <div class="atlas-controls"><div class="searchbox"><span>⌕</span><input id="atlasSearch" aria-label="Search countries and destinations" placeholder="Search a country or destination" /></div><select id="atlasRegion" aria-label="Filter by African region"><option value="all">All regions</option><option value="North">North Africa</option><option value="West">West Africa</option><option value="Central">Central Africa</option><option value="East">East Africa</option><option value="Southern">Southern Africa</option><option value="Islands">African islands</option></select></div>
         <div class="atlas-grid" id="atlasGrid"></div>
         <p class="atlas-note">The atlas is designed for continuing verification and expansion. Local access rules, operating seasons and safety conditions must be confirmed before travel.</p>
       </section>
@@ -178,13 +179,13 @@
 
     <section class="view content-view" id="field">
       <p class="eyebrow dark">Pocket field guide</p><h1>Know what you’re looking at.</h1>
-      <div class="searchbox"><span>⌕</span><input id="animalSearch" placeholder="Search common or scientific name" /></div>
+      <div class="searchbox"><span>⌕</span><input id="animalSearch" aria-label="Search wildlife by common or scientific name" placeholder="Search common or scientific name" /></div>
       <div class="fauna-mode" id="faunaMode"><button class="selected" data-mode="guide">Offline safari guide</button><button data-mode="database">Full biodiversity search</button></div>
       <div class="biodiversity-controls" id="biodiversityControls" hidden><select id="faunaCountry" aria-label="Select African country"><option value="">Choose a country</option></select><button id="searchBiodiversity">Search national records</button></div>
       <p class="database-note" id="databaseNote" hidden>Search verified occurrence records from the Global Biodiversity Information Facility. Results can include mammals, birds, reptiles, amphibians, fish and invertebrates.</p>
       <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button><button data-kind="Marine">Marine</button></div>
       <div class="animal-grid" id="animalGrid"></div>
-      <p class="offline-note">Designed for offline use in the field. Detailed species content will be verified before commercial launch.</p>
+      <p class="offline-note">The curated field guide works offline. Live taxonomy, occurrence records, photographs and recordings require connectivity unless previously cached.</p>
     </section>
 
     <section class="view journal-view" id="journal">
@@ -199,7 +200,7 @@
       </div>
       <div class="map-workspace">
         <aside class="map-sidebar">
-          <div class="map-search"><span>⌕</span><input id="mapSearch" placeholder="Park, lodge, town or country" /><button id="searchAllAfrica" type="button">Search all Africa</button></div><div class="map-search-status" id="mapSearchStatus" aria-live="polite">Curated places appear below. Use “Search all Africa” for live OpenStreetMap results.</div><div class="live-place-list" id="livePlaceList"></div>
+          <div class="map-search"><span>⌕</span><input id="mapSearch" aria-label="Search the Africa map" placeholder="Park, lodge, town or country" /><button id="searchAllAfrica" type="button">Search all Africa</button></div><div class="map-search-status" id="mapSearchStatus" aria-live="polite">Curated places appear below. Use “Search all Africa” for live OpenStreetMap results.</div><div class="live-place-list" id="livePlaceList"></div>
           <div class="map-filters" id="mapFilters"><button class="selected" data-region="all">All Africa</button><button data-region="east">East</button><button data-region="south">Southern</button><button data-region="north">North</button><button data-region="west">West</button><button data-region="central">Central</button><button data-region="islands">Islands</button></div>
           <div class="place-list" id="placeList"></div>
         </aside>
@@ -259,7 +260,7 @@
     <div id="wildlifeProfile"><p class="database-status">Loading field entry…</p></div>
   </dialog>
 
-  <div class="toast" id="toast">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=25"></script><script src="catalog.js?v=25"></script><script src="country-intelligence.js?v=25"></script><script src="app.js?v=25"></script><script src="real-map.js?v=25"></script><script src="botswana.js?v=25"></script><script src="wildlife.js?v=25"></script><script src="wildlife-profile.js?v=25"></script><script src="mobile.js?v=25"></script><script src="safety.js?v=25"></script><script src="map-fixes.js?v=25"></script><script src="route-actions.js?v=25"></script><script src="pocketbook.js?v=25"></script><script src="offline-packs.js?v=25"></script><script src="journal.js?v=25"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=26"></script><script src="catalog.js?v=26"></script><script src="country-intelligence.js?v=26"></script><script src="app.js?v=26"></script><script src="real-map.js?v=26"></script><script src="botswana.js?v=26"></script><script src="wildlife.js?v=26"></script><script src="wildlife-profile.js?v=26"></script><script src="mobile.js?v=26"></script><script src="safety.js?v=26"></script><script src="map-fixes.js?v=26"></script><script src="route-actions.js?v=26"></script><script src="pocketbook.js?v=26"></script><script src="offline-packs.js?v=26"></script><script src="journal.js?v=26"></script>
 </body>
 </html>

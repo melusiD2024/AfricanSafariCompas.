@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['android/**', 'dist/**', '.github/workflows/android-apk.yml']
+    paths: ['android/**', 'dist/**', 'scripts/**', '.github/workflows/android-apk.yml']
 
 jobs:
   build-debug-apk:
@@ -19,6 +19,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: Validate bundled web application
+        run: node scripts/validate-web.mjs
       - name: Install Android SDK 35
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build installable debug APK

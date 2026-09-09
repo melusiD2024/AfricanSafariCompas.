@@ -179,3 +179,12 @@
 - Used honest “Core country profile” language for entries still awaiting deeper regional research rather than presenting the atlas as complete.
 - Made the new field profiles available inside offline country entries and offline regional packs.
 - Bumped Android to 1.20.0 and offline cache to v30.
+
+## Cycle 13 — East African field profiles
+
+- Expanded Kenya, Tanzania, Uganda, Rwanda and Ethiopia to the full field-profile structure.
+- Added country-specific gateways, ecosystem summaries, six regional landscape entries and broad seasonal context.
+- Connected each entry to its national wildlife, parks or official tourism authority.
+- Added explicit climate and wildlife-event caveats so seasonal editorial guidance is never presented as a forecast or guarantee.
+- Preserved direct country actions for wildlife records, maps, language notes and safety setup.
+- Bumped Android to 1.21.0 and offline cache to v31.

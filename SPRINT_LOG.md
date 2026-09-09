@@ -159,3 +159,13 @@
 - Removed the non-functional operator lead form and replaced it with honest independent-verification guidance.
 - Relabelled the wildlife modes and added a prominent scope statement.
 - Bumped Android to 1.18.0 and offline cache to v28.
+
+## Cycle 11 — Country languages and phrase notebooks
+
+- Removed the internal “first complete country model” development label from Botswana.
+- Added Languages & Local Etiquette to every country profile using the country-language fields returned by REST Countries.
+- Cached successfully retrieved language lists for later offline country-profile use.
+- Added six practical phrase-note prompts per country for translations confirmed with a guide, host or fluent speaker.
+- Added device-local phrase persistence and optional device-generated pronunciation.
+- Clearly distinguished device speech from native-speaker recordings and avoided invented machine translations.
+- Bumped Android to 1.19.0 and offline cache to v29.

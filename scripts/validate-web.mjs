@@ -16,4 +16,7 @@ if(!mobileCss.includes('overflow-x:clip'))errors.push('Viewport overflow must no
 if(!mobileCss.includes('[hidden]{display:none!important}'))errors.push('Native hidden states must override component display rules');
 if((realMap.match(/revealMap\(\)/g)||[]).length<3||!realMap.includes("scrollIntoView({behavior:'smooth',block:'start'})"))errors.push('Map result selection must reveal the geographic map');
 const countryIntelligence=fs.readFileSync(path.join(dist,'country-intelligence.js'),'utf8');if((countryIntelligence.match(/countryDestinationHtml/g)||[]).length<2||(countryIntelligence.match(/mountCountryDestinations/g)||[]).length<2)errors.push('Country destination directory must work in live and offline profiles');
+const wildlifeSource=fs.readFileSync(path.join(dist,'wildlife.js'),'utf8'),wildlifeProfile=fs.readFileSync(path.join(dist,'wildlife-profile.js'),'utf8');
+for(const species of ["['Serval','Leptailurus serval'","['Nile lechwe','Kobus megaceros'","['Bateleur','Terathopius ecaudatus'","['West Indian Ocean coelacanth','Latimeria chalumnae'"])if(!wildlifeSource.includes(species))errors.push(`Expanded wildlife entry missing: ${species}`);
+if(!wildlifeProfile.includes('media_type=StillImage')||!wildlifeProfile.includes('profile-media-credit')||!wildlifeProfile.includes('Open media record'))errors.push('Wildlife profiles must expose attributable occurrence media');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Validated ${ids.length} IDs, ${refs.length} local references and ${scripts.length} scripts.`);

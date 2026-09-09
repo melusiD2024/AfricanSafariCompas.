@@ -269,3 +269,13 @@
 - Kept the complete directory available in offline country profiles while clearly reserving live map lookup for connected use.
 - Preserved all v1.29 navigation, SOS, sticky search, journal, wildlife and country-intelligence behaviour.
 - Bumped Android to 1.30.0 and offline cache to v39.
+
+## Cycle 22 — Wildlife breadth and media provenance
+
+- Expanded the offline curated field guide from 64 to 104 African wildlife entries without removing the live country-record browser.
+- Added overlooked small carnivores, antelope, primates, reptiles, birds and marine species across African habitats.
+- Made opened profiles prefer still images attached to GBIF occurrence records, with Wikimedia imagery retained as a fallback.
+- Added visible image provider, contributor or rightsholder, licence and direct media-record attribution beneath each profile photograph.
+- Kept taxonomy, occurrence evidence and current conservation searches clearly separated, with no invented conservation status.
+- Preserved the floating red SOS, compact sticky searches, real map, country profiles, languages, offline packs and private journal.
+- Bumped Android to 1.31.0 and offline cache to v40.

@@ -241,3 +241,12 @@
 - Returned the navigation to five evenly sized destinations while preserving sticky search and filter controls.
 - Retained the mobile safe-area offset so SOS remains above the phone navigation area and app tabs.
 - Bumped Android to 1.27.0 and offline cache to v36.
+
+## Cycle 19 — Mobile discovery and map-flow repair
+
+- Removed the horizontal overflow scroll-container condition that prevented sticky controls from adhering reliably in Android WebView.
+- Kept country and wildlife search/filter panels pinned directly beneath the app header during page scrolling.
+- Made curated and live destination selections automatically move the real geographic map into the viewport.
+- Increased the mobile map to a useful viewport-relative height and constrained its information card so the geography remains visible.
+- Reduced nonessential Map-page introduction content on phones so map tools are reached sooner.
+- Bumped Android to 1.28.0 and offline cache to v37.

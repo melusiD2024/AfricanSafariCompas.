@@ -22,6 +22,11 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
+      - name: Preserve testing signature between releases
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: african-safari-pocketbook-debug-signing-v1
       - name: Validate bundled web application
         run: node scripts/validate-web.mjs
       - name: Install Android SDK 35

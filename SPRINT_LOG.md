@@ -204,3 +204,8 @@
 - Prevented Android input zoom, improved tap targets and added graceful broken-image handling.
 - Added build-gating checks for the final mobile stylesheet, interaction script and offline-cache registration.
 - Bumped Android to 1.22.0 and offline cache to v32.
+
+## Final installation hardening
+
+- Preserved the Android testing keystore between automated builds so releases after 1.23.0 can upgrade in place instead of receiving unrelated test signatures.
+- Published 1.23.0 as the new stable installation baseline; older test builds may require one final uninstall before installation.

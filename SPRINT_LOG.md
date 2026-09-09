@@ -149,3 +149,13 @@
 - Refined action language around the safari journey: discover, identify, navigate and remember.
 - Kept motion optional through the device reduced-motion preference and preserved mobile safe areas.
 - Bumped Android to 1.17.0 and offline cache to v27.
+
+## Cycle 10 — Product integrity and country wildlife
+
+- Corrected the repeated 71-species defect: offline packs now describe the wildlife content as one continent-wide starter guide, never a national species total.
+- Added country browsing of the most frequently published animal occurrence records through GBIF, without requiring users to guess a search term.
+- Added explicit caveats that database records reflect reporting effort and are not complete inventories or range assessments.
+- Removed unsupported claims about verified operators and offline destination maps.
+- Removed the non-functional operator lead form and replaced it with honest independent-verification guidance.
+- Relabelled the wildlife modes and added a prominent scope statement.
+- Bumped Android to 1.18.0 and offline cache to v28.

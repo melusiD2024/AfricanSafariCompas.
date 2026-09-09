@@ -16,6 +16,7 @@
     countries:(window.africanAtlas||[]).filter(row=>row[1]===atlasRegion).map(([country,area,destinations])=>({country,region:area,destinations})),
     mapDestinations:(window.safariPlaces||[]).filter(place=>place.region===mapRegion).map(({name,code,countryName,type,tags})=>({name,code,countryName,type,tags})),
     wildlife:(window.pocketWildlife||[]).map(([name,scientific,kind,habitat])=>({name,scientific,kind,habitat})),
+    wildlifeScope:'Continent-wide curated starter guide; not a country species count.',
     limits:'Static editorial reference only. Live travel advisories, health notices, political conditions, biodiversity results, photographs and uncached map tiles are not included.'
   }}
   function bytes(pack){return new Blob([JSON.stringify(pack)]).size}
@@ -24,7 +25,7 @@
   async function allPacks(){return withStore('readonly',store=>requestResult(store.getAll()))}
   async function savePack(pack){await withStore('readwrite',store=>store.put(pack))}
   async function removePack(region){await withStore('readwrite',store=>store.delete(region))}
-  async function render(){const packs=await allPacks(),byRegion=new Map(packs.map(pack=>[pack.region,pack]));cards.forEach(card=>{const region=card.dataset.pack,pack=byRegion.get(region)||createPack(region),saved=!!byRegion.get(region),button=card.querySelector('button'),detail=card.querySelector('small');card.classList.toggle('downloaded',saved);button.textContent=saved?'Remove':'Save guide';button.setAttribute('aria-pressed',String(saved));detail.textContent=saved?`${pack.countries.length} countries · ${pack.mapDestinations.length} mapped places · ${sizeLabel(bytes(pack))}`:`${pack.countries.length} countries · ${pack.mapDestinations.length} mapped places · ${pack.wildlife.length} species`});
+  async function render(){const packs=await allPacks(),byRegion=new Map(packs.map(pack=>[pack.region,pack]));cards.forEach(card=>{const region=card.dataset.pack,pack=byRegion.get(region)||createPack(region),saved=!!byRegion.get(region),button=card.querySelector('button'),detail=card.querySelector('small');card.classList.toggle('downloaded',saved);button.textContent=saved?'Remove':'Save guide';button.setAttribute('aria-pressed',String(saved));detail.textContent=saved?`${pack.countries.length} countries · ${pack.mapDestinations.length} mapped places · ${sizeLabel(bytes(pack))}`:`${pack.countries.length} countries · ${pack.mapDestinations.length} mapped places · includes global starter guide`});
     const total=packs.reduce((sum,pack)=>sum+bytes(pack),0);let storage='';try{const estimate=await navigator.storage?.estimate?.();if(estimate?.usage!=null)storage=` · App storage ${sizeLabel(estimate.usage)}`}catch(error){}
     summary.innerHTML=packs.length?`<strong>${packs.length} of 6 regions stored</strong><span>${sizeLabel(total)} of guide data${storage}</span>`:'<strong>No regional packs stored</strong><span>Choose a region to keep its reference index on this device.</span>';clear.hidden=!packs.length;
   }

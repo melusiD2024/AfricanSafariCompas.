@@ -41,7 +41,6 @@ function build(){
  $('#toast').textContent='Your African route has been rebuilt.';showToast();$('.route-panel').scrollIntoView({behavior:'smooth',block:'start'})
 }
 $('#buildRoute').addEventListener('click',build);$('#saveRoute').addEventListener('click',e=>{e.currentTarget.textContent=e.currentTarget.textContent==='♥'?'♡':'♥';$('#toast').textContent=e.currentTarget.textContent==='♥'?'Route saved to your trips.':'Route removed from saved trips.';showToast()});
-const dialog=$('#operatorDialog');$('#operatorButton').addEventListener('click',()=>dialog.showModal());$('.dialog-close').addEventListener('click',()=>dialog.close());$('#operatorForm').addEventListener('submit',e=>{e.preventDefault();dialog.close();$('#toast').textContent='Operator matching is not connected yet; no request was sent.';showToast()});
 const places=[
  {name:'Marrakech & Atlas',code:'MA',region:'north',countryName:'Morocco',type:'Culture & mountains',x:235,y:91,tags:['Culture','Mountains','Desert']},{name:'Luxor & the Nile',code:'EG',region:'north',countryName:'Egypt',type:'Heritage journey',x:466,y:112,tags:['Heritage','River','Desert']},
  {name:'Dakar',code:'SN',region:'west',countryName:'Senegal',type:'City & coast',x:147,y:194,tags:['Music','Coast','Culture']},{name:'Kakum & Cape Coast',code:'GH',region:'west',countryName:'Ghana',type:'Forest & heritage',x:251,y:248,tags:['Forest','History','Coast']},

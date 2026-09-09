@@ -90,7 +90,7 @@
           <p>Go further. Know more. Travel prepared across Africa’s landscapes, wildlife and cultures.</p>
         </div>
         <div class="trust-row">
-          <span>● Five African regions</span><span>● Verified local operators</span><span>● Offline destination maps</span>
+          <span>● 54-country atlas</span><span>● Live geographic search</span><span>● Offline reference packs</span>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
 
           <div class="route-note"><span>i</span><p><strong>This is a planning route, not a fixed package.</strong> A local specialist can refine seasons, transfers and availability before you commit.</p></div>
           <div class="route-actions"><button id="tryAnotherRoute"><span>↻</span>Try another route</button><button id="editSearch"><span>✎</span>Edit search</button></div>
-          <button class="secondary" id="operatorButton">Request matched operators <span>→</span></button>
+          <p class="route-integrity">No booking or operator match is performed. Confirm seasons, transfers, access and availability with independently verified providers.</p>
         </section>
       </div>
     </section>
@@ -186,10 +186,11 @@
 
     <section class="view content-view" id="field">
       <p class="eyebrow dark">Pocket field guide</p><h1>Know what you’re looking at.</h1>
+      <p class="guide-scope"><strong>71 curated African field entries.</strong> This is one continent-wide starter guide—not 71 species per country and not a complete biodiversity inventory.</p>
       <div class="searchbox"><span>⌕</span><input id="animalSearch" aria-label="Search wildlife by common or scientific name" placeholder="Search common or scientific name" /></div>
-      <div class="fauna-mode" id="faunaMode"><button class="selected" data-mode="guide">Offline safari guide</button><button data-mode="database">Full biodiversity search</button></div>
-      <div class="biodiversity-controls" id="biodiversityControls" hidden><select id="faunaCountry" aria-label="Select African country"><option value="">Choose a country</option></select><button id="searchBiodiversity">Search national records</button></div>
-      <p class="database-note" id="databaseNote" hidden>Search verified occurrence records from the Global Biodiversity Information Facility. Results can include mammals, birds, reptiles, amphibians, fish and invertebrates.</p>
+      <div class="fauna-mode" id="faunaMode"><button class="selected" data-mode="guide">African starter guide</button><button data-mode="database">Browse country records</button></div>
+      <div class="biodiversity-controls" id="biodiversityControls" hidden><select id="faunaCountry" aria-label="Select African country"><option value="">Choose a country</option></select><button id="searchBiodiversity">Browse recorded wildlife</button></div>
+      <p class="database-note" id="databaseNote" hidden>Browse animal species represented in GBIF occurrence records for the selected country. Results reflect published records and reporting effort—not a complete current national inventory or range assessment.</p>
       <div class="wildlife-filters" id="wildlifeFilters"><button class="selected" data-kind="all">All</button><button data-kind="Mammal">Mammals</button><button data-kind="Bird">Birds</button><button data-kind="Reptile">Reptiles</button><button data-kind="Marine">Marine</button></div>
       <div class="animal-grid" id="animalGrid"></div>
       <p class="offline-note">The curated field guide works offline. Live taxonomy, occurrence records, photographs and recordings require connectivity unless previously cached.</p>
@@ -234,18 +235,6 @@
     <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button data-view="map"><span>⌖</span>Map</button><button data-view="journal"><span>✎</span>Journal</button>
   </nav>
 
-  <dialog id="operatorDialog">
-    <button class="dialog-close" aria-label="Close">×</button>
-    <p class="eyebrow dark">No obligation</p><h2>Meet the right local operators.</h2>
-    <p>Tell us where to send your route. We’ll match you with up to three verified specialists who work in these destinations.</p>
-    <form id="operatorForm">
-      <label>Full name<input required placeholder="Your name" /></label>
-      <label>Email address<input required type="email" placeholder="you@example.com" /></label>
-      <label>Anything we should know?<textarea placeholder="Travelling with children, mobility needs, preferred dates…"></textarea></label>
-      <button class="primary" type="submit">Send my request <span>→</span></button>
-    </form>
-  </dialog>
-
   <dialog id="sosDialog" class="sos-dialog">
     <button class="dialog-close sos-close" aria-label="Close">×</button><div class="sos-heading"><span>SOS</span><div><p class="eyebrow">Safety centre</p><h2>Do you need help?</h2></div></div>
     <p class="sos-warning"><strong>This app does not dispatch emergency services.</strong> Sharing opens your phone’s share sheet; you must confirm that a trusted person actually receives the message.</p>
@@ -268,6 +257,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=27"></script><script src="catalog.js?v=27"></script><script src="country-intelligence.js?v=27"></script><script src="app.js?v=27"></script><script src="real-map.js?v=27"></script><script src="botswana.js?v=27"></script><script src="wildlife.js?v=27"></script><script src="wildlife-profile.js?v=27"></script><script src="mobile.js?v=27"></script><script src="safety.js?v=27"></script><script src="map-fixes.js?v=27"></script><script src="route-actions.js?v=27"></script><script src="pocketbook.js?v=27"></script><script src="offline-packs.js?v=27"></script><script src="journal.js?v=27"></script><script src="safari-atmosphere.js?v=27"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=28"></script><script src="catalog.js?v=28"></script><script src="country-intelligence.js?v=28"></script><script src="app.js?v=28"></script><script src="real-map.js?v=28"></script><script src="botswana.js?v=28"></script><script src="wildlife.js?v=28"></script><script src="wildlife-profile.js?v=28"></script><script src="mobile.js?v=28"></script><script src="safety.js?v=28"></script><script src="map-fixes.js?v=28"></script><script src="route-actions.js?v=28"></script><script src="pocketbook.js?v=28"></script><script src="offline-packs.js?v=28"></script><script src="journal.js?v=28"></script><script src="safari-atmosphere.js?v=28"></script>
 </body>
 </html>

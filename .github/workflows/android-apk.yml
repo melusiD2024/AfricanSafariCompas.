@@ -40,15 +40,17 @@ jobs:
           if-no-files-found: error
       - name: Publish complete APK without binary transport
         run: |
+          VERSION_NAME=$(sed -n "s/.*versionName '\([^']*\)'.*/\1/p" android/app/build.gradle)
+          test -n "$VERSION_NAME"
           mkdir -p releases
-          cp android/app/build/outputs/apk/debug/app-debug.apk releases/AfricanSafariPocketbook-v17.apk
+          cp android/app/build/outputs/apk/debug/app-debug.apk "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk"
           cp android/app/build/outputs/apk/debug/app-debug.apk releases/AfricanSafariPocketbook-latest.apk
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add releases/AfricanSafariPocketbook-v17.apk releases/AfricanSafariPocketbook-latest.apk
+          git add "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk" releases/AfricanSafariPocketbook-latest.apk
           if git diff --cached --quiet; then
             echo "Published APK already matches this build."
           else
-            git commit -m "Publish verified African Safari Pocketbook v1.17.0 APK"
+            git commit -m "Publish verified African Safari Pocketbook v${VERSION_NAME} APK"
             git push
           fi

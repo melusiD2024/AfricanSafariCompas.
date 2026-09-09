@@ -169,3 +169,13 @@
 - Added device-local phrase persistence and optional device-generated pronunciation.
 - Clearly distinguished device speech from native-speaker recordings and avoided invented machine translations.
 - Bumped Android to 1.19.0 and offline cache to v29.
+
+## Cycle 12 — Structured country field profiles
+
+- Added a consistent field-profile structure to all 54 country entries with direct Wildlife, Map, Languages and Safety actions.
+- Added expanded editorial profiles for Botswana, South Africa, Namibia, Zimbabwe and Zambia covering gateways, landscape systems, safari regions and broad seasonal patterns.
+- Linked expanded profiles to official national tourism, protected-area and environment sources.
+- Kept bundled editorial guidance visibly separate from live political, security, health and operational information.
+- Used honest “Core country profile” language for entries still awaiting deeper regional research rather than presenting the atlas as complete.
+- Made the new field profiles available inside offline country entries and offline regional packs.
+- Bumped Android to 1.20.0 and offline cache to v30.

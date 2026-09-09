@@ -234,3 +234,10 @@
 - Moved SOS into its own reserved mobile-navigation cell, eliminating its ability to cover Map, Journal or page actions.
 - Preserved a floating desktop SOS control and the existing emergency shortcut inside full-screen information sheets.
 - Bumped Android to 1.26.0 and offline cache to v35.
+
+## Cycle 18 — Restore floating emergency control
+
+- Restored the prominent red floating SOS button above the mobile navigation at the user’s request.
+- Returned the navigation to five evenly sized destinations while preserving sticky search and filter controls.
+- Retained the mobile safe-area offset so SOS remains above the phone navigation area and app tabs.
+- Bumped Android to 1.27.0 and offline cache to v36.

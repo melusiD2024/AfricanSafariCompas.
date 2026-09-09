@@ -136,6 +136,13 @@ public class MainActivity extends Activity {
     }
 
     @Override public void onBackPressed() {
+        webView.evaluateJavascript("window.handleNativeBack ? window.handleNativeBack() : false", handled -> {
+            if ("true".equals(handled)) return;
+            performDefaultBack();
+        });
+    }
+
+    private void performDefaultBack() {
         if (webView.canGoBack()) webView.goBack();
         else super.onBackPressed();
     }

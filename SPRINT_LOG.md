@@ -193,3 +193,14 @@
 
 - Added a proper versioned GitHub Release with an APK asset to every successful Android build.
 - Retained the repository stable-download copy as a fallback while avoiding dependence on the intermittently overloaded raw-content cache.
+
+## Cycle 14 — App-wide mobile stabilization
+
+- Replaced competing phone modal dimensions with one full-screen mobile-sheet contract for country, wildlife and safety windows.
+- Added physical viewport, display-cutout and Android navigation-area handling across dialogs, navigation, SOS and notifications.
+- Made close controls persist while long profiles scroll and added Android back-button support for closing sheets before exiting the app.
+- Removed horizontal overflow paths from grids, long source links, map details, forms, itinerary cards and narrow-screen branding.
+- Reflowed country facts, wildlife classifications, language notes, safety fields, map actions, journal controls and route cards for narrow phones.
+- Prevented Android input zoom, improved tap targets and added graceful broken-image handling.
+- Added build-gating checks for the final mobile stylesheet, interaction script and offline-cache registration.
+- Bumped Android to 1.22.0 and offline cache to v32.

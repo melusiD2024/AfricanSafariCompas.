@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="map.css" />
   <link rel="stylesheet" href="offline-packs.css" />
+  <link rel="stylesheet" href="journal.css" />
   <link rel="stylesheet" href="africa.css" />
   <link rel="stylesheet" href="mobile-app.css" />
   <link rel="stylesheet" href="catalog.css" />
@@ -45,6 +46,7 @@
       <button class="nav-link" data-view="explore">Explore</button>
       <button class="nav-link" data-view="map">Map</button>
       <button class="nav-link" data-view="field">Field guide</button>
+      <button class="nav-link" data-view="journal">Journal</button>
     </nav>
     <button class="saved-button" id="installApp">Install app <span>↓</span></button>
   </header>
@@ -61,9 +63,9 @@
           <button data-go="explore"><span>01</span><strong>Places</strong><small>54 countries, destinations and Botswana lodge catalogue</small><i>→</i></button>
           <button data-go="field"><span>02</span><strong>Wildlife</strong><small>Species photographs, scientific names and real calls</small><i>→</i></button>
           <button data-go="map"><span>03</span><strong>Offline maps</strong><small>Explore destinations and save regional guide packs</small><i>→</i></button>
-          <button data-go="trip"><span>04</span><strong>My journey</strong><small>Itinerary, documents, lodges and preparation checklist</small><i>→</i></button>
+          <button data-go="journal"><span>04</span><strong>Field journal</strong><small>Record sightings, save places and keep private notes</small><i>→</i></button>
         </section>
-        <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="map"><b>NAVIGATE</b><strong>Find your bearings</strong><small>Real geographic map and saved guides</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
+        <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="journal"><b>RECORD</b><strong>Keep a field journal</strong><small>Sightings, places and private notes</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
         <button class="plan-entry" data-go="planner"><span><small>TRIP PLANNER</small><strong>Build a safari route</strong></span><i>→</i></button>
       </div>
     </section>
@@ -183,6 +185,11 @@
       <p class="offline-note">Designed for offline use in the field. Detailed species content will be verified before commercial launch.</p>
     </section>
 
+    <section class="view journal-view" id="journal">
+      <header class="journal-hero"><div><p class="eyebrow">MY FIELD JOURNAL</p><h1>Remember what you saw.</h1><p>Your sightings and notes stay on this device unless you export them.</p></div><div class="journal-stats"><strong id="sightingCount">0</strong><span>sightings</span><strong id="savedPlaceCount">0</strong><span>saved places</span></div></header>
+      <div class="journal-layout"><section class="journal-entry"><p class="eyebrow dark">NEW ENTRY</p><h2>Record a sighting</h2><form id="sightingForm"><label>Animal<input id="sightingAnimal" list="animalOptions" required placeholder="Common or scientific name"><datalist id="animalOptions"></datalist></label><div class="journal-pair"><label>Date and time<input id="sightingDate" type="datetime-local" required></label><label>Place<input id="sightingPlace" list="placeOptions" placeholder="Park, reserve or coordinates"><datalist id="placeOptions"></datalist></label></div><label>Field notes<textarea id="sightingNotes" placeholder="Behaviour, number seen, habitat, weather…"></textarea></label><div class="journal-form-actions"><button type="button" id="sightingLocation">⌖ Add current location</button><button type="submit">Save sighting</button></div><small id="locationPrivacy">Location is optional and is only saved inside this entry.</small></form></section><section class="journal-records"><div class="journal-record-heading"><div><p class="eyebrow dark">ON THIS DEVICE</p><h2>Field entries</h2></div><button id="exportJournal">Export backup</button></div><div id="journalEmpty" class="journal-empty"><strong>Your first sighting starts here.</strong><p>Open any wildlife entry or use the form to build your personal field record.</p></div><div id="sightingList" class="sighting-list"></div><div class="saved-places"><h2>Saved places</h2><p>Use “Save place” on the map to add locations here.</p><div id="savedPlaceList"></div></div></section></div>
+    </section>
+
     <section class="view map-view" id="map">
       <div class="map-heading">
         <div><p class="eyebrow dark">Africa in your pocket</p><h1>Explore Africa on a real geographic map.</h1><p>The live map needs a connection. Destination guides and map areas you have already viewed remain available when cached on your device.</p></div>
@@ -214,7 +221,7 @@
   <button class="sos-fab" id="sosButton" aria-label="Open emergency assistance"><span>SOS</span><small>Emergency</small></button>
 
   <nav class="bottom-nav" aria-label="App navigation">
-    <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button data-view="map"><span>⌖</span>Map</button><button data-view="planner"><span>＋</span>Plan</button>
+    <button class="active" data-view="pocketbook"><span>⌂</span>Home</button><button data-view="explore"><span>◇</span>Places</button><button data-view="field"><span>◎</span>Wildlife</button><button data-view="map"><span>⌖</span>Map</button><button data-view="journal"><span>✎</span>Journal</button>
   </nav>
 
   <dialog id="operatorDialog">
@@ -249,6 +256,6 @@
   </dialog>
 
   <div class="toast" id="toast">Route saved to your trips.</div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=22"></script><script src="catalog.js?v=22"></script><script src="country-intelligence.js?v=22"></script><script src="app.js?v=22"></script><script src="real-map.js?v=22"></script><script src="botswana.js?v=22"></script><script src="wildlife.js?v=22"></script><script src="wildlife-profile.js?v=22"></script><script src="mobile.js?v=22"></script><script src="safety.js?v=22"></script><script src="map-fixes.js?v=22"></script><script src="route-actions.js?v=22"></script><script src="pocketbook.js?v=22"></script><script src="offline-packs.js?v=22"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script><script src="native-bridge.js?v=23"></script><script src="catalog.js?v=23"></script><script src="country-intelligence.js?v=23"></script><script src="app.js?v=23"></script><script src="real-map.js?v=23"></script><script src="botswana.js?v=23"></script><script src="wildlife.js?v=23"></script><script src="wildlife-profile.js?v=23"></script><script src="mobile.js?v=23"></script><script src="safety.js?v=23"></script><script src="map-fixes.js?v=23"></script><script src="route-actions.js?v=23"></script><script src="pocketbook.js?v=23"></script><script src="offline-packs.js?v=23"></script><script src="journal.js?v=23"></script>
 </body>
 </html>

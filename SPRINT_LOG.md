@@ -66,3 +66,20 @@
 1. Personal sightings, saved places and field notes.
 2. Map search and destination-detail depth.
 3. Safety-centre configuration and emergency readiness checks.
+
+## Cycle 5 — Private field journal
+
+- Added a first-class Field Journal to home, desktop and mobile navigation.
+- Added offline sightings with animal, local date/time, place, notes and optional device coordinates.
+- Added one-tap “Sighting” actions to curated wildlife cards.
+- Added saved destinations directly from the map and a saved-place collection in the journal.
+- Added journal counts, empty states, deletion controls and a portable JSON backup export.
+- Clearly disclosed that journal records remain on the device unless exported.
+- Added datalist suggestions from the full curated wildlife guide and mapped destination index.
+- Bumped Android to 1.13.0 and offline cache to v23.
+
+## Next priorities after cycle 5
+
+1. Map search and destination-detail depth.
+2. Safety-centre configuration and emergency readiness checks.
+3. Accessibility and complete mobile regression testing.

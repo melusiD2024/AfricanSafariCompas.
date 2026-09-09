@@ -188,3 +188,8 @@
 - Added explicit climate and wildlife-event caveats so seasonal editorial guidance is never presented as a forecast or guarantee.
 - Preserved direct country actions for wildlife records, maps, language notes and safety setup.
 - Bumped Android to 1.21.0 and offline cache to v31.
+
+## Release delivery repair
+
+- Added a proper versioned GitHub Release with an APK asset to every successful Android build.
+- Retained the repository stable-download copy as a fallback while avoiding dependence on the intermittently overloaded raw-content cache.

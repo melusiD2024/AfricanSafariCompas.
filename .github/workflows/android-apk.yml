@@ -39,12 +39,19 @@ jobs:
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Publish complete APK without binary transport
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           VERSION_NAME=$(sed -n "s/.*versionName '\([^']*\)'.*/\1/p" android/app/build.gradle)
           test -n "$VERSION_NAME"
           mkdir -p releases
           cp android/app/build/outputs/apk/debug/app-debug.apk "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk"
           cp android/app/build/outputs/apk/debug/app-debug.apk releases/AfricanSafariPocketbook-latest.apk
+          if gh release view "v${VERSION_NAME}" >/dev/null 2>&1; then
+            gh release upload "v${VERSION_NAME}" "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk" --clobber
+          else
+            gh release create "v${VERSION_NAME}" "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk" --title "African Safari Pocketbook v${VERSION_NAME}" --notes "Verified Android test build. Download the APK asset below." --latest
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add "releases/AfricanSafariPocketbook-v${VERSION_NAME}.apk" releases/AfricanSafariPocketbook-latest.apk

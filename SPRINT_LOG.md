@@ -259,3 +259,13 @@
 - Raised the floating SOS button fully above the navigation bar so Journal remains visible and tappable.
 - Enforced the native hidden state so country-record controls no longer appear while the starter guide is selected.
 - Bumped Android to 1.29.0 and offline cache to v38.
+
+## Cycle 21 — Africa-wide destination directory
+
+- Turned every country’s curated highlights into individual, tappable destination entries instead of a single line of text.
+- Added consistent place classification for protected areas, water and coast, mountains, desert and landscape entries.
+- Linked every destination directly to live Africa-wide geographic search and the real map.
+- Added a country-wide map search action to every one of the 54 country profiles.
+- Kept the complete directory available in offline country profiles while clearly reserving live map lookup for connected use.
+- Preserved all v1.29 navigation, SOS, sticky search, journal, wildlife and country-intelligence behaviour.
+- Bumped Android to 1.30.0 and offline cache to v39.

@@ -7,6 +7,7 @@ const worker=fs.readFileSync(path.join(dist,'service-worker.js'),'utf8'),assetLi
 for(const required of ['pocketbook','explore','field','map','journal','sosDialog'])if(!ids.includes(required))errors.push(`Required screen missing: ${required}`);
 if(!html.includes('viewport-fit=cover'))errors.push('Safe-area viewport support missing');
 for(const required of ['mobile-stability.css','app-stability.js'])if(!html.includes(required))errors.push(`Mobile stability asset not loaded: ${required}`);
+for(const required of ['destination-directory.css','destination-directory.js'])if(!html.includes(required))errors.push(`Destination directory asset not loaded: ${required}`);
 if(html.indexOf('mobile-stability.css')<html.lastIndexOf('<link rel="stylesheet"'))errors.push('Mobile stability stylesheet must be the final stylesheet');
 if(!worker.includes("'./mobile-stability.css'")||!worker.includes("'./app-stability.js'"))errors.push('Mobile stability assets missing from offline cache');
 const mobileCss=fs.readFileSync(path.join(dist,'mobile-stability.css'),'utf8'),stickyCss=fs.readFileSync(path.join(dist,'sticky-controls.css'),'utf8'),realMap=fs.readFileSync(path.join(dist,'real-map.js'),'utf8');
@@ -14,4 +15,5 @@ if(!stickyCss.includes('.sticky-controls{position:sticky')||!stickyCss.includes(
 if(!mobileCss.includes('overflow-x:clip'))errors.push('Viewport overflow must not create a sticky-breaking scroll container');
 if(!mobileCss.includes('[hidden]{display:none!important}'))errors.push('Native hidden states must override component display rules');
 if((realMap.match(/revealMap\(\)/g)||[]).length<3||!realMap.includes("scrollIntoView({behavior:'smooth',block:'start'})"))errors.push('Map result selection must reveal the geographic map');
+const countryIntelligence=fs.readFileSync(path.join(dist,'country-intelligence.js'),'utf8');if((countryIntelligence.match(/countryDestinationHtml/g)||[]).length<2||(countryIntelligence.match(/mountCountryDestinations/g)||[]).length<2)errors.push('Country destination directory must work in live and offline profiles');
 if(errors.length){console.error(errors.join('\n'));process.exit(1)}console.log(`Validated ${ids.length} IDs, ${refs.length} local references and ${scripts.length} scripts.`);

@@ -403,3 +403,15 @@
 - Added regression checks for catalogue size, duplicates, all four categories and representative additions.
 - Preserved the raised floating SOS, persistent searches, offline maps, My Trip, country profiles, language guide and journal.
 - Bumped Android to 1.43.0 and offline cache to v52.
+
+## Cycle 35 — Structured wildlife field craft
+
+- Added a structured field-craft section to every one of the 172 curated animal profiles.
+- Added practical identification, behaviour, feeding-evidence, tracks-and-signs and similar-species observation prompts tailored to mammals, birds, reptiles and marine animals.
+- Worded prompts as safe observation methodology rather than unsupported species-specific claims.
+- Clearly separated offline observation guidance from live descriptive, taxonomy, occurrence and conservation sources.
+- Added a one-tap “Record this sighting” action inside every wildlife profile and connected it to the private field journal.
+- Added responsive cards, keyboard focus treatment and single-column mobile presentation.
+- Added regression checks protecting all five field-guide components and journal integration.
+- Preserved 172 wildlife entries, sourced media, the raised SOS, persistent searches, offline maps, My Trip, languages and country profiles.
+- Bumped Android to 1.44.0 and offline cache to v53.

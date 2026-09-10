@@ -20,6 +20,7 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.ValueCallback;
 import android.widget.Toast;
 
 import androidx.webkit.WebViewAssetLoader;
@@ -27,7 +28,9 @@ import androidx.webkit.WebViewAssetLoader;
 public class MainActivity extends Activity {
     private static final String APP_ORIGIN = "https://appassets.androidplatform.net";
     private static final int LOCATION_REQUEST = 1001;
+    private static final int FILE_CHOOSER_REQUEST = 1002;
     private WebView webView;
+    private ValueCallback<Uri[]> fileChooserCallback;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -86,6 +89,21 @@ public class MainActivity extends Activity {
                 boolean trusted = "https".equals(parsed.getScheme()) && "appassets.androidplatform.net".equals(parsed.getHost());
                 boolean granted = hasLocationPermission();
                 callback.invoke(origin, trusted && granted, false);
+            }
+
+            @Override public boolean onShowFileChooser(WebView view, ValueCallback<Uri[]> callback, FileChooserParams params) {
+                if (fileChooserCallback != null) fileChooserCallback.onReceiveValue(null);
+                fileChooserCallback = callback;
+                try {
+                    Intent intent = params.createIntent();
+                    intent.setType("application/json");
+                    startActivityForResult(intent, FILE_CHOOSER_REQUEST);
+                    return true;
+                } catch (Exception error) {
+                    fileChooserCallback = null;
+                    Toast.makeText(MainActivity.this, "No file picker is available.", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
             }
         });
 
@@ -146,6 +164,16 @@ public class MainActivity extends Activity {
         if (requestCode == LOCATION_REQUEST) {
             dispatchLocationPermission(hasLocationPermission());
         }
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == FILE_CHOOSER_REQUEST) {
+            Uri[] result = WebChromeClient.FileChooserParams.parseResult(resultCode, data);
+            if (fileChooserCallback != null) fileChooserCallback.onReceiveValue(result);
+            fileChooserCallback = null;
+            return;
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override protected void onSaveInstanceState(Bundle outState) {

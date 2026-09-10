@@ -324,3 +324,14 @@
 - Added keyboard skip navigation, current-page semantics, coarse-pointer touch targets, reduced-motion compatibility and high-contrast/forced-colour support.
 - Preserved the floating red SOS, slim persistent searches, offline maps, country and language profiles, wildlife and journal.
 - Bumped Android to 1.35.0 and offline cache to v44.
+
+## Cycle 27 — Private journal backup and recovery
+
+- Added journal restore from a user-selected JSON backup on Android and the web build.
+- Validated the Pocketbook backup marker, required arrays, dates, coordinates, field types and a 5 MB file-size ceiling before writing anything.
+- Sanitised and length-limited restored notes, names and place fields.
+- Merged valid sightings and saved places without overwriting current data, while skipping duplicate observations and place names.
+- Added a deliberate, confirmed erase-all control and clear success, empty and invalid-backup states.
+- Added an Android system document picker without requesting storage permission.
+- Preserved the floating red SOS, slim persistent searches, offline maps, country and language profiles and all existing journal capture features.
+- Bumped Android to 1.36.0 and offline cache to v45.

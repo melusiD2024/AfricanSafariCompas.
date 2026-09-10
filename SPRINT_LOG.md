@@ -290,3 +290,13 @@
 - Added regression checks for the local map engine, geographic dataset, offline layer and conditional tile loading.
 - Preserved the floating red SOS, compact sticky searches, map reveal behaviour, country profiles, languages, wildlife and journal.
 - Bumped Android to 1.32.0 and offline cache to v41.
+
+## Cycle 24 — Offline map discovery
+
+- Connected the Map search field to the complete 54-country Pocketbook atlas and its curated destination index, even without connectivity.
+- Added offline result cards that clearly distinguish country outlines from country-level destination locators.
+- Made geographic country shapes tappable and linked supported shapes directly to their country Pocketbook entry.
+- Added automatic map fitting and map reveal for offline country and destination selections.
+- Kept the separate “Search all Africa” action for exact live OpenStreetMap geography, with an honest offline response instead of erasing local results.
+- Preserved detailed online tiles, curated coordinate markers, floating red SOS, compact sticky searches and all v1.29–v1.32 features.
+- Bumped Android to 1.33.0 and offline cache to v42.

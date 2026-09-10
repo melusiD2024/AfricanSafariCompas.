@@ -380,3 +380,15 @@
 - Kept the compact bottom navigation, SOS safe-area calculation and all download behaviour intact.
 - Added a regression gate for narrow-screen offline-pack action sizing.
 - Bumped Android to 1.41.0 and offline cache to v50.
+
+## Cycle 33 — Genuine device-local My Trip companion
+
+- Removed the hard-coded Botswana–Kenya–Tanzania trip, fictional next flight and pretend document counts.
+- Connected the route builder's actual title, countries, duration, style and day-by-day stops to a device-local saved trip.
+- Added an honest empty state when the traveller has not saved a route.
+- Added a user-selected start date, private trip notes and six preparation reminders without claiming that any requirement has been verified.
+- Added trip sharing through the Android share sheet and deliberate removal that leaves journal records untouched.
+- Kept planning guidance visibly separate from confirmed bookings, access, border, health, weather and safety conditions.
+- Added regression checks preventing the old demonstration travel claims from returning.
+- Preserved the raised floating SOS, persistent searches, real maps, privacy centre, wildlife and journal.
+- Bumped Android to 1.42.0 and offline cache to v51.

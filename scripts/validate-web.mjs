@@ -5,10 +5,12 @@ const refs=[...html.matchAll(/(?:src|href)="([^"#?]+)(?:\?[^"#]*)?"/g)].map(matc
 const scripts=fs.readdirSync(dist).filter(file=>file.endsWith('.js'));for(const file of scripts){try{new vm.Script(fs.readFileSync(path.join(dist,file),'utf8'),{filename:file})}catch(error){errors.push(`${file}: ${error.message}`)}}
 const worker=fs.readFileSync(path.join(dist,'service-worker.js'),'utf8'),assetList=worker.match(/const ASSETS=\[(.*?)\];/s)?.[1]||'';for(const match of assetList.matchAll(/'\.\/([^']+)'/g))if(!fs.existsSync(path.join(dist,match[1])))errors.push(`Service worker asset missing: ${match[1]}`);
 for(const required of ['pocketbook','explore','field','map','journal','sosDialog','aboutDialog'])if(!ids.includes(required))errors.push(`Required screen missing: ${required}`);
+for(const required of ['tripEmpty','tripContent','tripDays','tripChecklist','tripNotes'])if(!ids.includes(required))errors.push(`Real My Trip component missing: ${required}`);
 if(!html.includes('viewport-fit=cover'))errors.push('Safe-area viewport support missing');
 for(const required of ['mobile-stability.css','app-stability.js'])if(!html.includes(required))errors.push(`Mobile stability asset not loaded: ${required}`);
 if(!html.includes('accessibility-security.css')||!html.includes('Content-Security-Policy')||!html.includes('class="skip-link"')||!html.includes('id="appMain"'))errors.push('Accessibility and browser security shell missing');
 if(!html.includes('Data, privacy &amp; sources')||!html.includes('about.js')||!html.includes('about.css'))errors.push('In-app data, privacy and source disclosures missing');
+const tripCompanion=fs.readFileSync(path.join(dist,'trip-companion.js'),'utf8');if(!html.includes('trip-companion.js')||!tripCompanion.includes('safariPocketbookTrip')||html.includes('Flight to Maun')||html.includes('3 documents'))errors.push('My Trip must use saved device data instead of demonstration travel claims');
 if(!html.includes('id="importJournal"')||!html.includes('id="clearJournal"'))errors.push('Journal restore and data deletion controls missing');
 for(const required of ['destination-directory.css','destination-directory.js'])if(!html.includes(required))errors.push(`Destination directory asset not loaded: ${required}`);
 for(const required of ['vendor/leaflet.css','vendor/leaflet.js','assets/africa-countries-110m.geojson','offline-map.css'])if(!html.includes(required)&&!worker.includes(`'./${required}'`))errors.push(`Offline map asset not integrated: ${required}`);

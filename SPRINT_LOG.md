@@ -371,3 +371,12 @@
 - Clearly labelled the APK as a field-testing release and retained explicit editorial and current-information limitations.
 - Preserved the raised floating red SOS, persistent searches, offline maps and all existing Pocketbook features.
 - Bumped Android to 1.40.0 and offline cache to v49.
+
+## Cycle 32 — Offline-pack mobile layout repair
+
+- Reproduced the narrow-screen defect shown on a physical Android device where “Save guide + map” actions extended beyond the viewport.
+- Stacked offline-pack content and actions on mobile, with a full-width wrapping action that cannot exceed its card.
+- Added lower content clearance so the raised floating SOS does not permanently obscure the final offline-pack controls.
+- Kept the compact bottom navigation, SOS safe-area calculation and all download behaviour intact.
+- Added a regression gate for narrow-screen offline-pack action sizing.
+- Bumped Android to 1.41.0 and offline cache to v50.

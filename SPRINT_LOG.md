@@ -300,3 +300,15 @@
 - Kept the separate “Search all Africa” action for exact live OpenStreetMap geography, with an honest offline response instead of erasing local results.
 - Preserved detailed online tiles, curated coordinate markers, floating red SOS, compact sticky searches and all v1.29–v1.32 features.
 - Bumped Android to 1.33.0 and offline cache to v42.
+
+## Cycle 25 — Complete country and language foundation
+
+- Removed the deprecated REST Countries v3 dependency that had begun breaking country profiles.
+- Bundled a dated, licensed Africa reference snapshot covering capitals, currencies, calling codes, driving side and language fields for every atlas country.
+- Kept population, political, security and health information outside the static snapshot; current values continue to come from dated live sources or display as unavailable.
+- Added ISO country codes to all 54 Pocketbook entries so every profile can open country-specific wildlife records.
+- Replaced incomplete-profile labels with one consistent country-profile structure across Africa.
+- Added neutral destination context and direct Protected Planet and GBIF starting points to countries that do not yet have bespoke editorial profiles.
+- Made the language component available from bundled data offline, while retaining user-verified phrase notes and honest device-voice disclosure.
+- Preserved the floating red SOS, slim persistent searches, offline map, map discovery, journal and existing bespoke country profiles.
+- Bumped Android to 1.34.0 and offline cache to v43.

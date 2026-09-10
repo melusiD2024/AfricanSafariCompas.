@@ -335,3 +335,10 @@
 - Added an Android system document picker without requesting storage permission.
 - Preserved the floating red SOS, slim persistent searches, offline maps, country and language profiles and all existing journal capture features.
 - Bumped Android to 1.36.0 and offline cache to v45.
+
+## Cycle 28 — SOS vertical clearance adjustment
+
+- Raised the floating red SOS control by approximately 5 mm on mobile displays at the user’s request.
+- Preserved its right-edge position, safe-area calculation, size, appearance and emergency behaviour.
+- Retained clear separation from the bottom navigation and Android system controls.
+- Bumped Android to 1.37.0 and offline cache to v46.

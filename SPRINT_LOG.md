@@ -392,3 +392,14 @@
 - Added regression checks preventing the old demonstration travel claims from returning.
 - Preserved the raised floating SOS, persistent searches, real maps, privacy centre, wildlife and journal.
 - Bumped Android to 1.42.0 and offline cache to v51.
+
+## Cycle 34 — Broader Africa-wide wildlife field guide
+
+- Expanded the offline wildlife guide from 104 to 172 distinct field entries.
+- Added 68 mammals, birds, reptiles and marine animals without duplicating existing entries.
+- Broadened representation across North, West, Central, East, Southern and island Africa, including small carnivores, primates, antelope, wetland birds, raptors, snakes, tortoises, sharks, rays, turtles and whales.
+- Kept common and scientific-name search, category filters and the existing sourced GBIF field-profile and attributable photograph workflow.
+- Kept the curated list explicitly separate from live country occurrence records and avoided unsupported conservation or range-status claims.
+- Added regression checks for catalogue size, duplicates, all four categories and representative additions.
+- Preserved the raised floating SOS, persistent searches, offline maps, My Trip, country profiles, language guide and journal.
+- Bumped Android to 1.43.0 and offline cache to v52.

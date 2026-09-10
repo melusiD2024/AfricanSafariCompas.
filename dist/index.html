@@ -46,7 +46,8 @@
   <link rel="stylesheet" href="offline-map.css?v=44" />
   <link rel="stylesheet" href="accessibility-security.css?v=44" />
   <link rel="stylesheet" href="places-search.css?v=47" />
-  <link rel="stylesheet" href="mobile-stability.css?v=47" />
+  <link rel="stylesheet" href="about.css?v=49" />
+  <link rel="stylesheet" href="mobile-stability.css?v=49" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
@@ -91,6 +92,7 @@
         <section class="trail-status" aria-label="Your pocketbook today"><div><p class="eyebrow dark">YOUR FIELD KIT</p><h2>Ready when the road turns wild.</h2></div><div class="trail-metrics"><button data-go="map"><strong id="fieldPackCount">0</strong><small>offline regions</small></button><button data-go="journal"><strong id="fieldSightingCount">0</strong><small>sightings recorded</small></button><button data-go="journal"><strong id="fieldSavedCount">0</strong><small>places saved</small></button></div></section>
         <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="journal"><b>RECORD</b><strong>Keep a field journal</strong><small>Sightings, places and private notes</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
         <button class="plan-entry" data-go="planner"><span><small>TRIP PLANNER</small><strong>Build a safari route</strong></span><i>→</i></button>
+        <button class="about-entry" id="openAbout" type="button"><span><small>ABOUT THIS APP</small><strong>Data, privacy &amp; sources</strong></span><i>→</i></button>
       </div>
     </section>
 
@@ -246,6 +248,17 @@
     <p class="sos-footnote">Always confirm local emergency numbers before entering a remote area. Satellite communication may be required beyond cellular coverage.</p>
   </dialog>
 
+  <dialog id="aboutDialog" class="about-dialog">
+    <button class="dialog-close about-close" aria-label="Close data, privacy and sources">×</button>
+    <div class="about-content"><p class="eyebrow dark">AFRICAN SAFARI POCKETBOOK</p><h2>Data, privacy &amp; sources</h2><p class="about-version">Version 1.40.0 · Field testing release</p>
+      <section><h3>Your private field data</h3><p>Sightings, saved places, phrase notes, safety contacts and offline-pack selections are stored on this device. The app has no account, advertising SDK or analytics service. Journal or SOS information leaves the app only when you deliberately use Android’s share sheet.</p><div class="about-actions"><button id="aboutExport" type="button">Export journal</button><button id="aboutErase" type="button" class="danger">Erase journal data</button></div><small id="aboutDataCount" aria-live="polite"></small></section>
+      <section><h3>Permissions</h3><p>Internet access loads current reference services, detailed map tiles and media. Network-state access distinguishes offline content from live content. Approximate or precise location is requested only after you choose a location action for SOS or a journal entry.</p></section>
+      <section><h3>Connected services</h3><ul><li><strong>OpenStreetMap and Nominatim</strong> — map tiles and live geographic search</li><li><strong>GBIF</strong> — taxonomy, biodiversity records and attributable wildlife media</li><li><strong>World Bank</strong> — latest available population observation</li><li><strong>GOV.UK FCDO and WHO</strong> — current advisory and health starting points</li></ul><p>When these live services are used, the service may receive the device’s IP address and the requested search or page. Their own privacy terms apply.</p></section>
+      <section><h3>Editorial limits</h3><p>Curated destinations and field notes are starting points, not booking, access, safety, conservation or operating-status guarantees. Political, visa, border, health and security conditions must be checked through current official sources before travel.</p></section>
+      <section><h3>Licences and reference notices</h3><div class="about-links"><a href="assets/COUNTRY-DATA-LICENSE.txt" target="_blank" rel="noopener">Country reference licence</a><a href="assets/NATURAL-EARTH-NOTICE.txt" target="_blank" rel="noopener">Natural Earth map notice</a><a href="vendor/LEAFLET-LICENSE.txt" target="_blank" rel="noopener">Leaflet licence</a></div></section>
+    </div>
+  </dialog>
+
   <dialog id="countryDialog" class="country-dialog">
     <button class="dialog-close country-close" aria-label="Close country brief">×</button>
     <div id="countryBrief"><p class="database-status">Loading country brief…</p></div>
@@ -257,6 +270,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="vendor/leaflet.js?v=44"></script><script src="native-bridge.js?v=44"></script><script src="catalog.js?v=44"></script><script src="country-depth.js?v=44"></script><script src="destination-directory.js?v=44"></script><script src="language-guide.js?v=44"></script><script src="country-intelligence.js?v=44"></script><script src="app.js?v=44"></script><script src="real-map.js?v=44"></script><script src="botswana.js?v=44"></script><script src="wildlife.js?v=44"></script><script src="wildlife-profile.js?v=44"></script><script src="mobile.js?v=44"></script><script src="safety.js?v=44"></script><script src="map-fixes.js?v=44"></script><script src="route-actions.js?v=44"></script><script src="pocketbook.js?v=44"></script><script src="offline-packs.js?v=44"></script><script src="journal.js?v=44"></script><script src="safari-atmosphere.js?v=44"></script><script src="app-stability.js?v=44"></script>
+  <script src="vendor/leaflet.js?v=49"></script><script src="native-bridge.js?v=49"></script><script src="catalog.js?v=49"></script><script src="country-depth.js?v=49"></script><script src="destination-directory.js?v=49"></script><script src="language-guide.js?v=49"></script><script src="country-intelligence.js?v=49"></script><script src="app.js?v=49"></script><script src="real-map.js?v=49"></script><script src="botswana.js?v=49"></script><script src="wildlife.js?v=49"></script><script src="wildlife-profile.js?v=49"></script><script src="mobile.js?v=49"></script><script src="safety.js?v=49"></script><script src="map-fixes.js?v=49"></script><script src="route-actions.js?v=49"></script><script src="pocketbook.js?v=49"></script><script src="offline-packs.js?v=49"></script><script src="journal.js?v=49"></script><script src="safari-atmosphere.js?v=49"></script><script src="about.js?v=49"></script><script src="app-stability.js?v=49"></script>
 </body>
 </html>

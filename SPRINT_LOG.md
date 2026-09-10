@@ -359,3 +359,15 @@
 - Preserved the control’s size, right-edge alignment, safe-area calculation and emergency behaviour.
 - Kept the SOS independent of the bottom navigation and Android system controls.
 - Bumped Android to 1.39.0 and offline cache to v48.
+
+## Cycle 31 — Data, privacy and source transparency
+
+- Added a first-class Data, Privacy & Sources centre accessible from the Pocketbook home screen.
+- Disclosed exactly which journal, safety, language and offline selections remain on the device.
+- Disclosed the app's use of internet, network-state and on-demand location permissions.
+- Identified connected OpenStreetMap, Nominatim, GBIF, World Bank, GOV.UK FCDO and WHO services and explained that live requests are governed by those services.
+- Added direct access to bundled country-data, Natural Earth and Leaflet licence notices.
+- Connected journal export and deliberate erase controls to the privacy centre and displayed current on-device record totals.
+- Clearly labelled the APK as a field-testing release and retained explicit editorial and current-information limitations.
+- Preserved the raised floating red SOS, persistent searches, offline maps and all existing Pocketbook features.
+- Bumped Android to 1.40.0 and offline cache to v49.

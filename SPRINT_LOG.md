@@ -342,3 +342,13 @@
 - Preserved its right-edge position, safe-area calculation, size, appearance and emergency behaviour.
 - Retained clear separation from the bottom navigation and Android system controls.
 - Bumped Android to 1.37.0 and offline cache to v46.
+
+## Cycle 29 — Africa-wide destination-first Places search
+
+- Upgraded the persistent Places search to return individual destination results across the complete bundled atlas, not only country cards.
+- Kept matching country entries and destination entries visually distinct.
+- Added region and country context to every destination result.
+- Made destination results open the real Map with the exact place and country already searched.
+- Kept all 54 country profiles, region filters and offline search behaviour intact.
+- Preserved the raised floating red SOS, persistent search, wildlife, language, journal and safety features.
+- Bumped Android to 1.38.0 and offline cache to v47.

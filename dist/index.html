@@ -8,10 +8,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Safari Pocketbook" />
   <meta name="description" content="A practical African safari pocketbook for places, wildlife, maps, safety and journey planning." />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; media-src 'self' https:; connect-src 'self' https://tile.openstreetmap.org https://nominatim.openstreetmap.org https://api.gbif.org https://en.wikipedia.org https://api.worldbank.org https://www.gov.uk; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   <title>African Safari Pocketbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="vendor/leaflet.css?v=43" />
+  <link rel="stylesheet" href="vendor/leaflet.css?v=44" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="map.css" />
@@ -36,16 +38,18 @@
   <link rel="stylesheet" href="safari-atmosphere.css?v=27" />
   <link rel="stylesheet" href="country-language.css?v=29" />
   <link rel="stylesheet" href="country-depth.css?v=31" />
-  <link rel="stylesheet" href="places-hierarchy.css?v=43" />
-  <link rel="stylesheet" href="sos-access.css?v=43" />
-  <link rel="stylesheet" href="sticky-controls.css?v=43" />
-  <link rel="stylesheet" href="destination-directory.css?v=43" />
-  <link rel="stylesheet" href="offline-map.css?v=43" />
-  <link rel="stylesheet" href="mobile-stability.css?v=43" />
+  <link rel="stylesheet" href="places-hierarchy.css?v=44" />
+  <link rel="stylesheet" href="sos-access.css?v=44" />
+  <link rel="stylesheet" href="sticky-controls.css?v=44" />
+  <link rel="stylesheet" href="destination-directory.css?v=44" />
+  <link rel="stylesheet" href="offline-map.css?v=44" />
+  <link rel="stylesheet" href="accessibility-security.css?v=44" />
+  <link rel="stylesheet" href="mobile-stability.css?v=44" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
 <body>
+  <a class="skip-link" href="#appMain">Skip to Pocketbook content</a>
   <header class="topbar">
     <a class="brand" href="#" aria-label="African Safari Pocketbook home" data-go="pocketbook">
       <span class="brand-mark"><img src="assets/app-logo.png" alt="" /></span>
@@ -63,7 +67,7 @@
     <button class="saved-button" id="installApp">Install app <span>↓</span></button>
   </header>
 
-  <main>
+  <main id="appMain" tabindex="-1">
     <section class="view pocketbook-view active" id="pocketbook">
       <div class="pocketbook-hero">
         <div class="pocketbook-hero-copy"><p class="eyebrow">AFRICAN SAFARI POCKETBOOK</p><h1>The wild,<br>carried with you.</h1><p>Your field companion for Africa’s places, wildlife and journeys—from first light to the last track home.</p></div>
@@ -251,6 +255,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="vendor/leaflet.js?v=43"></script><script src="native-bridge.js?v=43"></script><script src="catalog.js?v=43"></script><script src="country-depth.js?v=43"></script><script src="destination-directory.js?v=43"></script><script src="language-guide.js?v=43"></script><script src="country-intelligence.js?v=43"></script><script src="app.js?v=43"></script><script src="real-map.js?v=43"></script><script src="botswana.js?v=43"></script><script src="wildlife.js?v=43"></script><script src="wildlife-profile.js?v=43"></script><script src="mobile.js?v=43"></script><script src="safety.js?v=43"></script><script src="map-fixes.js?v=43"></script><script src="route-actions.js?v=43"></script><script src="pocketbook.js?v=43"></script><script src="offline-packs.js?v=43"></script><script src="journal.js?v=43"></script><script src="safari-atmosphere.js?v=43"></script><script src="app-stability.js?v=43"></script>
+  <script src="vendor/leaflet.js?v=44"></script><script src="native-bridge.js?v=44"></script><script src="catalog.js?v=44"></script><script src="country-depth.js?v=44"></script><script src="destination-directory.js?v=44"></script><script src="language-guide.js?v=44"></script><script src="country-intelligence.js?v=44"></script><script src="app.js?v=44"></script><script src="real-map.js?v=44"></script><script src="botswana.js?v=44"></script><script src="wildlife.js?v=44"></script><script src="wildlife-profile.js?v=44"></script><script src="mobile.js?v=44"></script><script src="safety.js?v=44"></script><script src="map-fixes.js?v=44"></script><script src="route-actions.js?v=44"></script><script src="pocketbook.js?v=44"></script><script src="offline-packs.js?v=44"></script><script src="journal.js?v=44"></script><script src="safari-atmosphere.js?v=44"></script><script src="app-stability.js?v=44"></script>
 </body>
 </html>

@@ -312,3 +312,15 @@
 - Made the language component available from bundled data offline, while retaining user-verified phrase notes and honest device-voice disclosure.
 - Preserved the floating red SOS, slim persistent searches, offline map, map discovery, journal and existing bespoke country profiles.
 - Bumped Android to 1.34.0 and offline cache to v43.
+
+## Cycle 26 — Real-device security and accessibility
+
+- Removed the intrusive Android location prompt at app startup; location permission is now requested only after the user taps a location action.
+- Added a native-to-web permission result bridge so SOS coordinates and journal sightings retry correctly after permission is granted.
+- Accepted approximate-location permission where the user declines precise location.
+- Tightened the trusted WebView origin check, disabled file and universal file URL access, disabled script-opened windows and enabled Android Safe Browsing.
+- Blocked insecure HTTP navigation from the native shell while retaining HTTPS, telephone and email intents.
+- Added a restrictive browser Content Security Policy and referrer policy for app content and known live data services.
+- Added keyboard skip navigation, current-page semantics, coarse-pointer touch targets, reduced-motion compatibility and high-contrast/forced-colour support.
+- Preserved the floating red SOS, slim persistent searches, offline maps, country and language profiles, wildlife and journal.
+- Bumped Android to 1.35.0 and offline cache to v44.

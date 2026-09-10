@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
@@ -44,9 +45,14 @@ public class MainActivity extends Activity {
         settings.setGeolocationEnabled(true);
         settings.setAllowContentAccess(false);
         settings.setAllowFileAccess(false);
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
+        settings.setJavaScriptCanOpenWindowsAutomatically(false);
+        settings.setSupportMultipleWindows(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) settings.setSafeBrowsingEnabled(true);
         WebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG);
 
         WebViewAssetLoader loader = new WebViewAssetLoader.Builder()
@@ -61,7 +67,11 @@ public class MainActivity extends Activity {
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri uri = request.getUrl();
                 if ("appassets.androidplatform.net".equals(uri.getHost())) return false;
-                if ("http".equals(uri.getScheme()) || "https".equals(uri.getScheme()) || "tel".equals(uri.getScheme()) || "mailto".equals(uri.getScheme())) {
+                if ("http".equals(uri.getScheme())) {
+                    Toast.makeText(MainActivity.this, "Blocked an insecure link.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+                if ("https".equals(uri.getScheme()) || "tel".equals(uri.getScheme()) || "mailto".equals(uri.getScheme())) {
                     try { startActivity(new Intent(Intent.ACTION_VIEW, uri)); }
                     catch (Exception ignored) { Toast.makeText(MainActivity.this, "No app can open this link.", Toast.LENGTH_SHORT).show(); }
                     return true;
@@ -72,8 +82,9 @@ public class MainActivity extends Activity {
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
-                boolean trusted = origin != null && origin.startsWith(APP_ORIGIN);
-                boolean granted = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+                Uri parsed = origin == null ? Uri.EMPTY : Uri.parse(origin);
+                boolean trusted = "https".equals(parsed.getScheme()) && "appassets.androidplatform.net".equals(parsed.getHost());
+                boolean granted = hasLocationPermission();
                 callback.invoke(origin, trusted && granted, false);
             }
         });
@@ -97,9 +108,15 @@ public class MainActivity extends Activity {
         if (state == null) webView.loadUrl(APP_ORIGIN + "/assets/index.html?native=android");
         else webView.restoreState(state);
 
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_REQUEST);
-        }
+    }
+
+    private void dispatchLocationPermission(boolean granted) {
+        webView.evaluateJavascript("window.dispatchEvent(new CustomEvent('native-location-permission',{detail:{granted:" + granted + "}}))", null);
+    }
+
+    private boolean hasLocationPermission() {
+        return checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
     public class NativeBridge {
@@ -111,6 +128,23 @@ public class MainActivity extends Activity {
                 intent.putExtra(Intent.EXTRA_TEXT, text);
                 startActivity(Intent.createChooser(intent, title));
             });
+        }
+
+        @JavascriptInterface public void requestLocationPermission() {
+            runOnUiThread(() -> {
+                if (hasLocationPermission()) {
+                    dispatchLocationPermission(true);
+                } else {
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, LOCATION_REQUEST);
+                }
+            });
+        }
+    }
+
+    @Override public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_REQUEST) {
+            dispatchLocationPermission(hasLocationPermission());
         }
     }
 

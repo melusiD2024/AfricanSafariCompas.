@@ -352,3 +352,10 @@
 - Kept all 54 country profiles, region filters and offline search behaviour intact.
 - Preserved the raised floating red SOS, persistent search, wildlife, language, journal and safety features.
 - Bumped Android to 1.38.0 and offline cache to v47.
+
+## Cycle 30 — Second SOS clearance adjustment
+
+- Raised the floating red SOS control by a further approximate 5 mm on mobile displays at the user’s request.
+- Preserved the control’s size, right-edge alignment, safe-area calculation and emergency behaviour.
+- Kept the SOS independent of the bottom navigation and Android system controls.
+- Bumped Android to 1.39.0 and offline cache to v48.

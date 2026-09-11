@@ -427,3 +427,15 @@
 - Added responsive mobile controls and regression checks for the offline-media cache and attribution record.
 - Preserved all 172 animals, field-craft tools, sourced live profiles, raised SOS, persistent searches, offline maps, My Trip, languages and journal.
 - Bumped Android to 1.45.0 and offline cache to v54.
+
+## Cycle 37 — Attributed wildlife recording discovery
+
+- Added an in-profile Wikimedia Commons audio finder for all 172 curated wildlife entries.
+- Search by common and scientific name and return playable audio with filename, contributor, licence and source-page access.
+- Preserved the three manually connected reference recordings and clearly distinguish them from automated search matches.
+- Explicitly warn that matching audio is not automatically a verified animal call and require the user to inspect its description before identification use.
+- Added loading, empty, service-unavailable and repeat-search states without weakening the offline field guide.
+- Added Commons API access to the restrictive content-security policy and recorded the source in every profile.
+- Added responsive audio cards and regression checks for attribution and verification warnings.
+- Preserved all 172 animals, field craft, offline photographs, raised SOS, persistent searches, maps, My Trip, languages and journal.
+- Bumped Android to 1.46.0 and offline cache to v55.

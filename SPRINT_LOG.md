@@ -415,3 +415,15 @@
 - Added regression checks protecting all five field-guide components and journal integration.
 - Preserved 172 wildlife entries, sourced media, the raised SOS, persistent searches, offline maps, My Trip, languages and country profiles.
 - Bumped Android to 1.44.0 and offline cache to v53.
+
+## Cycle 36 — Attributed offline wildlife photographs
+
+- Added deliberate one-tap offline photograph saving inside every wildlife profile when a sourced image is available.
+- Store the exact image request in a dedicated device cache rather than implying every online thumbnail is already offline.
+- Preserve provider, contributor, licence, source-record link and save date with each cached photograph.
+- Prefer a previously saved photograph when reopening its field entry without connectivity.
+- Added honest unsupported, download-failure, retry and already-saved states.
+- Updated the privacy disclosure to identify saved wildlife media as device-local data.
+- Added responsive mobile controls and regression checks for the offline-media cache and attribution record.
+- Preserved all 172 animals, field-craft tools, sourced live profiles, raised SOS, persistent searches, offline maps, My Trip, languages and journal.
+- Bumped Android to 1.45.0 and offline cache to v54.

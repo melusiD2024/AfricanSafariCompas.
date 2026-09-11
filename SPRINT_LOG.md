@@ -439,3 +439,14 @@
 - Added responsive audio cards and regression checks for attribution and verification warnings.
 - Preserved all 172 animals, field craft, offline photographs, raised SOS, persistent searches, maps, My Trip, languages and journal.
 - Bumped Android to 1.46.0 and offline cache to v55.
+
+## Cycle 38 — Final regression and offline-release integrity
+
+- Performed end-to-end source regression review across navigation, persistent searches, SOS clearance, wildlife, media, audio, map, countries, languages, journal, My Trip and Android security configuration.
+- Found and fixed six newer CSS and JavaScript files that were loaded by the app but absent from the offline application shell.
+- Unified every local stylesheet and script on release token v56 so an upgraded phone cannot retain stale interfaces from earlier APKs.
+- Added regression enforcement requiring every HTML CSS/JS dependency to exist in the offline shell.
+- Added regression enforcement for a single current asset token, matching displayed and Android versions, disabled Android backups and blocked cleartext traffic.
+- Revalidated all 172 unique wildlife entries, all 54 country records, offline map assets, viewport containment, pinned searches and journal data safeguards.
+- Preserved the raised floating SOS, attributed photographs and recordings, field craft, maps, Places, languages, My Trip and private journal.
+- Bumped Android to 1.47.0 and offline cache to v56.

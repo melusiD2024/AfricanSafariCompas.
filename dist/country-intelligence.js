@@ -8,17 +8,15 @@ function safeText(value,fallback='Not available'){return String(value||fallback)
 function adviceSlug(country){return adviceSlugs[country]||country.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/&/g,'and').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
 function readableDate(value){if(!value)return 'Publication date unavailable';const d=new Date(value);return Number.isNaN(d.valueOf())?'Publication date unavailable':d.toLocaleDateString(undefined,{day:'numeric',month:'short',year:'numeric'})}
 function plainSummary(value){const text=String(value||'').replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();return text.length>520?`${text.slice(0,517)}…`:text}
-function markCountryCards(){atlas.querySelectorAll('.country-card').forEach(card=>{card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label',`Open pocketbook entry for ${card.querySelector('h3')?.textContent}`)})}
-new MutationObserver(markCountryCards).observe(atlas,{childList:true});markCountryCards();
-atlas.addEventListener('click',event=>{const card=event.target.closest('.country-card');if(card)openCountryBrief(card.querySelector('h3').textContent)});
-atlas.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('.country-card')){event.preventDefault();openCountryBrief(event.target.querySelector('h3').textContent)}});
 document.querySelector('.country-close').addEventListener('click',()=>countryDialog.close());
 async function getJson(url){const response=await fetch(url);if(!response.ok)throw new Error(`${response.status}`);return response.json()}
 let countryReferencePromise;
 async function bundledCountry(country){countryReferencePromise||=getJson('./assets/africa-country-reference.json');const data=await countryReferencePromise,lookup=countryAliases[country]||country,row=data.countries.find(item=>item.name===lookup);if(!row)throw new Error('Bundled country reference unavailable');return {cca2:row.code,region:row.region,subregion:row.subregion,capital:row.capital,currencies:Object.fromEntries(row.currencies.map((name,index)=>[`currency${index}`,{name}])),languages:Object.fromEntries(row.languages.map((name,index)=>[`language${index}`,name])),car:{side:row.drivingSide},idd:{root:row.callingCode,suffixes:['']},referenceEdition:data.edition,referenceSource:data.source}}
 async function openCountryBrief(country){
- countryDialog.showModal();countryBrief.innerHTML='<p class="database-status">Checking official and reference sources…</p>';
  const lookup=countryAliases[country]||country,atlasRow=(window.africanAtlas||[]).find(row=>row[0]===country),slug=adviceSlug(country),checkedAt=new Date();
+ if(!countryDialog.open)countryDialog.showModal();
+ countryDialog.scrollTop=0;
+ countryBrief.innerHTML=`<div class="country-hero"><p class="eyebrow">AFRICAN SAFARI POCKETBOOK</p><h2>${safeText(country)}</h2><div class="source-status offline"><span></span>Opening offline entry</div></div><section class="entry-section"><div class="entry-kicker">DISCOVER</div><h3>Safari and nature highlights</h3><p>${safeText(atlasRow?.[2],'Destination information is being expanded.')}</p><p class="database-status">Loading the complete country reference…</p></section>`;
  try{
   const countryData=await bundledCountry(country),code=countryData.cca2;
   const [populationResult,adviceResult]=await Promise.allSettled([getJson(`https://api.worldbank.org/v2/country/${code}/indicator/SP.POP.TOTL?format=json&mrnev=1`),getJson(`https://www.gov.uk/api/content/foreign-travel-advice/${slug}`)]);

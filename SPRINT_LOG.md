@@ -450,3 +450,14 @@
 - Revalidated all 172 unique wildlife entries, all 54 country records, offline map assets, viewport containment, pinned searches and journal data safeguards.
 - Preserved the raised floating SOS, attributed photographs and recordings, field craft, maps, Places, languages, My Trip and private journal.
 - Bumped Android to 1.47.0 and offline cache to v56.
+
+## Cycle 39 — Reliable country pocketbook opening
+
+- Replaced the 54 visually clickable country articles with semantic buttons that work consistently with touch, keyboard and accessibility services.
+- Connected the country action directly to the country-pocketbook controller instead of relying on a second script's inferred heading click.
+- Made country entries open immediately with their name and curated highlights while the bundled reference record and live, dated services load.
+- Prevented repeated taps from throwing when the country dialog is already open and reset every newly opened entry to its top.
+- Removed the obsolete mutation observer and duplicate country click handler.
+- Added release validation for the 54-country action contract and immediate offline content.
+- Preserved the raised SOS, persistent searches, 172 wildlife entries, maps, languages, My Trip and private journal.
+- Bumped Android to 1.48.0 and offline cache to v57.

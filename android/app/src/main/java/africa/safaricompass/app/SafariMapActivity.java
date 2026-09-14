@@ -78,6 +78,7 @@ public class SafariMapActivity extends Activity {
     private ListView suggestions;
     private final List<Place> visibleResults = new ArrayList<>();
     private final List<Marker> markers = new ArrayList<>();
+    private final List<Marker> discoveryMarkers = new ArrayList<>();
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -92,6 +93,7 @@ public class SafariMapActivity extends Activity {
         root.addView(buildTopPanel(), topPanelParams());
         root.addView(buildStatus(), statusParams());
         root.addView(buildSuggestions(), suggestionParams());
+        root.addView(buildDiscoveryBar(), discoveryParams());
         root.addView(buildSos(), sosParams());
         setContentView(root);
         root.setOnApplyWindowInsetsListener((view, insets) -> {
@@ -167,6 +169,15 @@ public class SafariMapActivity extends Activity {
         return sos;
     }
 
+    private View buildDiscoveryBar() {
+        LinearLayout bar = new LinearLayout(this); bar.setOrientation(LinearLayout.HORIZONTAL); bar.setGravity(Gravity.CENTER_VERTICAL);
+        bar.setPadding(dp(5),dp(5),dp(5),dp(5)); bar.setBackground(roundRect(Color.argb(246,255,255,255),14,Color.argb(55,35,31,27)));
+        Button parks=button("Parks",Color.rgb(35,31,27),Color.TRANSPARENT),stays=button("Safari stays",Color.rgb(35,31,27),Color.TRANSPARENT),airstrips=button("Airstrips",Color.rgb(35,31,27),Color.TRANSPARENT);
+        parks.setContentDescription("Discover parks and reserves in this map area");stays.setContentDescription("Discover safari lodges and camps in this map area");airstrips.setContentDescription("Discover airstrips in this map area");
+        parks.setOnClickListener(v->discoverInView("national park","parks and reserves"));stays.setOnClickListener(v->discoverInView("safari lodge","safari stays"));airstrips.setOnClickListener(v->discoverInView("airstrip","airstrips"));
+        bar.addView(parks,new LinearLayout.LayoutParams(0,dp(46),1));bar.addView(stays,new LinearLayout.LayoutParams(0,dp(46),1.35f));bar.addView(airstrips,new LinearLayout.LayoutParams(0,dp(46),1));return bar;
+    }
+
     private void showLocalSuggestions(String raw) {
         String query = raw.trim().toLowerCase(Locale.ROOT); visibleResults.clear();
         if (query.length() >= 2) for (Place place : SAFARI_PLACES) if ((place.name + " " + place.country).toLowerCase(Locale.ROOT).contains(query)) visibleResults.add(place);
@@ -195,7 +206,7 @@ public class SafariMapActivity extends Activity {
                 String encoded = URLEncoder.encode(query, StandardCharsets.UTF_8.name());
                 URL url = new URL("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=8&viewbox=-26,38,64,-39&bounded=1&q=" + encoded);
                 connection = (HttpURLConnection) url.openConnection(); connection.setConnectTimeout(9000); connection.setReadTimeout(9000);
-                connection.setRequestProperty("User-Agent","AfricanSafariPocketbook/1.70 (https://github.com/melusiD2024/AfricanSafariCompas.)");
+                connection.setRequestProperty("User-Agent","AfricanSafariPocketbook/1.71 (https://github.com/melusiD2024/AfricanSafariCompas.)");
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
                     StringBuilder body = new StringBuilder(); String line; while ((line=reader.readLine())!=null) body.append(line);
                     JSONArray data = new JSONArray(body.toString());
@@ -207,11 +218,24 @@ public class SafariMapActivity extends Activity {
         });
     }
 
+    private void discoverInView(String query,String label) {
+        if(map==null)return;CameraPosition camera=map.getCameraPosition();double zoom=camera.zoom,span=Math.max(0.35,32.0/Math.pow(2.0,Math.max(0.0,zoom-2.0)));
+        double west=Math.max(-26,camera.target.getLongitude()-span),east=Math.min(64,camera.target.getLongitude()+span),south=Math.max(-39,camera.target.getLatitude()-span*.72),north=Math.min(38,camera.target.getLatitude()+span*.72);
+        status.setText("Finding "+label+" in this map area…");suggestions.setVisibility(View.GONE);
+        network.execute(()->{List<Place> found=new ArrayList<>();HttpURLConnection connection=null;try{String encoded=URLEncoder.encode(query,StandardCharsets.UTF_8.name());URL url=new URL("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=18&bounded=1&viewbox="+west+","+north+","+east+","+south+"&q="+encoded);connection=(HttpURLConnection)url.openConnection();connection.setConnectTimeout(9000);connection.setReadTimeout(9000);connection.setRequestProperty("User-Agent","AfricanSafariPocketbook/1.71 (https://github.com/melusiD2024/AfricanSafariCompas.)");try(BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()))){StringBuilder body=new StringBuilder();String line;while((line=reader.readLine())!=null)body.append(line);JSONArray data=new JSONArray(body.toString());for(int i=0;i<data.length();i++){JSONObject item=data.getJSONObject(i);String full=item.optString("display_name","African map result"),name=item.optString("name",full.split(",")[0]);found.add(new Place(name,full,item.getDouble("lat"),item.getDouble("lon")));}}main.post(()->showDiscoveryResults(found,label));}catch(Exception error){main.post(()->status.setText("Live "+label+" discovery is unavailable. Curated safari markers remain usable."));}finally{if(connection!=null)connection.disconnect();}});
+    }
+
+    private void showDiscoveryResults(List<Place> found,String label) {
+        for(Marker marker:discoveryMarkers)map.removeMarker(marker);discoveryMarkers.clear();visibleResults.clear();visibleResults.addAll(found);
+        for(Place place:found)discoveryMarkers.add(map.addMarker(new MarkerOptions().position(place.point()).title(place.name).snippet(label+" · live OpenStreetMap record")));
+        renderSuggestions();if(found.isEmpty()){status.setText("No "+label+" found in this view. Zoom out or move the map and try again.");return;}status.setText(found.size()+" "+label+" found in this map area");focus(found.get(0),false);
+    }
+
     private void addCuratedMarkers() { for (Place place : SAFARI_PLACES) markers.add(map.addMarker(new MarkerOptions().position(place.point()).title(place.name).snippet(place.country + " · Pocketbook safari place"))); }
 
     private void focus(Place place, boolean hideResults) {
         if (map == null) return; map.animateCamera(CameraUpdateFactory.newLatLngZoom(place.point(), place.country.equals(place.name) ? 5.0 : 8.0));
-        Marker nearest = null; double best = Double.MAX_VALUE; for (Marker marker : markers) { double score=Math.abs(marker.getPosition().getLatitude()-place.lat)+Math.abs(marker.getPosition().getLongitude()-place.lng); if(score<best){best=score;nearest=marker;} }
+        Marker nearest = null; double best = Double.MAX_VALUE; List<Marker> allMarkers=new ArrayList<>(markers);allMarkers.addAll(discoveryMarkers);for (Marker marker : allMarkers) { double score=Math.abs(marker.getPosition().getLatitude()-place.lat)+Math.abs(marker.getPosition().getLongitude()-place.lng); if(score<best){best=score;nearest=marker;} }
         if (nearest != null && best < 0.02) nearest.showInfoWindow(map, mapView);
         status.setText(place.name + " · " + place.country); if (hideResults) suggestions.setVisibility(View.GONE);
     }
@@ -219,6 +243,7 @@ public class SafariMapActivity extends Activity {
     private FrameLayout.LayoutParams topPanelParams(){FrameLayout.LayoutParams p=new FrameLayout.LayoutParams(-1,dp(64),Gravity.TOP);p.setMargins(dp(10),dp(10),dp(10),0);return p;}
     private FrameLayout.LayoutParams statusParams(){FrameLayout.LayoutParams p=new FrameLayout.LayoutParams(-2,dp(40),Gravity.TOP|Gravity.CENTER_HORIZONTAL);p.topMargin=dp(82);return p;}
     private FrameLayout.LayoutParams suggestionParams(){FrameLayout.LayoutParams p=new FrameLayout.LayoutParams(-1,dp(300),Gravity.TOP);p.setMargins(dp(12),dp(128),dp(12),0);return p;}
+    private FrameLayout.LayoutParams discoveryParams(){FrameLayout.LayoutParams p=new FrameLayout.LayoutParams(-1,dp(58),Gravity.START|Gravity.BOTTOM);p.setMargins(dp(12),0,dp(98),dp(18));return p;}
     private FrameLayout.LayoutParams sosParams(){FrameLayout.LayoutParams p=new FrameLayout.LayoutParams(dp(72),dp(72),Gravity.END|Gravity.BOTTOM);p.setMargins(0,0,dp(16),dp(18));return p;}
     private Button button(String text,int color,int background){Button b=new Button(this);b.setText(text);b.setTextColor(color);b.setTextSize(13);b.setAllCaps(false);b.setTypeface(Typeface.DEFAULT,Typeface.BOLD);b.setBackground(roundRect(background,12,Color.TRANSPARENT));return b;}
     private GradientDrawable roundRect(int fill,int radius,int stroke){GradientDrawable d=new GradientDrawable();d.setColor(fill);d.setCornerRadius(dp(radius));if(stroke!=Color.TRANSPARENT)d.setStroke(dp(1),stroke);return d;}

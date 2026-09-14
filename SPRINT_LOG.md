@@ -1,5 +1,14 @@
 # African Safari Pocketbook sprint
 
+## Cycle 61 — Safari feature discovery on the native map
+
+- Added one-tap discovery for real parks and reserves, safari stays and airstrips within the visible native map area.
+- Restricted discovery searches to the current African viewport rather than returning unrelated global places.
+- Plotted live geographic results as native markers and automatically centred the best match.
+- Added accessible result lists, empty states, zoom/move guidance and resilient network failure states.
+- Kept curated ecosystem markers, native MapLibre interaction, Circle, Pocketbook, journal and floating SOS intact.
+- Bumped Android to 1.71.0 and offline cache to v80.
+
 ## Cycle 60 — Native safari map foundation
 
 - Added a dedicated native Android MapLibre map instead of placing the primary map interaction inside the WebView page.

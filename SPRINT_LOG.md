@@ -735,3 +735,13 @@
 - Avoided unsupported current range and conservation claims; live attributed sources remain responsible for changing information.
 - Expanded regression coverage to all 37 bird scientific names while preserving all 172 animals and every v1.74 feature.
 - Bumped Android to 1.75.0 and offline cache to v84.
+
+## Cycle 66 — Complete mammal and catalogue field-guide depth
+
+- Completed species-specific offline field profiles for all remaining 50 mammals, eliminating the final group-level fallbacks from the wildlife catalogue.
+- Added dedicated identification, behaviour, feeding evidence, tracks or other signs and similar-species guidance across forest elephants, giraffe, zebras, antelope, pigs, pangolins, canids, otters, mongooses, primates, hyraxes and smaller mammals.
+- Included practical low-disturbance guidance for dens, burrows, nocturnal viewing, wetland channels, cliff refuges, troop crossings, sensitive pangolin locations and family groups.
+- Avoided unsupported current range, taxonomic rank and conservation claims; changing information continues to come from attributed live references.
+- Upgraded validation from selected representative species to every one of the 172 catalogue scientific names, preventing any future profile from silently reverting to generic notes.
+- Preserved every v1.75 feature, including bundled sounds, attributed media, native safari map, offline assets, Circle, bookings, country profiles, journals, sticky searches and floating SOS.
+- Bumped Android to 1.76.0 and offline cache to v85.

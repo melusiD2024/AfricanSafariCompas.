@@ -591,3 +591,12 @@
 - Each entry now has dedicated identification, behaviour, diet-evidence, tracks/signs and similar-species guidance.
 - Preserved all 172 animals and every existing feature without adding current range or conservation claims.
 - Bumped Android to 1.60.0 and offline cache to v69.
+
+## Cycle 52 — Species-specific wildlife depth III
+
+- Added complete offline field profiles for 12 distinctive African birds: common ostrich, secretarybird, African fish eagle, martial eagle, bateleur, saddle-billed stork, southern ground hornbill, lilac-breasted roller, shoebill, greater flamingo, kori bustard and African skimmer.
+- Each profile now provides species-specific identification, behaviour, feeding evidence, tracks or nesting signs and similar-species guidance.
+- Included disturbance cautions around nests, colonies, wetlands and breeding sandbanks.
+- Preserved all 172 wildlife entries and every existing app feature without adding unsupported current range or conservation claims.
+- Added regression coverage for all 12 deep bird profiles.
+- Bumped Android to 1.61.0 and offline cache to v70.

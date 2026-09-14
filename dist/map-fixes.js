@@ -4,8 +4,8 @@ const offlineDetail=document.getElementById('offlineDetail');
 function updateMapConnection(failed=false){
  const online=navigator.onLine&&!failed;
  mapConnection.classList.toggle('offline',!online);
- offlineStatus.textContent=online?'Map search connected':'Offline Africa map';
- offlineDetail.textContent=online?'English overview and live place search':'English country outlines and curated places available';
+ offlineStatus.textContent=online?'Detailed map connected':'Offline locator map';
+ offlineDetail.textContent=online?'OpenStreetMap detail and live search available':'Country outlines and curated coordinates remain available';
 }
 window.addEventListener('online',()=>updateMapConnection());
 window.addEventListener('offline',()=>updateMapConnection());

@@ -646,3 +646,14 @@
 - Preserved live coordinate search, saved places, offline maps, the reorganised map interface and floating SOS.
 - Added regression checks enforcing the fixed viewport and local English labels.
 - Bumped Android to 1.66.0 and offline cache to v75.
+
+## Cycle 58 — Restore the real map with deliberate mobile interaction
+
+- Reversed the v1.66 removal of the OpenStreetMap layer and restored the proven interactive map from v1.65.
+- Added an explicit “Explore map” control on phones: page scrolling remains normal until the user deliberately activates map pan and zoom.
+- Added a visible “Done” state that releases touch control back to the page instead of trapping navigation inside the map.
+- Restored programmatic zooming to selected countries, curated destinations and live search results.
+- Constrained interactive movement to the Africa region while retaining useful detail zoom levels.
+- Kept English app-rendered country names in country tooltips without corrupting the internal country-profile identifiers.
+- Preserved the improved search → map → selected place → discovery hierarchy, dismissible place sheet, offline packs and floating SOS.
+- Added regression checks for both interaction states and bumped Android to 1.67.0 and offline cache to v76.

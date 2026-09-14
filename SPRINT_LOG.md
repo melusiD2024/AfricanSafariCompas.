@@ -583,3 +583,11 @@
 - Preserved all 172 animals and all existing functionality.
 - Avoided unsupported current range or conservation claims.
 - Bumped Android to 1.59.0 and offline cache to v68.
+
+
+## Cycle 51 — Species-specific wildlife depth II
+
+- Added complete offline field profiles for impala, greater kudu, blue wildebeest, sable antelope, roan antelope, common eland, springbok, gemsbok, waterbuck and red lechwe.
+- Each entry now has dedicated identification, behaviour, diet-evidence, tracks/signs and similar-species guidance.
+- Preserved all 172 animals and every existing feature without adding current range or conservation claims.
+- Bumped Android to 1.60.0 and offline cache to v69.

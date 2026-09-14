@@ -694,3 +694,14 @@
 - Kept English app-rendered country names in country tooltips without corrupting the internal country-profile identifiers.
 - Preserved the improved search → map → selected place → discovery hierarchy, dismissible place sheet, offline packs and floating SOS.
 - Added regression checks for both interaction states and bumped Android to 1.67.0 and offline cache to v76.
+
+## Cycle 62 — Attributed wildlife sound library
+
+- Replaced disabled “No recording yet” controls across the 172-species catalogue with working sound-entry actions.
+- Animal and country wildlife cards can now open directly at the sound section of the selected field profile.
+- Profiles automatically discover playable Wikimedia Commons audio using both scientific and common names.
+- Increased discovery breadth, removes duplicate recordings and shows contributor, licence and source-page details beside every result.
+- Added deliberate offline sound saving with a local attribution index; saved recordings are restored in the correct species profile without connectivity.
+- Preserved the three manually connected reference recordings and clearly distinguishes them from discovered results.
+- Added ethical playback guidance and honest online, offline, empty and failure states.
+- Bumped Android to 1.72.0 and offline cache to v81.

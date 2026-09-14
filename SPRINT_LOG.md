@@ -1,5 +1,13 @@
 # African Safari Pocketbook sprint
 
+## Cycle 59 — Search-driven map focus
+
+- Made exact and unambiguous offline country or destination searches automatically drive the map after a short typing debounce.
+- Added a visible amber country-outline highlight rather than only updating a result list.
+- Made connected Africa-wide searches automatically select, centre and open the best geographic result.
+- Kept alternative matches tappable and retained the full-screen map workspace, offline index and floating SOS.
+- Bumped Android to 1.69.0 and offline cache to v78.
+
 ## Cycle 58 — Full-screen mobile map workspace
 
 - Replaced the awkward touch-toggle map with a dedicated full-screen mobile map mode.

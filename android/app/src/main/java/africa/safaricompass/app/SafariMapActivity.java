@@ -212,7 +212,7 @@ public class SafariMapActivity extends Activity {
     private void focus(Place place, boolean hideResults) {
         if (map == null) return; map.animateCamera(CameraUpdateFactory.newLatLngZoom(place.point(), place.country.equals(place.name) ? 5.0 : 8.0));
         Marker nearest = null; double best = Double.MAX_VALUE; for (Marker marker : markers) { double score=Math.abs(marker.getPosition().getLatitude()-place.lat)+Math.abs(marker.getPosition().getLongitude()-place.lng); if(score<best){best=score;nearest=marker;} }
-        if (nearest != null && best < 0.02) nearest.showInfoWindow();
+        if (nearest != null && best < 0.02) nearest.showInfoWindow(map, mapView);
         status.setText(place.name + " · " + place.country); if (hideResults) suggestions.setVisibility(View.GONE);
     }
 

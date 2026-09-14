@@ -609,3 +609,10 @@
 - Preserved all 172 wildlife entries and every existing app feature without adding unsupported current range or conservation claims.
 - Added regression coverage for all 12 deep primate profiles.
 - Bumped Android to 1.62.0 and offline cache to v71.
+
+## Cycle 54 — Africa-wide Places identity
+
+- Removed the Botswana-specific lodge-catalogue wording from the Home Places card.
+- Replaced it with continent-wide language covering 54 countries, destinations, parks and safari stays.
+- Preserved the substantive Botswana lodge catalogue inside Places while preventing one country from defining the app's Africa-wide identity.
+- Bumped Android to 1.63.0 and offline cache to v72.

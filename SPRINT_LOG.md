@@ -705,3 +705,14 @@
 - Preserved the three manually connected reference recordings and clearly distinguishes them from discovered results.
 - Added ethical playback guidance and honest online, offline, empty and failure states.
 - Bumped Android to 1.72.0 and offline cache to v81.
+
+## Cycle 63 — Genuine offline sounds and complete reptile field depth
+
+- Bundled four source-verified recordings inside the APK for immediate offline playback: African bush elephant, spotted hyena, ring-tailed lemur and vervet monkey.
+- Added visible creator, licence and source-page attribution to every bundled recording and included a permanent in-package sound licence register.
+- Removed the previously connected Grévy’s zebra file after its source description revealed that it was an artificial hippo-and-donkey sound effect rather than a field recording.
+- Retained online attributed discovery and user-selected offline saving as expansion layers.
+- Completed species-specific offline profiles for all 21 reptiles in the Pocketbook catalogue; the remaining 20 now join Nile crocodile with dedicated identification, behaviour, diet evidence, tracks/signs and similar-species guidance.
+- Added package-integrity regression checks for every sound file, its offline cache entry, the artificial-effect exclusion and all reptile profiles.
+- Preserved all 172 species and existing map, Circle, SOS, booking, journal, country and language functionality.
+- Bumped Android to 1.73.0 and offline cache to v82.

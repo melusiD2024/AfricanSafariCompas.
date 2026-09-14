@@ -475,3 +475,14 @@
 - Bundled the entire interface for offline access and updated the privacy disclosure.
 - Preserved the raised SOS, persistent searches, 54 country entries, 172 wildlife profiles, maps, languages and journal.
 - Bumped Android to 1.49.0 and offline cache to v58.
+
+## Cycle 41 — Airport autocomplete
+
+- Converted both flight route fields into accessible airport comboboxes.
+- Suggestions appear after two characters and match IATA code, airport name, city or country.
+- Bundled major African safari gateways and common international connection hubs for offline selection.
+- Added throttled live OpenStreetMap airport discovery for wider worldwide searches when connected.
+- Display airport code, name, city, country and whether a result came from live map data.
+- Added touch selection, keyboard arrows, Enter, Escape, focus management and honest offline fallback.
+- Preserved the booking wallet, external live booking hand-off, raised SOS and all existing Pocketbook features.
+- Bumped Android to 1.50.0 and offline cache to v59.

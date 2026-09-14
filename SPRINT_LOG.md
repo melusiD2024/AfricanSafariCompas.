@@ -1,5 +1,15 @@
 # African Safari Pocketbook sprint
 
+## Cycle 58 — Full-screen mobile map workspace
+
+- Replaced the awkward touch-toggle map with a dedicated full-screen mobile map mode.
+- Kept the inline map as a scroll-safe preview; panning and zooming only activate after opening the map workspace.
+- Moved the existing Africa search, live/offline results and selected-place card into the full-screen map while it is open.
+- Added a persistent Close map control and Android Back handling that exits the map before leaving the Map page.
+- Kept the map constrained to Africa and preserved bundled country outlines, offline destination search and connected OpenStreetMap detail.
+- Preserved the raised floating SOS above the full-screen map.
+- Bumped Android to 1.68.0 and offline cache to v77.
+
 ## Cycle 1 — Pocketbook foundation
 
 - Repositioned the product from an itinerary-first planner to African Safari Pocketbook.

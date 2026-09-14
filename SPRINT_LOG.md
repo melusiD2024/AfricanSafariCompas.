@@ -564,3 +564,14 @@
 - Expanded the navigation grid to six equal, narrow-screen-safe destinations without moving or covering the floating SOS.
 - Added regression protection so future navigation changes cannot silently remove Circle again.
 - Bumped Android to 1.57.0 and offline cache to v66.
+
+## Cycle 49 — Progressive Circle account entry
+
+- Reworked the unauthenticated Circle landing screen into a clean welcome state with only Create account and Sign in choices.
+- Kept all registration fields hidden until Create account is deliberately selected.
+- Kept all login fields hidden until Sign in is deliberately selected.
+- Returned members to the clean choice screen after removing their local Circle account data.
+- Preserved the robust identity, verification, recovery and password flow behind those choices.
+- Preserved Pocketbook-first launch, permanent Circle navigation and all existing app capabilities.
+- Added regression protection for the progressive account-entry behaviour.
+- Bumped Android to 1.58.0 and offline cache to v67.

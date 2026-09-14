@@ -461,3 +461,17 @@
 - Added release validation for the 54-country action contract and immediate offline content.
 - Preserved the raised SOS, persistent searches, 172 wildlife entries, maps, languages, My Trip and private journal.
 - Bumped Android to 1.48.0 and offline cache to v57.
+
+## Cycle 40 — Flight and safari-stay booking interface
+
+- Added a dedicated Journey Desk for flight, hotel, camp and safari-lodge searches.
+- Added mobile-friendly flight search fields for origin, destination, dates and travellers.
+- Added stay search fields for destination, dates, guests and safari accommodation type.
+- Search hand-offs open established travel search pages with the traveller's criteria; the interface never invents prices or availability.
+- Added explicit notices that payment, ticketing, changes, refunds and listing accuracy remain with the chosen external provider.
+- Added a private on-device booking wallet for confirmed flights, accommodation, activities and transfers.
+- Added provider, confirmation reference, date and detail fields with deletion and empty states.
+- Connected Bookings from Home, desktop navigation and My Trip while preserving the five-tab field navigation.
+- Bundled the entire interface for offline access and updated the privacy disclosure.
+- Preserved the raised SOS, persistent searches, 54 country entries, 172 wildlife profiles, maps, languages and journal.
+- Bumped Android to 1.49.0 and offline cache to v58.

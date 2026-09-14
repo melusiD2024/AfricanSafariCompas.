@@ -13,42 +13,43 @@
   <title>African Safari Pocketbook</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="vendor/leaflet.css?v=57" />
+  <link rel="stylesheet" href="vendor/leaflet.css?v=58" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=57" />
-  <link rel="stylesheet" href="map.css?v=57" />
-  <link rel="stylesheet" href="offline-packs.css?v=57" />
-  <link rel="stylesheet" href="journal.css?v=57" />
-  <link rel="stylesheet" href="journal-data.css?v=57" />
-  <link rel="stylesheet" href="map-search.css?v=57" />
-  <link rel="stylesheet" href="safety-center.css?v=57" />
-  <link rel="stylesheet" href="final-polish.css?v=57" />
-  <link rel="stylesheet" href="africa.css?v=57" />
-  <link rel="stylesheet" href="mobile-app.css?v=57" />
-  <link rel="stylesheet" href="catalog.css?v=57" />
-  <link rel="stylesheet" href="wildlife.css?v=57" />
-  <link rel="stylesheet" href="safety.css?v=57" />
-  <link rel="stylesheet" href="real-map.css?v=57" />
-  <link rel="stylesheet" href="trip.css?v=57" />
-  <link rel="stylesheet" href="botswana.css?v=57" />
-  <link rel="stylesheet" href="map-fixes.css?v=57" />
-  <link rel="stylesheet" href="route-actions.css?v=57" />
-  <link rel="stylesheet" href="app-upgrades.css?v=57" />
-  <link rel="stylesheet" href="pocketbook.css?v=57" />
-  <link rel="stylesheet" href="wildlife-profile.css?v=57" />
-  <link rel="stylesheet" href="safari-atmosphere.css?v=57" />
-  <link rel="stylesheet" href="country-language.css?v=57" />
-  <link rel="stylesheet" href="country-depth.css?v=57" />
-  <link rel="stylesheet" href="places-hierarchy.css?v=57" />
-  <link rel="stylesheet" href="sos-access.css?v=57" />
-  <link rel="stylesheet" href="sticky-controls.css?v=57" />
-  <link rel="stylesheet" href="destination-directory.css?v=57" />
-  <link rel="stylesheet" href="offline-map.css?v=57" />
-  <link rel="stylesheet" href="accessibility-security.css?v=57" />
-  <link rel="stylesheet" href="places-search.css?v=57" />
-  <link rel="stylesheet" href="about.css?v=57" />
-  <link rel="stylesheet" href="trip-companion.css?v=57" />
-  <link rel="stylesheet" href="mobile-stability.css?v=57" />
+  <link rel="stylesheet" href="styles.css?v=58" />
+  <link rel="stylesheet" href="map.css?v=58" />
+  <link rel="stylesheet" href="offline-packs.css?v=58" />
+  <link rel="stylesheet" href="journal.css?v=58" />
+  <link rel="stylesheet" href="journal-data.css?v=58" />
+  <link rel="stylesheet" href="map-search.css?v=58" />
+  <link rel="stylesheet" href="safety-center.css?v=58" />
+  <link rel="stylesheet" href="final-polish.css?v=58" />
+  <link rel="stylesheet" href="africa.css?v=58" />
+  <link rel="stylesheet" href="mobile-app.css?v=58" />
+  <link rel="stylesheet" href="catalog.css?v=58" />
+  <link rel="stylesheet" href="wildlife.css?v=58" />
+  <link rel="stylesheet" href="safety.css?v=58" />
+  <link rel="stylesheet" href="real-map.css?v=58" />
+  <link rel="stylesheet" href="trip.css?v=58" />
+  <link rel="stylesheet" href="botswana.css?v=58" />
+  <link rel="stylesheet" href="map-fixes.css?v=58" />
+  <link rel="stylesheet" href="route-actions.css?v=58" />
+  <link rel="stylesheet" href="app-upgrades.css?v=58" />
+  <link rel="stylesheet" href="pocketbook.css?v=58" />
+  <link rel="stylesheet" href="wildlife-profile.css?v=58" />
+  <link rel="stylesheet" href="safari-atmosphere.css?v=58" />
+  <link rel="stylesheet" href="country-language.css?v=58" />
+  <link rel="stylesheet" href="country-depth.css?v=58" />
+  <link rel="stylesheet" href="places-hierarchy.css?v=58" />
+  <link rel="stylesheet" href="sos-access.css?v=58" />
+  <link rel="stylesheet" href="sticky-controls.css?v=58" />
+  <link rel="stylesheet" href="destination-directory.css?v=58" />
+  <link rel="stylesheet" href="offline-map.css?v=58" />
+  <link rel="stylesheet" href="accessibility-security.css?v=58" />
+  <link rel="stylesheet" href="places-search.css?v=58" />
+  <link rel="stylesheet" href="about.css?v=58" />
+  <link rel="stylesheet" href="trip-companion.css?v=58" />
+  <link rel="stylesheet" href="bookings.css?v=58" />
+  <link rel="stylesheet" href="mobile-stability.css?v=58" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="assets/app-logo.png" type="image/png" />
 </head>
@@ -63,6 +64,7 @@
       <button class="nav-link active" data-view="pocketbook">Pocketbook</button>
       <button class="nav-link" data-view="planner">Plan a safari</button>
       <button class="nav-link" data-view="trip">My trip</button>
+      <button class="nav-link" data-view="bookings">Bookings</button>
       <button class="nav-link" data-view="explore">Explore</button>
       <button class="nav-link" data-view="map">Map</button>
       <button class="nav-link" data-view="field">Field guide</button>
@@ -94,6 +96,7 @@
         <section class="field-notes"><div><p class="eyebrow dark">FIELD ESSENTIALS</p><h2>Travel prepared.</h2></div><div class="essential-grid"><button data-go="explore"><b>COUNTRY</b><strong>Know before you go</strong><small>Practical facts and dated official advisories</small></button><button data-go="field"><b>IDENTIFY</b><strong>Know what you see</strong><small>Search the offline wildlife guide</small></button><button data-go="journal"><b>RECORD</b><strong>Keep a field journal</strong><small>Sightings, places and private notes</small></button><button id="pocketSos"><b>SAFETY</b><strong>Prepare for emergencies</strong><small>Location, contacts and SOS sharing</small></button></div></section>
         <button class="plan-entry" data-go="planner"><span><small>TRIP PLANNER</small><strong>Build a safari route</strong></span><i>→</i></button>
         <button class="plan-entry trip-entry" data-go="trip"><span><small>MY TRIP</small><strong>Open saved journey</strong></span><i>→</i></button>
+        <button class="plan-entry booking-entry" data-go="bookings"><span><small>BOOKINGS</small><strong>Find flights and safari stays</strong></span><i>→</i></button>
         <button class="about-entry" id="openAbout" type="button"><span><small>ABOUT THIS APP</small><strong>Data, privacy &amp; sources</strong></span><i>→</i></button>
       </div>
     </section>
@@ -175,7 +178,17 @@
       </div>
     </section>
 
-    <section class="view trip-view" id="trip"><div class="trip-empty" id="tripEmpty"><span>⌁</span><p class="eyebrow dark">MY TRIP</p><h1>No safari plan saved yet.</h1><p>Build a planning route, then save it to carry the itinerary, preparation checklist and private notes on this device.</p><button type="button" data-go="planner">Build a safari route</button></div><div id="tripContent" hidden><div class="trip-cover"><p class="eyebrow">Your saved journey</p><h1 id="tripTitle"></h1><div><span id="tripDuration"></span><span id="tripCountries"></span><span id="tripStartSummary">Start date not set</span></div></div><div class="trip-toolbar"><label>Journey begins<input id="tripStartDate" type="date"></label><button id="shareTrip" type="button">Share plan</button><button id="clearTrip" type="button" class="trip-danger">Remove trip</button></div><div class="trip-layout"><section><div class="section-row"><h2>Planning itinerary</h2><small>Saved offline on this device</small></div><div class="day-cards" id="tripDays"></div><label class="trip-notes">Private trip notes<textarea id="tripNotes" placeholder="Booking references, meeting points, dietary notes or questions to confirm…"></textarea></label><button id="saveTripNotes" class="save-trip-notes" type="button">Save trip details</button></section><aside><h2>Before you go</h2><p class="trip-check-intro">These are personal reminders—not verification that a requirement has been met.</p><div id="tripChecklist"><label class="check"><input type="checkbox" data-trip-check="passport"> Passport validity and entry rules checked</label><label class="check"><input type="checkbox" data-trip-check="insurance"> Travel and evacuation cover checked</label><label class="check"><input type="checkbox" data-trip-check="health"> Health guidance reviewed with a professional</label><label class="check"><input type="checkbox" data-trip-check="bookings"> Transport and accommodation confirmed</label><label class="check"><input type="checkbox" data-trip-check="contacts"> Trusted and local contacts saved</label><label class="check"><input type="checkbox" data-trip-check="offline"> Relevant offline guide pack saved</label></div><div class="trip-integrity"><strong>Planning route only</strong><p>Confirm availability, transfers, road access, permits, borders, weather, health and safety conditions independently before departure.</p></div></aside></div></div></section>
+    <section class="view trip-view" id="trip"><div class="trip-empty" id="tripEmpty"><span>⌁</span><p class="eyebrow dark">MY TRIP</p><h1>No safari plan saved yet.</h1><p>Build a planning route, then save it to carry the itinerary, preparation checklist and private notes on this device.</p><button type="button" data-go="planner">Build a safari route</button><button type="button" data-go="bookings">Find flights and stays</button></div><div id="tripContent" hidden><div class="trip-cover"><p class="eyebrow">Your saved journey</p><h1 id="tripTitle"></h1><div><span id="tripDuration"></span><span id="tripCountries"></span><span id="tripStartSummary">Start date not set</span></div></div><div class="trip-toolbar"><label>Journey begins<input id="tripStartDate" type="date"></label><button type="button" data-go="bookings">Find bookings</button><button id="shareTrip" type="button">Share plan</button><button id="clearTrip" type="button" class="trip-danger">Remove trip</button></div><div class="trip-layout"><section><div class="section-row"><h2>Planning itinerary</h2><small>Saved offline on this device</small></div><div class="day-cards" id="tripDays"></div><label class="trip-notes">Private trip notes<textarea id="tripNotes" placeholder="Booking references, meeting points, dietary notes or questions to confirm…"></textarea></label><button id="saveTripNotes" class="save-trip-notes" type="button">Save trip details</button></section><aside><h2>Before you go</h2><p class="trip-check-intro">These are personal reminders—not verification that a requirement has been met.</p><div id="tripChecklist"><label class="check"><input type="checkbox" data-trip-check="passport"> Passport validity and entry rules checked</label><label class="check"><input type="checkbox" data-trip-check="insurance"> Travel and evacuation cover checked</label><label class="check"><input type="checkbox" data-trip-check="health"> Health guidance reviewed with a professional</label><label class="check"><input type="checkbox" data-trip-check="bookings"> Transport and accommodation confirmed</label><label class="check"><input type="checkbox" data-trip-check="contacts"> Trusted and local contacts saved</label><label class="check"><input type="checkbox" data-trip-check="offline"> Relevant offline guide pack saved</label></div><div class="trip-integrity"><strong>Planning route only</strong><p>Confirm availability, transfers, road access, permits, borders, weather, health and safety conditions independently before departure.</p></div></aside></div></div></section>
+
+    <section class="view booking-view" id="bookings">
+      <div class="booking-hero"><p class="eyebrow">JOURNEY DESK</p><h1>Book the way into the wild.</h1><p>Search flights and places to stay, then keep confirmed details privately with your trip.</p></div>
+      <div class="booking-shell">
+        <div class="booking-tabs" role="tablist" aria-label="Booking type"><button class="selected" type="button" data-booking-tab="flight" role="tab" aria-selected="true">✈ Flights</button><button type="button" data-booking-tab="stay" role="tab" aria-selected="false">⌂ Stays &amp; lodges</button><button type="button" data-booking-tab="wallet" role="tab" aria-selected="false">▣ My bookings <span id="bookingCount">0</span></button></div>
+        <section class="booking-panel active" data-booking-panel="flight"><div class="booking-heading"><p class="eyebrow dark">FLIGHT SEARCH</p><h2>Reach your safari gateway.</h2><p>We pass your search to a travel provider. Prices and availability are supplied by that provider, not the Pocketbook.</p></div><form id="flightSearchForm" class="booking-form"><label>From<input id="flightFrom" required autocomplete="off" placeholder="City or airport, e.g. Gaborone"></label><label>To<input id="flightTo" required autocomplete="off" placeholder="City or airport, e.g. Maun"></label><label>Depart<input id="flightDepart" required type="date"></label><label>Return<input id="flightReturn" type="date"></label><label>Travellers<select id="flightTravellers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label><button class="booking-search" type="submit">Search live flights <span>↗</span></button></form><p class="booking-disclosure">Opens Google Flights in your browser. Payment, ticketing, changes and refunds are handled by the airline or booking provider you choose.</p></section>
+        <section class="booking-panel" data-booking-panel="stay" hidden><div class="booking-heading"><p class="eyebrow dark">STAY SEARCH</p><h2>Find a base in the landscape.</h2><p>Search hotels, camps and lodges by destination. Confirm park access, transfers and operating status directly before payment.</p></div><form id="staySearchForm" class="booking-form"><label class="booking-wide">Destination<input id="stayDestination" required autocomplete="off" placeholder="Park, reserve, town or country"></label><label>Check in<input id="stayCheckin" required type="date"></label><label>Check out<input id="stayCheckout" required type="date"></label><label>Guests<select id="stayGuests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select></label><label>Stay type<select id="stayType"><option value="safari lodge">Safari lodge</option><option value="tented camp">Tented camp</option><option value="hotel">Hotel</option><option value="guesthouse">Guesthouse</option><option value="campsite">Campsite</option></select></label><button class="booking-search" type="submit">Search live stays <span>↗</span></button></form><p class="booking-disclosure">Opens Google Hotels in your browser. The Pocketbook does not certify listings, availability, prices or operators.</p></section>
+        <section class="booking-panel" data-booking-panel="wallet" hidden><div class="booking-heading"><p class="eyebrow dark">PRIVATE BOOKING WALLET</p><h2>Carry confirmed details.</h2><p>Save confirmations only after booking with a provider. Records stay on this device.</p></div><form id="bookingRecordForm" class="booking-record-form"><label>Type<select id="recordType"><option>Flight</option><option>Accommodation</option><option>Safari activity</option><option>Transfer</option></select></label><label>Provider<input id="recordProvider" required placeholder="Airline, lodge or operator"></label><label>Reference<input id="recordReference" required placeholder="Confirmation number"></label><label>Date<input id="recordDate" type="date"></label><label class="booking-wide">Details<textarea id="recordDetails" placeholder="Route, address, contact, check-in time or meeting point"></textarea></label><button type="submit">Save confirmed booking</button></form><div class="booking-records" id="bookingRecords" aria-live="polite"></div></section>
+      </div>
+    </section>
 
     <section class="view content-view" id="explore">
       <p class="eyebrow dark">COUNTRY ATLAS</p>
@@ -252,8 +265,8 @@
 
   <dialog id="aboutDialog" class="about-dialog">
     <button class="dialog-close about-close" aria-label="Close data, privacy and sources">×</button>
-    <div class="about-content"><p class="eyebrow dark">AFRICAN SAFARI POCKETBOOK</p><h2>Data, privacy &amp; sources</h2><p class="about-version">Version 1.48.0 · Field testing release</p>
-      <section><h3>Your private field data</h3><p>Sightings, saved places, phrase notes, safety contacts, offline-pack selections and wildlife photographs deliberately saved for offline use are stored on this device. The app has no account, advertising SDK or analytics service. Journal or SOS information leaves the app only when you deliberately use Android’s share sheet.</p><div class="about-actions"><button id="aboutExport" type="button">Export journal</button><button id="aboutErase" type="button" class="danger">Erase journal data</button></div><small id="aboutDataCount" aria-live="polite"></small></section>
+    <div class="about-content"><p class="eyebrow dark">AFRICAN SAFARI POCKETBOOK</p><h2>Data, privacy &amp; sources</h2><p class="about-version">Version 1.49.0 · Field testing release</p>
+      <section><h3>Your private field data</h3><p>Sightings, saved places, booking confirmations, phrase notes, safety contacts, offline-pack selections and wildlife photographs deliberately saved for offline use are stored on this device. The app has no account, advertising SDK or analytics service. Journal or SOS information leaves the app only when you deliberately share it; booking searches open an external travel service.</p><div class="about-actions"><button id="aboutExport" type="button">Export journal</button><button id="aboutErase" type="button" class="danger">Erase journal data</button></div><small id="aboutDataCount" aria-live="polite"></small></section>
       <section><h3>Permissions</h3><p>Internet access loads current reference services, detailed map tiles and media. Network-state access distinguishes offline content from live content. Approximate or precise location is requested only after you choose a location action for SOS or a journal entry.</p></section>
       <section><h3>Connected services</h3><ul><li><strong>OpenStreetMap and Nominatim</strong> — map tiles and live geographic search</li><li><strong>GBIF</strong> — taxonomy, biodiversity records and attributable wildlife media</li><li><strong>World Bank</strong> — latest available population observation</li><li><strong>GOV.UK FCDO and WHO</strong> — current advisory and health starting points</li></ul><p>When these live services are used, the service may receive the device’s IP address and the requested search or page. Their own privacy terms apply.</p></section>
       <section><h3>Editorial limits</h3><p>Curated destinations and field notes are starting points, not booking, access, safety, conservation or operating-status guarantees. Political, visa, border, health and security conditions must be checked through current official sources before travel.</p></section>
@@ -272,6 +285,6 @@
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite">Route saved to your trips.</div>
-  <script src="vendor/leaflet.js?v=57"></script><script src="native-bridge.js?v=57"></script><script src="catalog.js?v=57"></script><script src="country-depth.js?v=57"></script><script src="destination-directory.js?v=57"></script><script src="language-guide.js?v=57"></script><script src="country-intelligence.js?v=57"></script><script src="app.js?v=57"></script><script src="real-map.js?v=57"></script><script src="botswana.js?v=57"></script><script src="wildlife.js?v=57"></script><script src="wildlife-profile.js?v=57"></script><script src="mobile.js?v=57"></script><script src="safety.js?v=57"></script><script src="map-fixes.js?v=57"></script><script src="route-actions.js?v=57"></script><script src="pocketbook.js?v=57"></script><script src="offline-packs.js?v=57"></script><script src="journal.js?v=57"></script><script src="safari-atmosphere.js?v=57"></script><script src="about.js?v=57"></script><script src="trip-companion.js?v=57"></script><script src="app-stability.js?v=57"></script>
+  <script src="vendor/leaflet.js?v=58"></script><script src="native-bridge.js?v=58"></script><script src="catalog.js?v=58"></script><script src="country-depth.js?v=58"></script><script src="destination-directory.js?v=58"></script><script src="language-guide.js?v=58"></script><script src="country-intelligence.js?v=58"></script><script src="app.js?v=58"></script><script src="real-map.js?v=58"></script><script src="botswana.js?v=58"></script><script src="wildlife.js?v=58"></script><script src="wildlife-profile.js?v=58"></script><script src="mobile.js?v=58"></script><script src="safety.js?v=58"></script><script src="map-fixes.js?v=58"></script><script src="route-actions.js?v=58"></script><script src="pocketbook.js?v=58"></script><script src="offline-packs.js?v=58"></script><script src="journal.js?v=58"></script><script src="safari-atmosphere.js?v=58"></script><script src="about.js?v=58"></script><script src="trip-companion.js?v=58"></script><script src="bookings.js?v=58"></script><script src="app-stability.js?v=58"></script>
 </body>
 </html>

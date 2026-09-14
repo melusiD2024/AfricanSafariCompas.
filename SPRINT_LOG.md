@@ -616,3 +616,12 @@
 - Replaced it with continent-wide language covering 54 countries, destinations, parks and safari stays.
 - Preserved the substantive Botswana lodge catalogue inside Places while preventing one country from defining the app's Africa-wide identity.
 - Bumped Android to 1.63.0 and offline cache to v72.
+
+## Cycle 55 — Species-specific wildlife depth V
+
+- Added complete offline field profiles for 12 distinctive African carnivores: serval, caracal, African golden cat, bat-eared fox, honey badger, fennec fox, aardwolf, black-footed cat, African civet, fossa, meerkat and brown hyena.
+- Each profile now provides species-specific identification, behaviour, feeding evidence, tracks or other signs and similar-species guidance.
+- Added ethical observation cautions around dens, dependent young, baiting, feeding, spotlighting and animals conditioned around camps.
+- Preserved all 172 wildlife entries, the Africa-wide Places wording and every existing app feature without adding unsupported current range or conservation claims.
+- Added regression coverage for all 12 deep carnivore profiles.
+- Bumped Android to 1.64.0 and offline cache to v73.

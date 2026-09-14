@@ -543,3 +543,16 @@
 - Added regression enforcement preventing launch-contingent phrases from returning.
 - Preserved Safari Circle, the raised SOS, Pocketbook, wildlife, countries, maps, bookings, My Trip and journal.
 - Bumped Android to 1.55.0 and offline cache to v64.
+
+## Cycle 47 — Pocketbook-first identity and trusted Circle registration
+
+- Restored the African Safari Pocketbook as the application landing screen and primary Home tab.
+- Kept Safari Circle prominent inside the Pocketbook without turning the product into a social-first app.
+- Replaced lightweight local profile creation with a structured account journey covering legal and public identity, unique handle, date of birth, country and member role.
+- Added selectable email or mobile verification, a six-digit verification step, resend and contact-change actions.
+- Added strong password validation, confirmation and explicit terms, privacy and community-guideline consent.
+- Added returning-member sign-in and verified-contact account recovery interfaces.
+- Prevented the client from creating verification codes or marking accounts verified without a successful server response.
+- Preserved existing on-device Circle posts and profiles, displaying legacy profiles honestly as requiring verification.
+- Preserved the floating SOS, five-tab mobile navigation, persistent searches, bookings, wildlife, countries, maps, My Trip and journal.
+- Bumped Android to 1.56.0 and offline cache to v65.

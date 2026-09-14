@@ -716,3 +716,12 @@
 - Added package-integrity regression checks for every sound file, its offline cache entry, the artificial-effect exclusion and all reptile profiles.
 - Preserved all 172 species and existing map, Circle, SOS, booking, journal, country and language functionality.
 - Bumped Android to 1.73.0 and offline cache to v82.
+
+## Cycle 64 — Complete marine field-guide depth
+
+- Completed species-specific offline field profiles for all 18 marine animals in the Pocketbook catalogue: whale shark, African manatee, dugong, humpback whale, four sea turtles, bottlenose dolphin, two manta rays, coelacanth, four large sharks, southern right whale and Bryde's whale.
+- Each profile now includes dedicated identification, behaviour, feeding evidence, tracks or other observable signs and similar-species guidance instead of the generic marine framework.
+- Added responsible marine-viewing guidance covering vessel approach, cleaning stations, nesting beaches, mothers with calves, handling, feeding and wildlife-call or interaction disturbance.
+- Kept range and conservation status out of static copy so current claims continue to come from the app's attributed live references.
+- Added regression coverage for every marine scientific name while preserving all 172 wildlife entries, verified offline sounds, maps, Circle, bookings, country profiles, journals and the floating SOS.
+- Bumped Android to 1.74.0 and offline cache to v83.

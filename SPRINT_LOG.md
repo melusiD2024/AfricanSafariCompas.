@@ -625,3 +625,13 @@
 - Preserved all 172 wildlife entries, the Africa-wide Places wording and every existing app feature without adding unsupported current range or conservation claims.
 - Added regression coverage for all 12 deep carnivore profiles.
 - Bumped Android to 1.64.0 and offline cache to v73.
+
+## Cycle 56 — Map interface hierarchy
+
+- Rebuilt the phone layout around a clear search → map → selected place → discovery sequence.
+- Moved curated filters and destination lists below the map on mobile so results no longer push the geography out of view.
+- Kept the slim map search pinned above the map and added a compact narrow-phone search action.
+- Removed the permanent default destination card from the map; place details now appear only after selection and can be dismissed to expose the map.
+- Collapsed regional offline packs into a secondary expandable section instead of presenting six competing cards alongside map discovery.
+- Tightened mobile spacing, status, legend and overlay sizing while preserving OpenStreetMap detail, offline Natural Earth outlines, live and offline search, saved places and the floating SOS.
+- Added regression checks for the new hierarchy and bumped Android to 1.65.0 and offline cache to v74.

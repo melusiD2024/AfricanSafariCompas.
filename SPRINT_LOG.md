@@ -575,3 +575,11 @@
 - Preserved Pocketbook-first launch, permanent Circle navigation and all existing app capabilities.
 - Added regression protection for the progressive account-entry behaviour.
 - Bumped Android to 1.58.0 and offline cache to v67.
+
+
+## Cycle 50 — Species-specific wildlife depth I
+
+- Added dedicated offline identification, behaviour, diet-evidence, tracks/signs and similar-species guidance for cheetah, African wild dog, spotted hyena, giraffe, hippopotamus, plains zebra, common warthog and Nile crocodile.
+- Preserved all 172 animals and all existing functionality.
+- Avoided unsupported current range or conservation claims.
+- Bumped Android to 1.59.0 and offline cache to v68.

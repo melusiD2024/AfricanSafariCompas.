@@ -486,3 +486,15 @@
 - Added touch selection, keyboard arrows, Enter, Escape, focus management and honest offline fallback.
 - Preserved the booking wallet, external live booking hand-off, raised SOS and all existing Pocketbook features.
 - Bumped Android to 1.50.0 and offline cache to v59.
+
+## Cycle 42 — Native booking journey interface
+
+- Removed the Google Flights and Google Hotels hand-offs completely.
+- Added in-app flight and accommodation result layouts driven by the traveller's search criteria.
+- Added selection, itinerary review, traveller details and payment-stage interfaces without leaving the Pocketbook.
+- Kept live fares, availability, provider identity, booking conditions and payment inactive until accredited APIs are connected rather than fabricating commercial data.
+- Prevented traveller details entered into the unfinished booking flow from being transmitted or stored.
+- Kept the separate private booking wallet for genuine confirmations made through an external provider in the interim.
+- Added regression enforcement preventing Google travel redirects from returning.
+- Preserved airport autocomplete, raised SOS, country profiles, wildlife, maps, My Trip and journal.
+- Bumped Android to 1.51.0 and offline cache to v60.

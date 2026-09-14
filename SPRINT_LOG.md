@@ -724,4 +724,5 @@
 - Added responsible marine-viewing guidance covering vessel approach, cleaning stations, nesting beaches, mothers with calves, handling, feeding and wildlife-call or interaction disturbance.
 - Kept range and conservation status out of static copy so current claims continue to come from the app's attributed live references.
 - Added regression coverage for every marine scientific name while preserving all 172 wildlife entries, verified offline sounds, maps, Circle, bookings, country profiles, journals and the floating SOS.
+- Updated Android runner setup to stop requesting the retired `tools` SDK package; the workflow now installs `platform-tools` before its explicit Android 35 platform and build-tools step.
 - Bumped Android to 1.74.0 and offline cache to v83.

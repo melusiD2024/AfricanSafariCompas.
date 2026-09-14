@@ -518,3 +518,17 @@
 - Added species-specific offline identification, behaviour, diet, tracks and signs, and similar-species guidance for all Big Five profiles.
 - Preserved sourced live taxonomy, occurrence evidence, photographs, recordings, journal actions and conservation links.
 - Bumped Android to 1.53.0 and offline cache to v62.
+
+## Cycle 45 — Free Safari Circle foundation
+
+- Introduced Safari Circle as the app’s safari-focused community landing space while keeping the Pocketbook one tap away.
+- Added free on-device member onboarding with traveller, photographer, filmmaker, guide, researcher, conservation and enthusiast identities.
+- Added structured posts for sightings, stories, questions, photography and film, with species, country and place context.
+- Added public, followers-only and private visibility choices plus default protection that removes specific location details from sensitive posts.
+- Added privacy-conscious photograph processing that resizes media and re-encodes it to remove embedded location metadata before local storage.
+- Added an on-device field feed with appreciation, comments, filtering and post deletion.
+- Added interest following and honest empty member discovery without fabricated users, posts, follower counts or engagement.
+- Added profile editing and complete Circle data deletion from the device.
+- Kept Circle data local until secure accounts, moderation and community infrastructure are connected.
+- Preserved the raised SOS, Pocketbook, 54 countries, wildlife, offline maps, bookings, My Trip and journal.
+- Bumped Android to 1.54.0 and offline cache to v63.

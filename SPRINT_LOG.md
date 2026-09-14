@@ -498,3 +498,13 @@
 - Added regression enforcement preventing Google travel redirects from returning.
 - Preserved airport autocomplete, raised SOS, country profiles, wildlife, maps, My Trip and journal.
 - Bumped Android to 1.51.0 and offline cache to v60.
+
+## Cycle 43 — Non-blocking country profiles
+
+- Fixed every country profile remaining indefinitely on “Loading the complete country reference”.
+- Rendered the complete bundled country essentials, destinations, languages and research sections before starting any live request.
+- Moved World Bank population and official travel-advisory retrieval into a separate enhancement pass with bounded timeouts.
+- Prevented a slow response for one country from overwriting a different country opened afterward.
+- Added an actionable recovery state if the bundled country reference itself cannot be read.
+- Preserved the raised SOS, persistent searches, bookings, 172 wildlife profiles, offline map, My Trip and journal.
+- Bumped Android to 1.52.0 and offline cache to v61.

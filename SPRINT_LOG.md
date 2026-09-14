@@ -726,3 +726,12 @@
 - Added regression coverage for every marine scientific name while preserving all 172 wildlife entries, verified offline sounds, maps, Circle, bookings, country profiles, journals and the floating SOS.
 - Updated Android runner setup to stop requesting the retired `tools` SDK package; the workflow now installs `platform-tools` before its explicit Android 35 platform and build-tools step.
 - Bumped Android to 1.74.0 and offline cache to v83.
+
+## Cycle 65 — Complete bird field-guide depth
+
+- Completed species-specific offline field profiles for the remaining 25 birds, bringing all 37 catalogue birds onto dedicated field notes rather than a group-level framework.
+- Added individual identification, behaviour, feeding evidence, tracks or other signs and similar-species comparisons for cranes, vultures, bee-eaters, wetland birds, raptors, guineafowl, penguin, turaco, hoopoe, kingfisher, fishing owl and oxpeckers.
+- Included practical low-disturbance guidance for colonies, nesting banks, carcasses, wetland territories, nocturnal roosts, host mammals and sensitive breeding sites.
+- Avoided unsupported current range and conservation claims; live attributed sources remain responsible for changing information.
+- Expanded regression coverage to all 37 bird scientific names while preserving all 172 animals and every v1.74 feature.
+- Bumped Android to 1.75.0 and offline cache to v84.

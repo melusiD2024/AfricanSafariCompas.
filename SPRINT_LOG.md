@@ -508,3 +508,13 @@
 - Added an actionable recovery state if the bundled country reference itself cannot be read.
 - Preserved the raised SOS, persistent searches, bookings, 172 wildlife profiles, offline map, My Trip and journal.
 - Bumped Android to 1.52.0 and offline cache to v61.
+
+## Cycle 44 — Botswana offline wildlife field guide
+
+- Replaced Botswana’s bird-heavy live-record list with a curated offline country index drawn from the 172-entry master field guide.
+- Added 78 Botswana-relevant mammals, birds and reptiles, including lion, leopard, African buffalo, African bush elephant, black rhinoceros and white rhinoceros.
+- Added visible Big Five markers without treating the two rhinoceros species as separate members of the traditional five.
+- Made country wildlife searching work immediately offline; GBIF remains evidence and discovery support for countries whose curated index is still pending.
+- Added species-specific offline identification, behaviour, diet, tracks and signs, and similar-species guidance for all Big Five profiles.
+- Preserved sourced live taxonomy, occurrence evidence, photographs, recordings, journal actions and conservation links.
+- Bumped Android to 1.53.0 and offline cache to v62.

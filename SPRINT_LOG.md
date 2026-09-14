@@ -532,3 +532,14 @@
 - Kept Circle data local until secure accounts, moderation and community infrastructure are connected.
 - Preserved the raised SOS, Pocketbook, 54 countries, wildlife, offline maps, bookings, My Trip and journal.
 - Bumped Android to 1.54.0 and offline cache to v63.
+
+## Cycle 46 — Launch-state product language
+
+- Established full service connectivity as a launch requirement rather than a qualification repeated throughout the interface.
+- Removed future-tense “will activate when connected”, “connection pending” and similar contingent statements from Safari Circle and Bookings.
+- Replaced development explanations with normal product instructions, operational empty states and service-availability states.
+- Removed fabricated-looking booking availability language while retaining the complete search, results, traveller and payment interface structure.
+- Reframed privacy information around user controls, publication choices and separation of private field data from Circle posts.
+- Added regression enforcement preventing launch-contingent phrases from returning.
+- Preserved Safari Circle, the raised SOS, Pocketbook, wildlife, countries, maps, bookings, My Trip and journal.
+- Bumped Android to 1.55.0 and offline cache to v64.

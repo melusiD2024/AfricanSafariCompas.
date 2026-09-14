@@ -600,3 +600,12 @@
 - Preserved all 172 wildlife entries and every existing app feature without adding unsupported current range or conservation claims.
 - Added regression coverage for all 12 deep bird profiles.
 - Bumped Android to 1.61.0 and offline cache to v70.
+
+## Cycle 53 — Species-specific wildlife depth IV
+
+- Added complete offline field profiles for 12 African primates: mountain gorilla, western lowland gorilla, chimpanzee, bonobo, gelada, mandrill, ring-tailed lemur, indri, Barbary macaque, vervet monkey, mantled guereza and patas monkey.
+- Each profile now provides species-specific identification, behaviour, feeding evidence, tracks or other signs and similar-species guidance.
+- Added viewing cautions covering guide distances, feeding, playback, nests, habituation and avoiding interference with animal movement.
+- Preserved all 172 wildlife entries and every existing app feature without adding unsupported current range or conservation claims.
+- Added regression coverage for all 12 deep primate profiles.
+- Bumped Android to 1.62.0 and offline cache to v71.

@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
     private static final String APP_ORIGIN = "https://appassets.androidplatform.net";
     private static final int LOCATION_REQUEST = 1001;
     private static final int FILE_CHOOSER_REQUEST = 1002;
+    private static final int SAFARI_MAP_REQUEST = 1003;
     private WebView webView;
     private ValueCallback<Uri[]> fileChooserCallback;
 
@@ -157,6 +158,14 @@ public class MainActivity extends Activity {
                 }
             });
         }
+
+        @JavascriptInterface public void openSafariMap(String query) {
+            runOnUiThread(() -> {
+                Intent intent = new Intent(MainActivity.this, SafariMapActivity.class);
+                intent.putExtra(SafariMapActivity.EXTRA_QUERY, query == null ? "" : query);
+                startActivityForResult(intent, SAFARI_MAP_REQUEST);
+            });
+        }
     }
 
     @Override public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
@@ -167,6 +176,12 @@ public class MainActivity extends Activity {
     }
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == SAFARI_MAP_REQUEST) {
+            if (resultCode == RESULT_OK && data != null && data.getBooleanExtra(SafariMapActivity.EXTRA_OPEN_SOS, false)) {
+                webView.evaluateJavascript("document.getElementById('sosButton')?.click()", null);
+            }
+            return;
+        }
         if (requestCode == FILE_CHOOSER_REQUEST) {
             Uri[] result = WebChromeClient.FileChooserParams.parseResult(resultCode, data);
             if (fileChooserCallback != null) fileChooserCallback.onReceiveValue(result);

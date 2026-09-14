@@ -1,5 +1,15 @@
 # African Safari Pocketbook sprint
 
+## Cycle 60 — Native safari map foundation
+
+- Added a dedicated native Android MapLibre map instead of placing the primary map interaction inside the WebView page.
+- Connected the permanent Map tab and Open safari map control directly to the native map on Android while retaining the web map as a browser fallback.
+- Added a full-screen OpenFreeMap basemap, Africa camera bounds, native touch gestures, compass and attribution.
+- Added native curated markers for key safari ecosystems across Africa and automatic marker focus from type-ahead search.
+- Added credential-free live Africa search for parks, reserves, lodges, towns and countries through Nominatim, with the best result centred automatically.
+- Added explicit loading, empty and connectivity states and a persistent close control.
+- Bumped Android to 1.70.0 and offline cache to v79.
+
 ## Cycle 59 — Search-driven map focus
 
 - Made exact and unambiguous offline country or destination searches automatically drive the map after a short typing debounce.

@@ -1,4 +1,4 @@
-.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+.bottom-nav{grid-template-columns:repeat(6,minmax(0,1fr))!important}
 .map-fallback{position:absolute;inset:0;z-index:2;display:grid;place-content:center;text-align:center;padding:32px;background:#e5ebe6;color:#173e2d}
 .map-fallback[hidden]{display:none}
 .map-fallback strong{font:600 30px var(--serif)}

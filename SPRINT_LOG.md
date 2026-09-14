@@ -556,3 +556,11 @@
 - Preserved existing on-device Circle posts and profiles, displaying legacy profiles honestly as requiring verification.
 - Preserved the floating SOS, five-tab mobile navigation, persistent searches, bookings, wildlife, countries, maps, My Trip and journal.
 - Bumped Android to 1.56.0 and offline cache to v65.
+
+## Cycle 48 — Restore permanent Circle navigation
+
+- Restored Safari Circle as a permanent button in the mobile app navigation.
+- Kept the Pocketbook Home button active by default so Circle remains a major capability rather than the product landing page.
+- Expanded the navigation grid to six equal, narrow-screen-safe destinations without moving or covering the floating SOS.
+- Added regression protection so future navigation changes cannot silently remove Circle again.
+- Bumped Android to 1.57.0 and offline cache to v66.

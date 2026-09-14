@@ -635,3 +635,14 @@
 - Collapsed regional offline packs into a secondary expandable section instead of presenting six competing cards alongside map discovery.
 - Tightened mobile spacing, status, legend and overlay sizing while preserving OpenStreetMap detail, offline Natural Earth outlines, live and offline search, saved places and the floating SOS.
 - Added regression checks for the new hierarchy and bumped Android to 1.65.0 and offline cache to v74.
+
+## Cycle 57 — Fixed English Africa map
+
+- Locked the overview to one stable Africa-wide frame with no drag, pinch, wheel, keyboard or double-tap zoom behaviour.
+- Restored normal vertical page scrolling over the map so touch gestures no longer trap phone users inside the geographic canvas.
+- Removed the multilingual OpenStreetMap visual tile layer from the overview while retaining OpenStreetMap as the live place-search source.
+- Added permanent English country labels from the bundled Natural Earth geography, with dedicated labels and tap targets for Cabo Verde, São Tomé and Príncipe, Comoros, Mauritius and Seychelles.
+- Kept country shapes and destination markers selectable without moving the map, and disabled popup auto-panning.
+- Preserved live coordinate search, saved places, offline maps, the reorganised map interface and floating SOS.
+- Added regression checks enforcing the fixed viewport and local English labels.
+- Bumped Android to 1.66.0 and offline cache to v75.

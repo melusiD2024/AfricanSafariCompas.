@@ -9,6 +9,14 @@
 
 /* Map information architecture: search, map, selection, then discovery. */
 .map-sheet-close{position:absolute;top:8px;right:8px;width:32px;height:32px;border:0;border-radius:50%;background:#eee9df;color:#292621;font:700 20px/1 var(--sans);cursor:pointer;z-index:2}
+.real-map,.real-map.leaflet-container{touch-action:pan-y!important;overscroll-behavior:auto!important;cursor:default!important}
+.real-map .leaflet-control-zoom{display:none!important}
+.real-map{background:#c8ddd9!important}
+.africa-country-label{border:0!important;background:transparent!important;box-shadow:none!important;color:#3d3a32!important;font:700 8px/1.05 var(--sans)!important;text-align:center!important;white-space:normal!important;width:74px!important;margin-left:-37px!important;letter-spacing:.01em;text-shadow:0 1px 0 rgba(255,255,255,.85)}
+.africa-country-label:before{display:none!important}
+.africa-country-label.long-label{font-size:6.5px!important;line-height:1!important}
+.africa-island-label{background:transparent!important;border:0!important;color:#3d3a32!important;font:700 7px/1 var(--sans)!important;text-align:center!important;white-space:normal!important;text-shadow:0 1px 0 rgba(255,255,255,.9)}
+.africa-island-label span{display:block}
 .selected-place{padding-right:48px}
 .download-section{display:block;margin-top:28px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
 .download-section>summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;cursor:pointer;list-style:none}
@@ -37,6 +45,8 @@
  .live-place-list{order:5;margin:0 10px!important;background:#fff}
  .place-list{order:6;max-height:310px!important;padding:4px 10px 12px;background:#fff}
  .map-key{top:10px!important;left:10px!important;right:auto!important;font-size:10px!important;gap:9px!important}
+ .africa-country-label{font-size:7px!important;width:60px!important;margin-left:-30px!important}
+ .africa-country-label.long-label{font-size:5.5px!important}
  .selected-place{left:10px!important;right:10px!important;bottom:42px!important;width:auto!important;max-height:38%!important;overflow:auto!important;padding:13px 45px 13px 13px!important;border-radius:12px!important}
  .selected-place h2{font-size:22px!important}
  .map-disclaimer{font-size:9px!important;line-height:1.25!important}

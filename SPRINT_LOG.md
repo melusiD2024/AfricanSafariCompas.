@@ -937,3 +937,18 @@
 - Reviewed the submitted 12-second Android screen recording frame by frame.
 - Confirmed autocomplete panels are bounded to 42% of the viewport and never render the full catalogue.
 - JavaScript syntax, release-token consistency and required autocomplete hooks were validated before the single push.
+
+
+## Cycle 84 — Repair full-screen profile geometry (v1.94.0)
+
+- Diagnosed the repeated blank left column shown in submitted lion and leopard screenshots.
+- Removed the full-screen dialog SOS and close controls from float layout; they now remain fixed overlays at the safe-area edges.
+- Forced wildlife and country hero panels to occupy the complete mobile viewport width.
+- Preserved the image crop, readable gradient, title overlay, scrolling behaviour and emergency access.
+- Added regression validation for both overlay controls and full-width profile heroes.
+
+### Verification
+
+- Compared the defect in two independent species profiles and confirmed the shared structural cause.
+- Verified the final stylesheet overrides the earlier sticky/float declarations.
+- Validated CSS release hooks, JavaScript shell syntax, version alignment and offline-cache token before push.

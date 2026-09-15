@@ -46,3 +46,11 @@ html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}bod
 /* Give the Pocketbook identity proper visual presence without crowding navigation. */
 @media(max-width:850px){.topbar{height:calc(78px + env(safe-area-inset-top,0px))!important;min-height:calc(78px + env(safe-area-inset-top,0px))!important}.topbar .brand{gap:12px!important}.topbar .brand-mark{width:52px!important;height:52px!important;flex:0 0 52px!important;border-radius:14px!important}.topbar .brand-wordmark strong{font-size:19px!important;overflow:visible;text-overflow:clip}.topbar .brand-wordmark em{font-size:11px!important;letter-spacing:.22em!important}.sticky-controls{top:calc(78px + env(safe-area-inset-top,0px))!important}}
 @media(max-width:360px){.topbar .brand-mark{width:48px!important;height:48px!important;flex-basis:48px!important}.topbar .brand-wordmark strong{font-size:17px!important}.topbar .brand-wordmark em{font-size:10px!important}}
+
+
+/* Full-screen dialog controls must overlay content, never float beside it. */
+@media(max-width:850px){
+ dialog .dialog-close{position:fixed!important;float:none!important;top:max(10px,env(safe-area-inset-top,0px))!important;right:max(10px,env(safe-area-inset-right,0px))!important;margin:0!important}
+ dialog>.dialog-sos-shortcut{position:fixed!important;float:none!important;top:max(10px,env(safe-area-inset-top,0px))!important;left:max(10px,env(safe-area-inset-left,0px))!important;margin:0!important}
+ #wildlifeProfile>.wildlife-profile-hero,#countryBrief>.country-hero{width:100%!important;max-width:100%!important;margin:0!important;clear:both!important}
+}

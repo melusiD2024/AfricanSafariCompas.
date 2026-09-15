@@ -765,3 +765,14 @@
 - Preserved private locally verified phrase notes and retained all existing Pocketbook, country, wildlife, map, Circle, booking, journal and SOS features.
 - Added regression checks for phrase structure, duplicates, source links, language codes, minimum phrase depth and complete country coverage.
 - Bumped Android to 1.78.0 and offline cache to v87.
+
+## Cycle 69 — Repair Languages navigation and phrase playback
+
+- Corrected the country-profile Languages shortcut, which previously scrolled only to the next section in the document rather than locating the actual language section.
+- The shortcut now opens the common phrasebook, scrolls it into view and focuses phrase search for immediate use.
+- Added Android-native text-to-speech through the protected JavaScript bridge instead of relying solely on inconsistent WebView speech support.
+- Added Android TTS service discovery, queued playback while the speech engine starts and lifecycle cleanup when the app closes.
+- When a requested language voice is unavailable, the app now speaks the displayed approximate pronunciation through the English voice and tells the user, rather than silently doing nothing.
+- Retained browser speech as a fallback outside Android and added regression checks for both navigation and the native pronunciation bridge.
+- Preserved all 91 phrases, seven phrasebooks, private notes and every existing application feature.
+- Bumped Android to 1.79.0 and offline cache to v88.

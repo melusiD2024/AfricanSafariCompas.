@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 
 import androidx.webkit.WebViewAssetLoader;
 
+import java.util.Locale;
+
 public class MainActivity extends Activity {
     private static final String APP_ORIGIN = "https://appassets.androidplatform.net";
     private static final int LOCATION_REQUEST = 1001;
@@ -32,6 +35,12 @@ public class MainActivity extends Activity {
     private static final int SAFARI_MAP_REQUEST = 1003;
     private WebView webView;
     private ValueCallback<Uri[]> fileChooserCallback;
+    private TextToSpeech textToSpeech;
+    private boolean speechReady;
+    private boolean speechFailed;
+    private String pendingSpeech;
+    private String pendingLanguage;
+    private String pendingFallback;
 
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -41,6 +50,15 @@ public class MainActivity extends Activity {
         webView = new WebView(this);
         webView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         setContentView(webView);
+        textToSpeech = new TextToSpeech(this, status -> {
+            speechReady = status == TextToSpeech.SUCCESS;
+            speechFailed = !speechReady;
+            if (speechReady && pendingSpeech != null) {
+                String phrase = pendingSpeech, language = pendingLanguage, fallback = pendingFallback;
+                pendingSpeech = pendingLanguage = pendingFallback = null;
+                speakPhrase(phrase, language, fallback);
+            }
+        });
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -141,6 +159,28 @@ public class MainActivity extends Activity {
             || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
+    private void speakPhrase(String phrase, String languageTag, String fallback) {
+        if (phrase == null || phrase.trim().isEmpty()) return;
+        if (speechFailed) {
+            Toast.makeText(this, "Pronunciation is unavailable on this device.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (!speechReady) {
+            pendingSpeech = phrase; pendingLanguage = languageTag; pendingFallback = fallback;
+            Toast.makeText(this, "Preparing pronunciation…", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Locale requested = languageTag == null || languageTag.trim().isEmpty() ? Locale.getDefault() : Locale.forLanguageTag(languageTag);
+        int support = textToSpeech.setLanguage(requested);
+        String spoken = phrase;
+        if (support == TextToSpeech.LANG_MISSING_DATA || support == TextToSpeech.LANG_NOT_SUPPORTED) {
+            textToSpeech.setLanguage(Locale.ENGLISH);
+            spoken = fallback == null || fallback.trim().isEmpty() ? phrase : fallback;
+            Toast.makeText(this, "Using approximate pronunciation.", Toast.LENGTH_SHORT).show();
+        }
+        textToSpeech.speak(spoken, TextToSpeech.QUEUE_FLUSH, null, "pocketbook-phrase");
+    }
+
     public class NativeBridge {
         @JavascriptInterface public void share(String title, String text) {
             runOnUiThread(() -> {
@@ -168,6 +208,10 @@ public class MainActivity extends Activity {
                 intent.putExtra(SafariMapActivity.EXTRA_QUERY, query == null ? "" : query);
                 startActivityForResult(intent, SAFARI_MAP_REQUEST);
             });
+        }
+
+        @JavascriptInterface public void speakPhrase(String phrase, String languageTag, String fallback) {
+            runOnUiThread(() -> MainActivity.this.speakPhrase(phrase, languageTag, fallback));
         }
     }
 
@@ -212,6 +256,7 @@ public class MainActivity extends Activity {
     @Override protected void onDestroy() {
         webView.removeJavascriptInterface("AndroidBridge");
         webView.destroy();
+        if (textToSpeech != null) { textToSpeech.stop(); textToSpeech.shutdown(); }
         super.onDestroy();
     }
 

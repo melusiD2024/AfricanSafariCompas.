@@ -776,3 +776,16 @@
 - Retained browser speech as a fallback outside Android and added regression checks for both navigation and the native pronunciation bridge.
 - Preserved all 91 phrases, seven phrasebooks, private notes and every existing application feature.
 - Bumped Android to 1.79.0 and offline cache to v88.
+
+## Cycle 70 — Dedicated Travel & Health Centre
+
+- Removed changing advisory and health content from Places country entries so destination discovery remains focused and uncluttered.
+- Added a dedicated searchable directory covering all 54 African countries, with a slim persistent country search and clear selected-country state.
+- Added a live GOV.UK FCDO advisory panel with official update and retrieval times, bounded loading, retry and honest unavailable states; cached guidance is never presented as current.
+- Added separate vaccination and malaria preparation, outbreak and public-health, entry-requirement and emergency-preparation panels.
+- Connected official country guidance from CDC, WHO, WHO Disease Outbreak News, Africa CDC and GOV.UK without converting changing guidance into unsupported static claims.
+- Clarified that malaria prevention is itinerary- and traveller-specific and may include bite avoidance and prescription medicine rather than implying a routine traveller “malaria shot”.
+- Added direct Travel & Health access from the Pocketbook home, desktop navigation and every country profile while preserving the separate floating SOS workflow.
+- Bundled the new interface into the offline application shell and added regression checks for routing, sources, live-data separation, retry states and country handoff.
+- Preserved all 54 countries, 172 animals, phrasebooks and native pronunciation, maps, Circle, bookings, journal, sticky searches and floating SOS.
+- Bumped Android to 1.80.0 and offline cache to v89.

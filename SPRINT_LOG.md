@@ -886,3 +886,13 @@
 - Added regression checks for the 189-species total, complete field profiles and prominent Botswana Nile crocodile placement.
 - Preserved all country guides, maps, Circle, bookings, phrases, journal, persistent searches and floating SOS.
 - Bumped Android to 1.89.0 and offline cache to v98.
+
+## Cycle 80 — Legible mobile navigation icons
+
+- Replaced the six thin Unicode navigation marks with purpose-built inline vector icons for Home, Places, Wildlife, Map, Circle and Journal.
+- Increased icon geometry to 30 px inside consistent 32 px frames and strengthened active-state strokes.
+- Increased mobile navigation labels to 11 px and touch targets to 62 px without enlarging the overall navigation footprint unnecessarily.
+- Kept the floating red SOS safely above the navigation and preserved Android safe-area handling.
+- Added regression checks requiring all six vector icons and their minimum rendered size.
+- Preserved all 189 wildlife profiles, 54 country entries, maps, Circle, bookings, phrases and journal functions.
+- Bumped Android to 1.90.0 and offline cache to v99.

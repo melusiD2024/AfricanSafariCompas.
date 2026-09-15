@@ -864,3 +864,13 @@
 - Kept a dedicated narrow-phone size so the full identity remains readable without horizontal overflow.
 - Preserved the homepage composition, catalogue, Places, Wildlife, Circle, Map, Journal and floating SOS behaviour.
 - Bumped Android to 1.87.0 and offline cache to v96.
+
+## Cycle 78 — Southern Africa country-depth completion
+
+- Replaced generic fallback summaries for Angola, Eswatini, Lesotho, Malawi and Mozambique with structured offline field profiles.
+- Every Southern African atlas country now provides journey gateways, a landscape compass, six distinct safari or nature regions and named reference sources.
+- Added authoritative starting points from national tourism, environment and conservation bodies, Protected Planet, UNESCO and official park organisations.
+- Kept seasonal claims out of the new profiles where a single national pattern could mislead travellers.
+- Added regression checks requiring all ten Southern African profiles and preventing the expanded-profile total from falling below 15.
+- Preserved all 54 countries, 172 wildlife profiles, Circle, bookings, maps, phrases, journal, slim persistent searches and floating SOS.
+- Bumped Android to 1.88.0 and offline cache to v97.

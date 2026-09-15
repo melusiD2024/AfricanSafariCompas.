@@ -805,3 +805,15 @@
 - Added responsive mobile layouts for the member directory, conversations, notifications, privacy controls and modal actions.
 - Preserved all 54 countries, 172 animal profiles, Travel & Health Centre, maps, languages, bookings, journal, persistent searches and floating SOS.
 - Bumped Android to 1.81.0 and offline cache to v90.
+
+## Cycle 72 — Immediately accessible Circle interface preview
+
+- Added a prominent Preview Circle action beside Create account and Sign in, allowing the entire post-registration interface to be inspected without a working account service.
+- Preview opens Field Feed, Discover, Messages, Alerts and Profile using a clearly identified temporary Safari Explorer identity.
+- Added two harmless illustrative field posts so feed cards, reactions, comments, privacy labels and post actions can be evaluated instead of presenting only empty screens.
+- Disabled publishing and account-destructive controls during preview while retaining full navigation through every Circle workspace.
+- Added Join Circle and Exit preview controls and restores any pre-existing on-device profile and posts when preview ends.
+- Kept all preview state temporary to the current application session and bundled the route into the offline application shell.
+- Added regression checks for preview entry, sample rendering, safe exit, account handoff and offline assets.
+- Preserved Pocketbook as homepage and all existing safari, Travel & Health, map, language, wildlife, booking, journal, SOS and Circle functions.
+- Bumped Android to 1.82.0 and offline cache to v91.

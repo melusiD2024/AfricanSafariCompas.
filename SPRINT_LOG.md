@@ -921,3 +921,19 @@
 - All 59 bundled reference records parsed with one of the two allowed driving-side values.
 - The 14 sovereign left-driving countries were asserted explicitly.
 - JavaScript syntax, HTML assets, offline-shell integrity and Android configuration were checked before the single push.
+
+
+## Cycle 83 — Replace oversized Android Journal pickers (v1.93.0)
+
+- Replaced the Journal animal field's browser-native datalist popup, which Android rendered as a large dark catalogue covering the form and keyboard.
+- Added a compact in-app animal autocomplete limited to six relevant common/scientific-name matches.
+- Applied the same controlled autocomplete to the Journal place field to prevent the equivalent failure with the destination catalogue.
+- Added touch selection, keyboard navigation, Escape dismissal and combobox accessibility semantics.
+- Preserved the datalist used by Safari Circle without exposing it in the Journal form.
+- Refreshed the offline shell and Android release version.
+
+### Verification
+
+- Reviewed the submitted 12-second Android screen recording frame by frame.
+- Confirmed autocomplete panels are bounded to 42% of the viewport and never render the full catalogue.
+- JavaScript syntax, release-token consistency and required autocomplete hooks were validated before the single push.

@@ -952,3 +952,18 @@
 - Compared the defect in two independent species profiles and confirmed the shared structural cause.
 - Verified the final stylesheet overrides the earlier sticky/float declarations.
 - Validated CSS release hooks, JavaScript shell syntax, version alignment and offline-cache token before push.
+
+
+## Cycle 85 — Make Places search recognise wildlife (v1.95.0)
+
+- Corrected the dead-end shown when “Lion” or another animal was entered in Places.
+- Places now searches the complete offline wildlife catalogue alongside countries and destinations.
+- Wildlife results show category, common name and scientific name.
+- Selecting a wildlife result opens the Field Guide with that animal already filtered.
+- Empty-state language now accurately covers countries, destinations and animals.
+- Limited wildlife matches to eight per query for a concise mobile result set.
+
+### Verification
+
+- Confirmed “Lion” resolves from the bundled wildlife catalogue instead of returning zero results.
+- Validated JavaScript syntax, cross-search hooks, release tokens, offline shell and Android version alignment before push.

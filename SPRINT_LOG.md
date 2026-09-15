@@ -874,3 +874,15 @@
 - Added regression checks requiring all ten Southern African profiles and preventing the expanded-profile total from falling below 15.
 - Preserved all 54 countries, 172 wildlife profiles, Circle, bookings, maps, phrases, journal, slim persistent searches and floating SOS.
 - Bumped Android to 1.88.0 and offline cache to v97.
+
+## Cycle 79 — Essential safari wildlife expansion
+
+- Expanded the offline catalogue from 172 to 189 species with 17 conspicuous, commonly sought safari animals.
+- Added black-backed and side-striped jackals, chacma and olive baboons, African wildcat, bushbuck, tsessebe, red hartebeest, common reedbuck, puku, scrub hare and Cape ground squirrel.
+- Added southern yellow-billed, southern red-billed and African grey hornbills, plus pied and woodland kingfishers.
+- Created dedicated identification, behaviour, diet-evidence, tracks-and-signs and similar-species guidance for every new animal.
+- Corrected Botswana discovery so Nile crocodile appears in the first iconic group instead of being buried deep in the list.
+- Expanded Botswana’s curated guide with the locally relevant new mammals and birds, while keeping all existing entries.
+- Added regression checks for the 189-species total, complete field profiles and prominent Botswana Nile crocodile placement.
+- Preserved all country guides, maps, Circle, bookings, phrases, journal, persistent searches and floating SOS.
+- Bumped Android to 1.89.0 and offline cache to v98.

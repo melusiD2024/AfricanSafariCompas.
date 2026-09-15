@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.inputmethod.EditorInfo;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class SafariMapActivity extends Activity {
     public static final String EXTRA_OPEN_SOS = "open_sos";
     private static final String STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
     private static final String SEARCH_SOURCE = "OpenStreetMap Nominatim";
+    private static final String USER_AGENT = "AfricanSafariPocketbook/" + BuildConfig.VERSION_NAME + " (https://github.com/melusiD2024/AfricanSafariCompas.)";
     private static final LatLngBounds AFRICA_BOUNDS = new LatLngBounds.Builder()
         .include(new LatLng(38.0, -26.0)).include(new LatLng(-39.0, 64.0)).build();
 
@@ -133,6 +135,7 @@ public class SafariMapActivity extends Activity {
 
         search = new EditText(this);
         search.setSingleLine(true); search.setHint("Park, reserve, lodge or country"); search.setTextSize(15); search.setTextColor(Color.rgb(35,31,27));
+        search.setContentDescription("Search African parks, reserves, lodges or countries"); search.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         search.setBackgroundColor(Color.TRANSPARENT); search.setPadding(dp(8),0,dp(8),0);
         panel.addView(search, new LinearLayout.LayoutParams(0, dp(48), 1));
 
@@ -150,12 +153,13 @@ public class SafariMapActivity extends Activity {
 
     private View buildStatus() {
         status = new TextView(this); status.setText("Opening native safari map…"); status.setTextSize(12); status.setTextColor(Color.rgb(55,50,44));
+        status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
         status.setPadding(dp(12),dp(8),dp(12),dp(8)); status.setBackground(roundRect(Color.argb(235,255,255,255),12,Color.argb(50,35,31,27)));
         return status;
     }
 
     private View buildSuggestions() {
-        suggestions = new ListView(this); suggestions.setVisibility(View.GONE); suggestions.setDividerHeight(1);
+        suggestions = new ListView(this); suggestions.setVisibility(View.GONE); suggestions.setDividerHeight(1); suggestions.setContentDescription("Safari map search results");
         suggestions.setBackground(roundRect(Color.argb(252,255,255,255),12,Color.argb(50,35,31,27)));
         suggestions.setOnItemClickListener((parent, view, position, id) -> focus(visibleResults.get(position), true));
         return suggestions;
@@ -206,7 +210,7 @@ public class SafariMapActivity extends Activity {
                 String encoded = URLEncoder.encode(query, StandardCharsets.UTF_8.name());
                 URL url = new URL("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=8&viewbox=-26,38,64,-39&bounded=1&q=" + encoded);
                 connection = (HttpURLConnection) url.openConnection(); connection.setConnectTimeout(9000); connection.setReadTimeout(9000);
-                connection.setRequestProperty("User-Agent","AfricanSafariPocketbook/1.71 (https://github.com/melusiD2024/AfricanSafariCompas.)");
+                connection.setRequestProperty("User-Agent",USER_AGENT);
                 try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
                     StringBuilder body = new StringBuilder(); String line; while ((line=reader.readLine())!=null) body.append(line);
                     JSONArray data = new JSONArray(body.toString());
@@ -222,7 +226,7 @@ public class SafariMapActivity extends Activity {
         if(map==null)return;CameraPosition camera=map.getCameraPosition();double zoom=camera.zoom,span=Math.max(0.35,32.0/Math.pow(2.0,Math.max(0.0,zoom-2.0)));
         double west=Math.max(-26,camera.target.getLongitude()-span),east=Math.min(64,camera.target.getLongitude()+span),south=Math.max(-39,camera.target.getLatitude()-span*.72),north=Math.min(38,camera.target.getLatitude()+span*.72);
         status.setText("Finding "+label+" in this map area…");suggestions.setVisibility(View.GONE);
-        network.execute(()->{List<Place> found=new ArrayList<>();HttpURLConnection connection=null;try{String encoded=URLEncoder.encode(query,StandardCharsets.UTF_8.name());URL url=new URL("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=18&bounded=1&viewbox="+west+","+north+","+east+","+south+"&q="+encoded);connection=(HttpURLConnection)url.openConnection();connection.setConnectTimeout(9000);connection.setReadTimeout(9000);connection.setRequestProperty("User-Agent","AfricanSafariPocketbook/1.71 (https://github.com/melusiD2024/AfricanSafariCompas.)");try(BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()))){StringBuilder body=new StringBuilder();String line;while((line=reader.readLine())!=null)body.append(line);JSONArray data=new JSONArray(body.toString());for(int i=0;i<data.length();i++){JSONObject item=data.getJSONObject(i);String full=item.optString("display_name","African map result"),name=item.optString("name",full.split(",")[0]);found.add(new Place(name,full,item.getDouble("lat"),item.getDouble("lon")));}}main.post(()->showDiscoveryResults(found,label));}catch(Exception error){main.post(()->status.setText("Live "+label+" discovery is unavailable. Curated safari markers remain usable."));}finally{if(connection!=null)connection.disconnect();}});
+        network.execute(()->{List<Place> found=new ArrayList<>();HttpURLConnection connection=null;try{String encoded=URLEncoder.encode(query,StandardCharsets.UTF_8.name());URL url=new URL("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&limit=18&bounded=1&viewbox="+west+","+north+","+east+","+south+"&q="+encoded);connection=(HttpURLConnection)url.openConnection();connection.setConnectTimeout(9000);connection.setReadTimeout(9000);connection.setRequestProperty("User-Agent",USER_AGENT);try(BufferedReader reader=new BufferedReader(new InputStreamReader(connection.getInputStream()))){StringBuilder body=new StringBuilder();String line;while((line=reader.readLine())!=null)body.append(line);JSONArray data=new JSONArray(body.toString());for(int i=0;i<data.length();i++){JSONObject item=data.getJSONObject(i);String full=item.optString("display_name","African map result"),name=item.optString("name",full.split(",")[0]);found.add(new Place(name,full,item.getDouble("lat"),item.getDouble("lon")));}}main.post(()->showDiscoveryResults(found,label));}catch(Exception error){main.post(()->status.setText("Live "+label+" discovery is unavailable. Curated safari markers remain usable."));}finally{if(connection!=null)connection.disconnect();}});
     }
 
     private void showDiscoveryResults(List<Place> found,String label) {

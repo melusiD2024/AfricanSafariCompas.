@@ -745,3 +745,13 @@
 - Upgraded validation from selected representative species to every one of the 172 catalogue scientific names, preventing any future profile from silently reverting to generic notes.
 - Preserved every v1.75 feature, including bundled sounds, attributed media, native safari map, offline assets, Circle, bookings, country profiles, journals, sticky searches and floating SOS.
 - Bumped Android to 1.76.0 and offline cache to v85.
+
+## Cycle 67 — Final regression and Android hardening
+
+- Strengthened the content validator so every one of the 172 catalogue animals must retain a dedicated profile with complete identification, behaviour, diet, signs and comparison fields.
+- Removed the stale hard-coded native-map release identity; network requests now derive the Pocketbook version from the Android build configuration.
+- Improved native-map search accessibility with an explicit search action, labelled controls and polite live status announcements for results and errors.
+- Disabled WebView debugging in shipped builds and restricted Android-managed downloads to HTTPS.
+- Preserved the Pocketbook homepage, permanent Circle access, slim persistent searches, raised floating SOS, native and offline maps, bookings, journals, all 54 countries, all 172 animals and four verified bundled recordings.
+- Bumped Android to 1.77.0 and offline cache to v86.
+- Remaining production work is explicit: Play Store signing; service credentials and infrastructure for Circle accounts and live booking/payment; greater verified sound and destination/lodge breadth; and detailed offline road and terrain tiles.

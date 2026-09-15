@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
         getWindow().setNavigationBarColor(Color.BLACK);
 
         webView = new WebView(this);
+        webView.setId(0x5AFA2026);
         webView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         setContentView(webView);
         textToSpeech = new TextToSpeech(this, status -> {

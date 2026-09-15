@@ -817,3 +817,16 @@
 - Added regression checks for preview entry, sample rendering, safe exit, account handoff and offline assets.
 - Preserved Pocketbook as homepage and all existing safari, Travel & Health, map, language, wildlife, booking, journal, SOS and Circle functions.
 - Bumped Android to 1.82.0 and offline cache to v91.
+
+## Cycle 73 — Live-data integrity and Circle service foundation
+
+- Replaced permissive runtime caching with a static-shell allowlist. Cross-origin requests and every `/api` request now bypass Cache Storage, preventing old travel advisories, health responses, bookings or community data from appearing current.
+- Removed the Circle preview button, sample identities, sample posts, preview storage and preview assets from the public application and APK.
+- Corrected false-success paths for Circle profile updates, publishing, appreciation, comments, deletion, messages, settings, following, blocking and reports. Confirmed server responses now precede durable device-state changes and success copy.
+- Added a deployable PostgreSQL-backed Circle service foundation with account registration, contact verification delivery adapter, password hashing, opaque sessions, login, recovery, profiles, preferences, member discovery, follows, posts, comments, appreciations, messages, blocking and moderation reports.
+- Added rate limiting, strict HTTP headers, input schemas, generic recovery responses, expiring/attempt-limited verification codes and a moderation queue schema.
+- Added Android instrumentation navigation and screenshot coverage for Pocketbook, Circle, Travel & Health and Map, plus workflow artifact collection.
+- Added privacy, community-standard and Play Store release drafts that identify the operator, legal-review, production signing, vendor and operational gates without placing secrets in source control.
+- Added regression checks that reject Circle preview assets, live-data caching and known false-success code paths.
+- Preserved all 172 wildlife profiles, 54 countries, map, language, Travel & Health, booking, journal, persistent search and floating SOS features.
+- Bumped Android to 1.83.0 and offline cache to v92.

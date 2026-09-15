@@ -31,10 +31,31 @@ jobs:
           key: african-safari-pocketbook-debug-signing-v1
       - name: Validate bundled web application
         run: node scripts/validate-web.mjs
+      - name: Validate Safari Circle service
+        run: |
+          npm ci --prefix server --ignore-scripts
+          npm --prefix server run check
+          npm --prefix server test
       - name: Install Android SDK 35
         run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
       - name: Build installable debug APK
         run: gradle -p android assembleDebug
+      - name: Run Android interaction journey
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          disable-animations: true
+          script: |
+            gradle -p android connectedDebugAndroidTest
+            mkdir -p test-artifacts/android
+            adb pull /sdcard/Android/data/africa.safaricompass.app/files/screenshots test-artifacts/android/
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: android-interaction-screenshots
+          path: test-artifacts/android
+          if-no-files-found: warn
       - name: Verify APK before publication
         run: |
           test -s android/app/build/outputs/apk/debug/app-debug.apk

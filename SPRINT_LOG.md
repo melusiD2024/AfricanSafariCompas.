@@ -967,3 +967,20 @@
 
 - Confirmed “Lion” resolves from the bundled wildlife catalogue instead of returning zero results.
 - Validated JavaScript syntax, cross-search hooks, release tokens, offline shell and Android version alignment before push.
+
+
+## Cycle 86 — Real Android regression journeys (v1.96.0)
+
+- Replaced the superficial four-screen smoke test with a critical mobile journey suite based on defects reported from the physical device.
+- Tests all six bottom-navigation targets for usable dimensions.
+- Proves that “Lion” entered in Places resolves to the wildlife catalogue and exposes Panthera leo.
+- Proves Journal animal suggestions remain visible, relevant, limited to six and bounded inside the viewport.
+- Opens Botswana’s real offline country record and asserts “Left side of the road”.
+- Measures country and wildlife heroes against the physical viewport to prevent the blank-column regression.
+- Confirms SOS and close controls are fixed overlays rather than content-distorting floats.
+- Captures five emulator screenshots as workflow artifacts for visual inspection.
+
+### Verification
+
+- Java source structure, required assertions, JavaScript syntax, release tokens and Android version alignment were validated before push.
+- The Android workflow remains the publication gate; an APK is released only if every interaction assertion passes.

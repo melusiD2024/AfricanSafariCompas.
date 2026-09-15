@@ -789,3 +789,19 @@
 - Bundled the new interface into the offline application shell and added regression checks for routing, sources, live-data separation, retry states and country handoff.
 - Preserved all 54 countries, 172 animals, phrasebooks and native pronunciation, maps, Circle, bookings, journal, sticky searches and floating SOS.
 - Bumped Android to 1.80.0 and offline cache to v89.
+
+## Cycle 71 — Complete post-registration Safari Circle workspace
+
+- Expanded the verified-account landing experience into a safari-focused social workspace while keeping Pocketbook as the application homepage and Circle as a permanent navigation destination.
+- Added five clear Circle areas: Field feed, Discover, Messages, Alerts and Profile.
+- Built member discovery with name, country, role and interest search, role filtering, follow/unfollow controls and direct conversation entry.
+- Added private conversation lists, message histories, unread counts, message composition and reconnect-safe local message retention.
+- Added a notification centre for social activity, messages and field interests, with unread badges, filters and mark-all-read control.
+- Added saved-post controls and post safety menus without removing existing appreciation, comments, visibility or sensitive-location protection.
+- Added report and blocking flows covering harassment, fraud, impersonation, unsafe field information and sensitive wildlife locations.
+- Added profile visibility, message permissions, wildlife-location defaults, notification preferences, blocked-account review and community guidelines.
+- Replaced the registration-form-based edit action with a dedicated public-profile editor.
+- Wired account, post, member, follow, messaging, moderation and settings interfaces to a consistent `/api/circle` service contract while retaining device state for offline continuity.
+- Added responsive mobile layouts for the member directory, conversations, notifications, privacy controls and modal actions.
+- Preserved all 54 countries, 172 animal profiles, Travel & Health Centre, maps, languages, bookings, journal, persistent searches and floating SOS.
+- Bumped Android to 1.81.0 and offline cache to v90.

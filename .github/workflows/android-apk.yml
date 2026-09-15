@@ -47,11 +47,10 @@ jobs:
           arch: x86_64
           disable-animations: true
           script: |
-            set +e
-            gradle -p android connectedDebugAndroidTest
-            TEST_STATUS=$?
+            TEST_STATUS=0
+            gradle -p android connectedDebugAndroidTest || TEST_STATUS=$?
             mkdir -p test-artifacts/android
-            adb logcat -d > test-artifacts/android/logcat.txt
+            adb logcat -d | tee test-artifacts/android/logcat.txt
             adb pull /sdcard/Android/data/africa.safaricompass.app/files/screenshots test-artifacts/android/ || true
             cp -R android/app/build/reports/androidTests test-artifacts/android/reports || true
             exit $TEST_STATUS

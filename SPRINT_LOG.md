@@ -905,3 +905,19 @@
 - Preserved large touch targets and readable labels while reducing visual heaviness.
 - Kept the floating SOS safely above navigation and retained every existing application feature.
 - Bumped Android to 1.91.0 and offline cache to v100.
+
+
+## Cycle 82 — Complete African driving-side reference (v1.92.0)
+
+- Corrected the country-reference import defect that left every driving-side field blank.
+- Added an offline left/right driving value for all 54 atlas countries and the bundled territorial reference records.
+- Country essentials now state plainly which side of the road traffic uses.
+- Added validation that rejects missing or malformed driving-side records and protects the 14 sovereign African left-driving countries from accidental inversion.
+- Refreshed the application-shell cache so installed Android builds do not retain the blank records.
+- Preserved Pocketbook home, 189-species wildlife guide, country depth, maps, Circle, bookings, journal, persistent searches and floating SOS.
+
+### Verification
+
+- All 59 bundled reference records parsed with one of the two allowed driving-side values.
+- The 14 sovereign left-driving countries were asserted explicitly.
+- JavaScript syntax, HTML assets, offline-shell integrity and Android configuration were checked before the single push.

@@ -896,3 +896,12 @@
 - Added regression checks requiring all six vector icons and their minimum rendered size.
 - Preserved all 189 wildlife profiles, 54 country entries, maps, Circle, bookings, phrases and journal functions.
 - Bumped Android to 1.90.0 and offline cache to v99.
+
+## Cycle 81 — Refined navigation iconography
+
+- Replaced the first oversized custom drawings with a coherent rounded-outline icon family.
+- Introduced recognisable Home, location, paw, folded-map, community and field-notebook symbols with consistent 27 px proportions and 1.85 px strokes.
+- Added a restrained warm active-state tile instead of thickening every selected icon aggressively.
+- Preserved large touch targets and readable labels while reducing visual heaviness.
+- Kept the floating SOS safely above navigation and retained every existing application feature.
+- Bumped Android to 1.91.0 and offline cache to v100.

@@ -36,3 +36,9 @@ html{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%}bod
 
 /* Keep the wildlife mode, search and country selector in one stable order. */
 @media(max-width:850px){.wildlife-sticky{display:grid;gap:6px}.wildlife-sticky .fauna-mode{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0}.wildlife-sticky .fauna-mode button{min-height:40px;padding:7px 9px;font-size:11px}.wildlife-sticky .biodiversity-controls{grid-template-columns:minmax(0,1fr) auto!important;gap:6px;margin:0}.wildlife-sticky .biodiversity-controls select,.wildlife-sticky .biodiversity-controls button{min-height:42px;padding:8px 10px;font-size:11px}.wildlife-sticky .biodiversity-controls button{white-space:nowrap}}
+
+/* Use the Android safe area once: inside the header, then anchor sticky tools below it. */
+@media(max-width:850px){.topbar{height:calc(64px + env(safe-area-inset-top,0px))!important;min-height:calc(64px + env(safe-area-inset-top,0px))!important;padding:env(safe-area-inset-top,0px) 16px 0!important}.sticky-controls{top:calc(64px + env(safe-area-inset-top,0px))!important}.wildlife-filters{margin:8px 0 18px!important;padding-top:0!important}.wildlife-result-count{margin-top:0!important}}
+
+/* Search prompts must fit before the clear control, even with large Android text. */
+@media(max-width:850px){.atlas-sticky .searchbox input{min-width:0!important;font-size:clamp(13px,4vw,16px)!important;padding-right:4px!important}.atlas-sticky .searchbox:has(.search-clear:not([hidden])) input{padding-right:42px!important}}

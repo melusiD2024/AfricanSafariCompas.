@@ -847,3 +847,12 @@
 - Stopped the Pocketbook hero photograph from repeating vertically by preserving cover sizing throughout its entrance animation.
 - Preserved all 172 profiles, country filters, Circle, maps, journal and floating SOS behaviour.
 - Bumped Android to 1.85.0 and offline cache to v94.
+
+## Cycle 76 — Safe-area and sticky-control geometry
+
+- Removed the negative mobile margin that pulled wildlife categories underneath the persistent wildlife controls.
+- Made the Android top bar consume the status-bar safe area and anchored every sticky search immediately beneath that complete header.
+- Eliminated the gap that exposed scrolling country cards behind the Places search and stopped the Pocketbook brand from clipping at the top edge.
+- Shortened the Places prompt without losing meaning and made its input flex safely, so “destination” remains fully visible on phone-width screens and with enlarged Android text.
+- Preserved readable horizontal filter rails, all country and wildlife content, Circle, map, journal and floating SOS behaviour.
+- Bumped Android to 1.86.0 and offline cache to v95.

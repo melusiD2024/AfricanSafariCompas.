@@ -856,3 +856,11 @@
 - Shortened the Places prompt without losing meaning and made its input flex safely, so “destination” remains fully visible on phone-width screens and with enlarged Android text.
 - Preserved readable horizontal filter rails, all country and wildlife content, Circle, map, journal and floating SOS behaviour.
 - Bumped Android to 1.86.0 and offline cache to v95.
+
+## Cycle 77 — Mobile Pocketbook brand presence
+
+- Enlarged the complete header identity: logo, primary wordmark and Pocketbook subtitle.
+- Increased the header deliberately and moved persistent searches with it, preserving the corrected safe-area geometry rather than introducing another overlap.
+- Kept a dedicated narrow-phone size so the full identity remains readable without horizontal overflow.
+- Preserved the homepage composition, catalogue, Places, Wildlife, Circle, Map, Journal and floating SOS behaviour.
+- Bumped Android to 1.87.0 and offline cache to v96.

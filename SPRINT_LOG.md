@@ -755,3 +755,13 @@
 - Preserved the Pocketbook homepage, permanent Circle access, slim persistent searches, raised floating SOS, native and offline maps, bookings, journals, all 54 countries, all 172 animals and four verified bundled recordings.
 - Bumped Android to 1.77.0 and offline cache to v86.
 - Remaining production work is explicit: Play Store signing; service credentials and infrastructure for Circle accounts and live booking/payment; greater verified sound and destination/lodge breadth; and detailed offline road and terrain tiles.
+
+## Cycle 68 — Africa-wide offline common phrasebooks
+
+- Replaced the language section's empty-notebook-first experience with immediately usable common travel phrases inside every country profile.
+- Bundled 91 phrases across Setswana, Swahili, French, Portuguese, Arabic, Amharic and English, providing at least one available phrasebook for every country record while prioritising a practical local or regional language over English.
+- Added searchable Greetings, Courtesy, Essentials, Directions and Safety categories, with clear English meanings, local script, approximate pronunciation and compact mobile cards.
+- Added language switching for multilingual countries, phrasebook reference links and optional device-generated speech with an explicit non-native-recording disclosure.
+- Preserved private locally verified phrase notes and retained all existing Pocketbook, country, wildlife, map, Circle, booking, journal and SOS features.
+- Added regression checks for phrase structure, duplicates, source links, language codes, minimum phrase depth and complete country coverage.
+- Bumped Android to 1.78.0 and offline cache to v87.

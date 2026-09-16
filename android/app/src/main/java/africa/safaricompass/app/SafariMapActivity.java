@@ -51,7 +51,19 @@ import java.util.concurrent.Executors;
 public class SafariMapActivity extends Activity {
     public static final String EXTRA_QUERY = "safari_map_query";
     public static final String EXTRA_OPEN_SOS = "open_sos";
-    private static final String STYLE_URL = "https://tiles.openfreemap.org/styles/liberty";
+    private static final String MAP_STYLE = "{"
+        + "\"version\":8,"
+        + "\"name\":\"African Safari Pocketbook\","
+        + "\"sources\":{"
+        + "\"openstreetmap\":{\"type\":\"raster\",\"tiles\":[\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\"],\"tileSize\":256,\"attribution\":\"© OpenStreetMap contributors\",\"maxzoom\":19},"
+        + "\"africa\":{\"type\":\"geojson\",\"data\":\"asset://assets/africa-countries-110m.geojson\"}"
+        + "},"
+        + "\"layers\":["
+        + "{\"id\":\"background\",\"type\":\"background\",\"paint\":{\"background-color\":\"#dce7e5\"}},"
+        + "{\"id\":\"online-map\",\"type\":\"raster\",\"source\":\"openstreetmap\",\"paint\":{\"raster-opacity\":1}},"
+        + "{\"id\":\"africa-offline-fill\",\"type\":\"fill\",\"source\":\"africa\",\"paint\":{\"fill-color\":\"#eadfc9\",\"fill-opacity\":0.12}},"
+        + "{\"id\":\"africa-offline-border\",\"type\":\"line\",\"source\":\"africa\",\"paint\":{\"line-color\":\"#6f766f\",\"line-width\":1.1,\"line-opacity\":0.5}}"
+        + "]}";
     private static final String SEARCH_SOURCE = "OpenStreetMap Nominatim";
     private static final String USER_AGENT = "AfricanSafariPocketbook/" + BuildConfig.VERSION_NAME + " (https://github.com/melusiD2024/AfricanSafariCompas.)";
     private static final LatLngBounds AFRICA_BOUNDS = new LatLngBounds.Builder()
@@ -116,9 +128,9 @@ public class SafariMapActivity extends Activity {
             map.setCameraPosition(new CameraPosition.Builder().target(new LatLng(1.8, 20.5)).zoom(2.6).build());
             map.getUiSettings().setCompassEnabled(true);
             map.getUiSettings().setAttributionEnabled(true);
-            map.setStyle(STYLE_URL, style -> {
+            map.setStyle(MAP_STYLE, style -> {
                 addCuratedMarkers();
-                status.setText("Safari places loaded · search parks, reserves, lodges or countries");
+                status.setText("OpenStreetMap loaded · search parks, reserves, lodges or countries");
                 String query = getIntent().getStringExtra(EXTRA_QUERY);
                 if (query != null && !query.trim().isEmpty()) { search.setText(query); runSearch(query); }
             });

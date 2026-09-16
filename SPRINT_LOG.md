@@ -1025,3 +1025,16 @@
 
 - Added regression guards requiring Mashatu, Northern Tuli and the shared Botswana index in both search and destination-guide code.
 - Validated JavaScript syntax, HTML references, offline-shell integrity, release tokens and Android version alignment before publication.
+
+## Cycle 90 — Restore the native safari basemap (v1.100.0)
+
+- Reproduced the physical-device failure where safari markers rendered over an empty background because the remote vector-style endpoint completed initialization without delivering visible map tiles.
+- Replaced that fragile remote style with a self-contained MapLibre style using live OpenStreetMap raster tiles and explicit OpenStreetMap attribution.
+- Added the bundled Natural Earth Africa country geometry as a persistent border and land layer so the native map retains geographic structure while online tiles load.
+- Preserved Africa-only camera bounds, curated safari markers, live search, parks, safari stays, airstrips and the floating SOS control.
+- Added an Android screenshot regression that samples the map canvas and fails the workflow when the basemap is visually blank, rather than accepting marker presence as proof that the map works.
+
+### Verification
+
+- Web validation now rejects the broken style endpoint and requires the live raster source, bundled Africa fallback and native basemap screenshot assertion.
+- The Android workflow remains the publication gate for Java compilation, emulator rendering, visual basemap diversity, APK verification and release.

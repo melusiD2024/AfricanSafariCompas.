@@ -1064,3 +1064,15 @@
 
 - Local validation covers JavaScript syntax, HTML references, offline-shell integrity, release-token alignment and the exact Android map route.
 - Publication remains blocked until the Android workflow compiles the app, completes the WebView map interaction journey and verifies the APK archive.
+
+## Cycle 93 — Make map search lead somewhere useful (v1.103.0)
+
+- Removed the automatic full-size information card that duplicated a live map marker with little more than coordinates and attribution.
+- Live geographic searches now highlight the best result with a compact map popup; the action panel opens only after the user deliberately selects a result.
+- Added country-guide access to selected live results while retaining save and OpenStreetMap source actions.
+- Made searches for known Pocketbook destinations—such as Chobe—prefer the curated destination entry instead of an administrative OpenStreetMap result.
+- Curated matches now expose the destination Pocketbook, country guide and saved-place actions, connecting map discovery to the wider safari companion.
+
+### Verification
+
+- Added validation that requires curated-result priority and prevents the duplicate automatic live-result panel from returning.

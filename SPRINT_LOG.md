@@ -1012,3 +1012,16 @@
 
 - Validated all JavaScript, 235 interface IDs, 78 local references, 28 scripts, offline-shell inclusion and destination action hooks.
 - Added regression checks requiring mapped places in Places search and requiring destination results to open the companion entry rather than terminate at the map.
+
+## Cycle 89 — Unify Botswana safari places with Places search (v1.99.0)
+
+- Diagnosed the zero-result failure for Mashatu: Botswana's detailed regions, reserves, lodges, camps and access points existed in a separate directory that the main Places search never indexed.
+- Exported the complete Botswana directory as a deduplicated shared place index, including each record's region, local area context and indexed safari experiences.
+- Connected the index to the main Places search and made it refresh as soon as the Botswana catalogue becomes available.
+- Connected destination Pocketbooks to the same detailed records so Mashatu and other Botswana results open their own context rather than a generic country-level result.
+- Preserved the 54-country atlas, mapped destinations, wildlife cross-search, SOS, Circle, bookings, journal and offline application shell.
+
+### Verification
+
+- Added regression guards requiring Mashatu, Northern Tuli and the shared Botswana index in both search and destination-guide code.
+- Validated JavaScript syntax, HTML references, offline-shell integrity, release tokens and Android version alignment before publication.

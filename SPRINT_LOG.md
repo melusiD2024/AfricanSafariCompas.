@@ -998,3 +998,17 @@
 
 - GeoJSON parsing, ten-feature completeness, point geometry and required destination names are validated automatically.
 - JavaScript syntax, local assets, release tokens, Android configuration and map integration are checked before publication.
+
+## Cycle 88 — Destination Pocketbooks and cleaner wildlife browsing (v1.98.0)
+
+- Connected the Places index to every curated map destination, correcting searches such as Mokolodi that previously returned zero results despite existing on the map.
+- Replaced destination search results that merely jumped to a pin with full destination Pocketbook entries.
+- Every destination entry now connects the map, country guide, country wildlife, Travel & Health Centre, booking desk and private saved-place Journal.
+- Added a direct “Open destination pocketbook” action to curated map selections.
+- Removed the visible wildlife catalogue count from the mobile interface while preserving live result announcements for screen-reader users.
+- Confirmed that ordinary wildlife-card photographs are connected Wikipedia reference images, not user-uploaded photographs.
+
+### Verification
+
+- Validated all JavaScript, 235 interface IDs, 78 local references, 28 scripts, offline-shell inclusion and destination action hooks.
+- Added regression checks requiring mapped places in Places search and requiring destination results to open the companion entry rather than terminate at the map.

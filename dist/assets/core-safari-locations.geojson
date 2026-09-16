@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","name":"African Safari Pocketbook core locations","description":"Curated orientation points. Points are not protected-area boundaries.","features":[
+{"type":"Feature","properties":{"name":"Serengeti National Park","country":"Tanzania"},"geometry":{"type":"Point","coordinates":[34.8333,-2.1500]}},
+{"type":"Feature","properties":{"name":"Kruger National Park","country":"South Africa"},"geometry":{"type":"Point","coordinates":[31.5712,-23.9884]}},
+{"type":"Feature","properties":{"name":"Maasai Mara National Reserve","country":"Kenya"},"geometry":{"type":"Point","coordinates":[35.0656,-1.4900]}},
+{"type":"Feature","properties":{"name":"Okavango Delta","country":"Botswana"},"geometry":{"type":"Point","coordinates":[22.9141,-19.2833]}},
+{"type":"Feature","properties":{"name":"Bwindi Impenetrable National Park","country":"Uganda"},"geometry":{"type":"Point","coordinates":[29.6946,-1.0475]}},
+{"type":"Feature","properties":{"name":"Etosha National Park","country":"Namibia"},"geometry":{"type":"Point","coordinates":[15.9134,-18.8556]}},
+{"type":"Feature","properties":{"name":"Hwange National Park","country":"Zimbabwe"},"geometry":{"type":"Point","coordinates":[26.9839,-18.7364]}},
+{"type":"Feature","properties":{"name":"South Luangwa National Park","country":"Zambia"},"geometry":{"type":"Point","coordinates":[31.5058,-12.9150]}},
+{"type":"Feature","properties":{"name":"Volcanoes National Park","country":"Rwanda"},"geometry":{"type":"Point","coordinates":[29.5167,-1.4667]}},
+{"type":"Feature","properties":{"name":"Amboseli National Park","country":"Kenya"},"geometry":{"type":"Point","coordinates":[37.2514,-2.6517]}}
+]}

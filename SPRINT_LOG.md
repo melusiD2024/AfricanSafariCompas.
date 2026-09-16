@@ -984,3 +984,17 @@
 
 - Java source structure, required assertions, JavaScript syntax, release tokens and Android version alignment were validated before push.
 - The Android workflow remains the publication gate; an APK is released only if every interaction assertion passes.
+
+## Cycle 87 — Core safari map locations (v1.97.0)
+
+- Added a bundled GeoJSON layer for ten high-interest safari destinations supplied for the Pocketbook map.
+- Added the three destinations missing from both interactive map engines: Hwange National Park, South Luangwa National Park and Amboseli National Park.
+- Correctly converted GeoJSON longitude/latitude coordinates to each map engine's latitude/longitude API.
+- Refined coordinates for Etosha, Kruger, Okavango, Bwindi and Volcanoes from the supplied point set.
+- Kept the file deliberately limited to geographic orientation points; unsourced seasonal and wildlife claims were not presented as authoritative visitor guidance.
+- Added integrity validation for the ten-point FeatureCollection and refreshed the offline shell.
+
+### Verification
+
+- GeoJSON parsing, ten-feature completeness, point geometry and required destination names are validated automatically.
+- JavaScript syntax, local assets, release tokens, Android configuration and map integration are checked before publication.

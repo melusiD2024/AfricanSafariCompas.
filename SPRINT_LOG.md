@@ -1038,3 +1038,16 @@
 
 - Web validation now rejects the broken style endpoint and requires the live raster source, bundled Africa fallback and native basemap screenshot assertion.
 - The Android workflow remains the publication gate for Java compilation, emulator rendering, visual basemap diversity, APK verification and release.
+
+## Cycle 91 — Physical-device map initialization hotfix (v1.101.0)
+
+- The submitted physical-device screenshot proved v1.100.0 could remain permanently at “Opening native safari map…” even though the emulator rendered the same style.
+- Isolated the device-sensitive failure to the bundled GeoJSON URI embedded inside the MapLibre style document; because the style never completed, neither tiles nor markers could initialize.
+- Removed that parser-sensitive source from the native style and retained a minimal live OpenStreetMap raster style with explicit attribution and the existing Africa-only camera boundary.
+- Added a stable native status identifier and changed instrumentation to require the map to leave its opening state and explicitly reach “OpenStreetMap loaded”.
+- Retained the separate screenshot diversity assertion so the workflow now checks both successful style initialization and visible basemap detail.
+
+### Verification
+
+- Validation rejects both previously failing style dependencies and requires the loaded-state assertion.
+- Publication remains blocked until Java compilation, emulator interaction, loaded-state, screenshot, APK archive and release checks all succeed.

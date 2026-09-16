@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import android.graphics.Bitmap;
 import android.os.SystemClock;
 import android.webkit.WebView;
+import android.widget.TextView;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -62,6 +63,10 @@ public class PocketbookJourneyTest {
     @Test public void nativeSafariMapRendersARealBasemap() throws Exception {
         try (ActivityScenario<SafariMapActivity> scenario = ActivityScenario.launch(SafariMapActivity.class)) {
             SystemClock.sleep(8000);
+            ArrayBlockingQueue<String> loadedState = new ArrayBlockingQueue<>(1);
+            scenario.onActivity(activity -> loadedState.offer(((TextView) activity.findViewById(SafariMapActivity.MAP_STATUS_ID)).getText().toString()));
+            String state = loadedState.poll(5, TimeUnit.SECONDS);
+            assertTrue("Native safari map never reached its loaded state", state != null && state.startsWith("OpenStreetMap loaded"));
             Bitmap image = InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
             screenshot(image, "06-native-safari-map.png");
             int samples = 0, dominant = 0;

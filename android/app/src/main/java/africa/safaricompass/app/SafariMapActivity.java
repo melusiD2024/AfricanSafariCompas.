@@ -51,18 +51,14 @@ import java.util.concurrent.Executors;
 public class SafariMapActivity extends Activity {
     public static final String EXTRA_QUERY = "safari_map_query";
     public static final String EXTRA_OPEN_SOS = "open_sos";
+    public static final int MAP_STATUS_ID = 0x5AFA1001;
     private static final String MAP_STYLE = "{"
         + "\"version\":8,"
         + "\"name\":\"African Safari Pocketbook\","
-        + "\"sources\":{"
-        + "\"openstreetmap\":{\"type\":\"raster\",\"tiles\":[\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\"],\"tileSize\":256,\"attribution\":\"© OpenStreetMap contributors\",\"maxzoom\":19},"
-        + "\"africa\":{\"type\":\"geojson\",\"data\":\"asset://assets/africa-countries-110m.geojson\"}"
-        + "},"
+        + "\"sources\":{\"openstreetmap\":{\"type\":\"raster\",\"tiles\":[\"https://tile.openstreetmap.org/{z}/{x}/{y}.png\"],\"tileSize\":256,\"attribution\":\"OpenStreetMap contributors\",\"maxzoom\":19}},"
         + "\"layers\":["
         + "{\"id\":\"background\",\"type\":\"background\",\"paint\":{\"background-color\":\"#dce7e5\"}},"
-        + "{\"id\":\"online-map\",\"type\":\"raster\",\"source\":\"openstreetmap\",\"paint\":{\"raster-opacity\":1}},"
-        + "{\"id\":\"africa-offline-fill\",\"type\":\"fill\",\"source\":\"africa\",\"paint\":{\"fill-color\":\"#eadfc9\",\"fill-opacity\":0.12}},"
-        + "{\"id\":\"africa-offline-border\",\"type\":\"line\",\"source\":\"africa\",\"paint\":{\"line-color\":\"#6f766f\",\"line-width\":1.1,\"line-opacity\":0.5}}"
+        + "{\"id\":\"online-map\",\"type\":\"raster\",\"source\":\"openstreetmap\",\"paint\":{\"raster-opacity\":1}}"
         + "]}";
     private static final String SEARCH_SOURCE = "OpenStreetMap Nominatim";
     private static final String USER_AGENT = "AfricanSafariPocketbook/" + BuildConfig.VERSION_NAME + " (https://github.com/melusiD2024/AfricanSafariCompas.)";
@@ -168,6 +164,7 @@ public class SafariMapActivity extends Activity {
 
     private View buildStatus() {
         status = new TextView(this); status.setText("Opening native safari map…"); status.setTextSize(12); status.setTextColor(Color.rgb(55,50,44));
+        status.setId(MAP_STATUS_ID);
         status.setAccessibilityLiveRegion(View.ACCESSIBILITY_LIVE_REGION_POLITE);
         status.setPadding(dp(12),dp(8),dp(12),dp(8)); status.setBackground(roundRect(Color.argb(235,255,255,255),12,Color.argb(50,35,31,27)));
         return status;

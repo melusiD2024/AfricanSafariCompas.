@@ -1051,3 +1051,16 @@
 
 - Validation rejects both previously failing style dependencies and requires the loaded-state assertion.
 - Publication remains blocked until Java compilation, emulator interaction, loaded-state, screenshot, APK archive and release checks all succeed.
+
+## Cycle 92 — Retire the failing native map route (v1.102.0)
+
+- A second physical-device screenshot proved the v1.101.0 native MapLibre activity could still remain permanently at “Opening native safari map…” despite passing its emulator regression.
+- Removed Android's click interception for the Map tab and “Open safari map” control, so both now use the established Leaflet map inside the main application rather than launching the unreliable native activity.
+- Retained the working map capabilities: bundled African country outlines, English labels, Africa-only bounds, offline country and destination search, automatic result highlighting, full-screen mobile interaction and connected OpenStreetMap detail.
+- Replaced the misleading native-map instrumentation gate with an end-to-end Android WebView journey that opens the Map tab, requires the Leaflet canvas and bundled offline map to initialize, opens the full-screen map workspace and captures both states.
+- Added validation that prevents a future Android bridge from silently hijacking the Map tab again.
+
+### Verification
+
+- Local validation covers JavaScript syntax, HTML references, offline-shell integrity, release-token alignment and the exact Android map route.
+- Publication remains blocked until the Android workflow compiles the app, completes the WebView map interaction journey and verifies the APK archive.

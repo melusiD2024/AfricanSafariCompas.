@@ -3,6 +3,4 @@ if(window.AndroidBridge){
  const install=document.getElementById('installApp');if(install)install.hidden=true;
  try{Object.defineProperty(navigator,'share',{configurable:true,value:({title='',text=''})=>{window.AndroidBridge.share(title,text);return Promise.resolve()}})}catch(e){}
  document.documentElement.classList.add('native-android');
- document.addEventListener('click',event=>{const mapTrigger=event.target.closest('[data-view="map"]');if(!mapTrigger)return;event.preventDefault();event.stopImmediatePropagation();try{window.AndroidBridge.openSafariMap(document.getElementById('mapSearch')?.value||'')}catch(error){}},{capture:true});
- document.getElementById('toggleMapInteraction')?.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();try{window.AndroidBridge.openSafariMap(document.getElementById('mapSearch')?.value||'')}catch(error){}},{capture:true});
 }

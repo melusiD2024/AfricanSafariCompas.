@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import android.graphics.Bitmap;
 import android.os.SystemClock;
 import android.webkit.WebView;
-import android.widget.TextView;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -57,30 +56,18 @@ public class PocketbookJourneyTest {
             assertFullWidth(scenario, ".wildlife-profile-hero");
             assertJsTrue(scenario, "getComputedStyle(document.querySelector('.dialog-sos-shortcut')).position==='fixed'&&getComputedStyle(document.querySelector('.wildlife-close')).position==='fixed'");
             screenshot(scenario, "05-wildlife-profile-geometry.png");
-        }
-    }
 
-    @Test public void nativeSafariMapRendersARealBasemap() throws Exception {
-        try (ActivityScenario<SafariMapActivity> scenario = ActivityScenario.launch(SafariMapActivity.class)) {
-            SystemClock.sleep(8000);
-            ArrayBlockingQueue<String> loadedState = new ArrayBlockingQueue<>(1);
-            scenario.onActivity(activity -> loadedState.offer(((TextView) activity.findViewById(SafariMapActivity.MAP_STATUS_ID)).getText().toString()));
-            String state = loadedState.poll(5, TimeUnit.SECONDS);
-            assertTrue("Native safari map never reached its loaded state", state != null && state.startsWith("OpenStreetMap loaded"));
-            Bitmap image = InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
-            screenshot(image, "06-native-safari-map.png");
-            int samples = 0, dominant = 0;
-            int[] colourBins = new int[4096];
-            for (int y = image.getHeight() / 4; y < image.getHeight() * 3 / 4; y += 18) {
-                for (int x = image.getWidth() / 16; x < image.getWidth() * 15 / 16; x += 18) {
-                    int pixel = image.getPixel(x, y), r = (pixel >> 16) & 255, g = (pixel >> 8) & 255, b = pixel & 255;
-                    samples++;
-                    int bin = ((r >> 4) << 8) | ((g >> 4) << 4) | (b >> 4);
-                    colourBins[bin]++;
-                    dominant = Math.max(dominant, colourBins[bin]);
-                }
-            }
-            assertTrue("Native safari map rendered a blank basemap", dominant < samples * 0.82);
+            evaluate(scenario, "document.getElementById('wildlifeDialog').close();'ok'");
+            open(scenario, "map");
+            SystemClock.sleep(1800);
+            assertJsTrue(scenario, "Boolean(window.safariMap)&&window.safariOfflineMapReady===true");
+            assertJsTrue(scenario, "(()=>{const el=document.getElementById('realMap'),rect=el.getBoundingClientRect();return el.classList.contains('leaflet-container')&&rect.width>250&&rect.height>250})()");
+            screenshot(scenario, "06-webview-safari-map.png");
+            evaluate(scenario, "document.getElementById('toggleMapInteraction').click();'ok'");
+            SystemClock.sleep(500);
+            assertJsTrue(scenario, "document.querySelector('.map-canvas').classList.contains('map-fullscreen')&&document.body.classList.contains('map-fullscreen-open')");
+            screenshot(scenario, "07-webview-safari-map-fullscreen.png");
+            evaluate(scenario, "window.closeSafariMap();'ok'");
         }
     }
 
@@ -106,14 +93,6 @@ public class PocketbookJourneyTest {
         File directory = new File(InstrumentationRegistry.getInstrumentation().getTargetContext().getExternalFilesDir(null), "screenshots");
         assertTrue(directory.mkdirs() || directory.isDirectory());
         Bitmap image = InstrumentationRegistry.getInstrumentation().getUiAutomation().takeScreenshot();
-        try (FileOutputStream output = new FileOutputStream(new File(directory, name))) {
-            assertTrue(image.compress(Bitmap.CompressFormat.PNG, 100, output));
-        }
-    }
-
-    private void screenshot(Bitmap image, String name) throws Exception {
-        File directory = new File(InstrumentationRegistry.getInstrumentation().getTargetContext().getExternalFilesDir(null), "screenshots");
-        assertTrue(directory.mkdirs() || directory.isDirectory());
         try (FileOutputStream output = new FileOutputStream(new File(directory, name))) {
             assertTrue(image.compress(Bitmap.CompressFormat.PNG, 100, output));
         }

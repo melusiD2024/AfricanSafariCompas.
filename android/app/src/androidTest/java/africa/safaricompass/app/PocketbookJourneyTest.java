@@ -31,7 +31,7 @@ public class PocketbookJourneyTest {
             open(scenario, "explore");
             evaluate(scenario, "const input=document.getElementById('atlasSearch');input.value='Lion';input.dispatchEvent(new Event('input',{bubbles:true}));'ok'");
             SystemClock.sleep(250);
-            assertJsTrue(scenario, "Boolean(document.querySelector('[data-atlas-animal="Lion"]'))");
+            assertJsTrue(scenario, "Boolean(document.querySelector('[data-atlas-animal=Lion]'))");
             assertJsTrue(scenario, "document.getElementById('atlasGrid').textContent.includes('Panthera leo')");
             screenshot(scenario, "02-places-wildlife-search.png");
 

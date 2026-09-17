@@ -1076,3 +1076,15 @@
 ### Verification
 
 - Added validation that requires curated-result priority and prevents the duplicate automatic live-result panel from returning.
+
+## Cycle 94 — Destination information, not merely a marker (v1.104.0)
+
+- Changed curated safari markers, destination-list selections and exact map searches to open the destination Pocketbook directly instead of ending at a large map label.
+- Made “Chobe” resolve to the detailed Chobe Riverfront and Kasane record rather than a generic destination or administrative district.
+- Added destination orientation, covered places, safari experiences and the indexed stays and access points belonging to a detailed safari region.
+- Kept the map available as one connected tool alongside the country guide, wildlife guide, travel and health centre, flights and stays, and private saved places.
+- Retained compact marker-only behaviour for uncurated live OpenStreetMap results.
+
+### Verification
+
+- Validation now rejects curated map interactions that stop at the redundant label and requires direct destination-Pocketbook routing plus the detailed Chobe alias and regional directory.

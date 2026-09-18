@@ -1088,3 +1088,17 @@
 ### Verification
 
 - Validation now rejects curated map interactions that stop at the redundant label and requires direct destination-Pocketbook routing plus the detailed Chobe alias and regional directory.
+
+## Cycle 95 — One connected Africa-wide Places index (v1.105.0)
+
+- Unified the 54-country atlas, curated map destinations and Botswana’s detailed regions, lodges, camps and access points behind one offline destination index.
+- Indexed 190 distinct Africa-wide destinations before the additional detailed Botswana records are merged at runtime.
+- Map search now uses the same index as Places, so an indexed park, reserve, landscape or heritage destination opens its Pocketbook rather than falling through to a country-level locator.
+- Every indexed destination now provides its own named guide, country and regional context, related destinations in that country and direct handoffs to the map, country guide, wildlife guide, Travel & Health Centre, Flights & Stays and Journal.
+- Preserved detailed Botswana regional orientation, experiences and stay/access directories without inventing live operating status, prices, availability or access conditions.
+- Removed the redundant default Places result count; result totals are shown only while the user is actively searching.
+
+### Verification
+
+- JavaScript syntax, HTML references, offline-shell assets, release-token alignment, 54-country integrity and unified destination routing are validated locally.
+- Android publication remains blocked until compilation and the interaction regression complete successfully.

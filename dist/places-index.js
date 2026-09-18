@@ -1,0 +1,8 @@
+(function(){
+'use strict';
+const normalize=value=>String(value||'').toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,' ').trim();
+const regionKeys={North:'north',West:'west',East:'east',Central:'central',Southern:'south',Islands:'islands'};
+function atlasEntries(){return (window.africanAtlas||[]).flatMap(([country,region,sites])=>String(sites||'').split('·').map(name=>({name:name.trim(),countryName:country,region:regionKeys[region]||String(region).toLowerCase(),type:'Pocketbook destination',tags:[region,'Africa'],source:'atlas'})).filter(place=>place.name))}
+function rebuild(){const records=[...atlasEntries(),...(window.safariPlaces||[]),...(window.botswanaPlaces||[])],unique=new Map();records.forEach(place=>{const key=`${normalize(place.name)}|${normalize(place.countryName)}`,existing=unique.get(key);unique.set(key,existing?{...existing,...place,tags:[...new Set([...(existing.tags||[]),...(place.tags||[])])]}:{...place})});window.pocketbookPlaces=[...unique.values()].sort((a,b)=>a.countryName.localeCompare(b.countryName)||a.name.localeCompare(b.name));window.findPocketbookPlace=(name,country='')=>{const wanted=normalize(name),wantedCountry=normalize(country),candidates=window.pocketbookPlaces.filter(place=>normalize(place.name)===wanted);return candidates.find(place=>!wantedCountry||normalize(place.countryName)===wantedCountry)||candidates[0]||null};window.dispatchEvent(new CustomEvent('pocketbook-places-ready',{detail:{count:window.pocketbookPlaces.length}}))}
+window.addEventListener('safari-places-ready',rebuild);window.addEventListener('safari-place-index-ready',rebuild);rebuild();
+})();
